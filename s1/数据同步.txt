@@ -1,0 +1,122 @@
+同步数据
+向本局游戏的其他玩家发送数据同步广播，用以防止游戏内各玩家的数据不一致导致的掉线。
+
+其他玩家可通过同步数据事件接收广播内容。
+
+参数
+参数名	类型	说明
+prefix	string | 字符串	事件标识。“DZ”开头的事件名称为平台统一定义，请勿随意使用
+data	string | 字符串	发送给本局游戏其他玩家的数据内容
+返回结果
+无
+
+调用示例
+WorldEdit Trigger
+
+image-DzSyncData
+
+JASS
+
+native DzSyncData takes string prefix, string data returns nothing
+
+call DzSyncData("Boss", "HP=1000")
+LUA
+
+local jass = require "jass.common"
+local japi = require "jass.japi"
+
+japi.DzSyncData("Boss", "HP=1000")
+
+数据同步事件
+接收到来自平台、或本局游戏其他玩家所发送同步数据的回调事件。
+
+可通过事件响应 - 数据同步事件的来源玩家和事件响应 - 数据同步事件的数据获取事件响应数据。
+
+参数
+参数名	类型	说明
+prefix	string | 字符串	事件标识
+server	boolean | 布尔值	事件来源，True 表示来自平台，False 表示来自游戏局内
+调用示例
+WorldEdit Trigger
+
+image-DzTriggerRegisterSyncData
+
+JASS
+
+native DzTriggerRegisterSyncData takes trigger trig, string prefix, boolean server returns nothing
+
+function trigActions takes nothing return nothing
+    // Write Your Code Here
+endfunction 
+
+local trigger trig = CreateTrigger()
+call TriggerAddAction(trig, function trigActions)
+call DzTriggerRegisterSyncData(trig, "gold", false)
+LUA
+
+local jass = require "jass.common"
+local japi = require "jass.japi"
+
+local trig = jass.CreateTrigger()
+
+jass.TriggerAddAction(trig, function()
+    -- Write Your Code Here
+end)
+
+japi.DzTriggerRegisterSyncData(trig, "gold", false) 
+
+事件响应 - 数据同步事件的来源玩家
+获取是哪位玩家发送了数据同步事件。
+
+仅限在数据同步事件内使用。
+
+参数
+无
+
+返回结果
+类型	说明
+player | 玩家	发送数据同步事件的来源玩家
+调用示例
+WorldEdit Trigger
+
+image-DzGetTriggerSyncPlayer
+
+JASS
+
+native DzGetTriggerSyncPlayer takes nothing returns player
+
+call DzGetTriggerSyncPlayer()
+LUA
+
+local jass = require "jass.common"
+local japi = require "jass.japi" 
+
+japi.DzGetTriggerSyncPlayer()
+
+事件响应 - 数据同步事件的数据
+获取数据同步事件中所收到的数据内容。
+
+仅限在数据同步事件、全局存档变化事件内使用。
+
+参数
+无
+
+返回结果
+类型	说明
+string | 字符串	收到的数据内容
+调用示例
+WorldEdit Trigger
+
+image-DzGetTriggerSyncData
+
+JASS
+
+native DzGetTriggerSyncData takes nothing returns string 
+
+call DzGetTriggerSyncData()
+LUA
+
+local jass = require "jass.common"
+local japi = require "jass.japi" 
+
+japi.DzGetTriggerSyncData()
