@@ -1,0 +1,47 @@
+// 坐骑登记清单，来源：function i160
+// 登记格式：call i1_0(分类, '坐骑物品ID')
+// 获取格式：call OOoO((P[((ol6O))]),('坐骑物品ID'))
+
+call i1_0(1,'I0P7') // 世界大咖·巨龙坐骑
+call i1_0(1,'I0PT') // 世界大咖·法老坐骑
+call i1_0(1,'I0PS') // 世界大咖·冰龙坐骑
+call i1_0(1,'I0MU') // 彩虹猫咪
+call i1_0(1,'I0L3') // UFO
+call i1_0(6,'I03Q') // 魔导机械
+call i1_0(1,'I0LB') // 海象
+call i1_0(1,'I0QK') // 大龙虾
+call i1_0(4,'I000') // 直升机
+call i1_0(7,'I03T') // 鲨鱼
+call i1_0(7,'I03U') // 蔚蓝彗星
+call i1_0(1,'I0PI') // 万圣节蜘蛛
+call i1_0(1,'I0RB') // 地狱犬
+call i1_0(2,'I0Q0') // 收割之神(坐骑)
+call i1_0(1,'I0JN') // 驯鹿鲁道夫
+call i1_0(1,'I0RI') // 雪橇
+call i1_0(5,'I03G') // 新年之宝
+call i1_0(1,'I0QC') // 巅峰坐骑·穹宇之主
+call i1_0(1,'SC05') // 脚本登记，物品数据未找到
+call i1_0(3,'I04H') // 传奇坐骑·九霄至尊
+
+function fzzsGrantStartupMounts takes integer ol6O returns nothing
+call OOoO((P[((ol6O))]),('I0P7'))
+call OOoO((P[((ol6O))]),('I0PT'))
+call OOoO((P[((ol6O))]),('I0PS'))
+call OOoO((P[((ol6O))]),('I0MU'))
+call OOoO((P[((ol6O))]),('I0L3'))
+call OOoO((P[((ol6O))]),('I03Q'))
+call OOoO((P[((ol6O))]),('I0LB'))
+call OOoO((P[((ol6O))]),('I0QK'))
+call OOoO((P[((ol6O))]),('I000'))
+call OOoO((P[((ol6O))]),('I03T'))
+call OOoO((P[((ol6O))]),('I03U'))
+call OOoO((P[((ol6O))]),('I0PI'))
+call OOoO((P[((ol6O))]),('I0RB'))
+call OOoO((P[((ol6O))]),('I0Q0'))
+call OOoO((P[((ol6O))]),('I0JN'))
+call OOoO((P[((ol6O))]),('I0RI'))
+call OOoO((P[((ol6O))]),('I03G'))
+call OOoO((P[((ol6O))]),('I0QC'))
+call OOoO((P[((ol6O))]),('SC05'))
+call OOoO((P[((ol6O))]),('I04H'))
+endfunction

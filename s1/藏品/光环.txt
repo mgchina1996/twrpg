@@ -1,0 +1,106 @@
+// 藏品 - 光环
+// 来源:
+// - function ppuu: ppOu 拥有列表/分类
+// - function I0lOi: ppqu/pp9u 模型注册
+// 分类: Op = 62，菜单名为 光环。
+
+function fzzsHaloList takes nothing returns nothing
+// [普通] I0MW 怪异光环 | Effects\\Void2.mdx | origin
+call ppOu(1,'I0MW')
+// [普通] I0GE 神秘气息 | Effects\\DropTheBeatAura.mdx | origin
+call ppOu(1,'I0GE')
+// [普通] I0LA 蓝莲花光环 | Effects\\Auras\\XD_GH01_Blue.mdx | origin
+call ppOu(1,'I0LA')
+// [普通] I0RO 蓝色符文光环 | Effects\\Auras\\RuneAura.mdx | origin
+call ppOu(1,'I0RO')
+// [普通] I0RP 蔚蓝幻影光环 | Effects\\WindWalkBlue.mdl | origin
+call ppOu(1,'I0RP')
+// [限定] I00O 庆典光环 | Effects\\FestiveSpirit_Light.mdx | origin
+call ppOu(3,'I00O')
+// [普通] I0PD 闪耀灵魂光环 | Effects\\SoulArmorCream.mdx | chest
+call ppOu(1,'I0PD')
+// [普通] I0PE 邪恶灵魂光环 | Effects\\SoulArmorNecro.mdx | chest
+call ppOu(1,'I0PE')
+// [普通] I0PF 神秘灵魂光环 | Effects\\SoulArmorPsyche.mdx | chest
+call ppOu(1,'I0PF')
+// [稀有] I04D 红色闪耀光环 | Effects\\Void2_Red_Thin.mdx | origin
+call ppOu(2,'I04D')
+// [普通] I0PM 红莲花 | Effects\\Auras\\XD_GH01_Red.mdx | origin
+call ppOu(1,'I0PM')
+// [普通] I0PK 暖曦灵魂 | Effects\\SoulArmorCrimson.mdx | chest
+call ppOu(1,'I0PK')
+// [普通] I0PJ 酷寒灵魂 | Effects\\SoulArmorAzure.mdx | chest
+call ppOu(1,'I0PJ')
+// [普通] I0RJ 冰川光环 | Effects\\GlacierAura.mdx | origin
+call ppOu(1,'I0RJ')
+// [特殊] SU01 红月之域 | Effects\\MoonAura_Red.mdl | origin
+call ppOu(4,'SU01')
+// [特殊] SU02 蓝月之域 | Effects\\MoonAura_Blue.mdl | origin
+call ppOu(4,'SU02')
+// [普通] I0PV 紫色幸运光环 | Effects\\LibertyPurple.mdx | chest
+call ppOu(1,'I0PV')
+// [普通] I0LH 黄色的幸运光环 | Effects\\LibertyYellow.mdx | chest
+call ppOu(1,'I0LH')
+// [普通] I0PC 橙色的幸运光环 | Effects\\LibertyOrange.mdx | chest
+call ppOu(1,'I0PC')
+// [普通] I0M4 蓝色的幸运光环 | Effects\\LibertyBlue.mdx | chest
+call ppOu(1,'I0M4')
+// [普通] I0KV 山丘之堕 | Effects\\MementoMori_Corrupted.mdx | origin
+call ppOu(1,'I0KV')
+// [普通] SC04 测试光环 | Effects\\TestAura.mdx | origin
+call ppOu(1,'SC04')
+call pp0u()
+endfunction
+
+function fzzsHaloModelList takes nothing returns nothing
+local integer opuO
+call ppqu('I0MW',"Effects\\Void2.mdx","origin")
+call ppqu('I0GE',"Effects\\DropTheBeatAura.mdx","origin")
+call ppqu('I0LA',"Effects\\Auras\\XD_GH01_Blue.mdx","origin")
+call ppqu('I0RO',"Effects\\Auras\\RuneAura.mdx","origin")
+call ppqu('I0RP',"Effects\\WindWalkBlue.mdl","origin")
+call ppqu('I00O',"Effects\\FestiveSpirit_Light.mdx","origin")
+call ppqu('I0PD',"Effects\\SoulArmorCream.mdx","chest")
+call ppqu('I0PE',"Effects\\SoulArmorNecro.mdx","chest")
+call ppqu('I0PF',"Effects\\SoulArmorPsyche.mdx","chest")
+call ppqu('I04D',"Effects\\Void2_Red_Thin.mdx","origin")
+call ppqu('I0PM',"Effects\\Auras\\XD_GH01_Red.mdx","origin")
+call ppqu('I0PK',"Effects\\SoulArmorCrimson.mdx","chest")
+call ppqu('I0PJ',"Effects\\SoulArmorAzure.mdx","chest")
+call ppqu('I0RJ',"Effects\\GlacierAura.mdx","origin")
+call pp9u('SU01',q11o("红月之域",""),"Effects\\MoonAura_Red.mdl","origin")
+call pp9u('SU02',q11o("蓝月之域",""),"Effects\\MoonAura_Blue.mdl","origin")
+call ppqu('I0PV',"Effects\\LibertyPurple.mdx","chest")
+call ppqu('I0LH',"Effects\\LibertyYellow.mdx","chest")
+call ppqu('I0PC',"Effects\\LibertyOrange.mdx","chest")
+call ppqu('I0M4',"Effects\\LibertyBlue.mdx","chest")
+set opuO=ppqu('I0KV',"Effects\\MementoMori_Corrupted.mdx","origin")
+call o__O(opuO)
+set opuO=ppqu('SC04',"Effects\\TestAura.mdx","origin")
+call o__O(opuO)
+endfunction
+
+function fzzsGrantStartupHalos takes integer ol6O returns nothing
+call OOoO((P[((ol6O))]),('I0MW'))
+call OOoO((P[((ol6O))]),('I0GE'))
+call OOoO((P[((ol6O))]),('I0LA'))
+call OOoO((P[((ol6O))]),('I0RO'))
+call OOoO((P[((ol6O))]),('I0RP'))
+call OOoO((P[((ol6O))]),('I00O'))
+call OOoO((P[((ol6O))]),('I0PD'))
+call OOoO((P[((ol6O))]),('I0PE'))
+call OOoO((P[((ol6O))]),('I0PF'))
+call OOoO((P[((ol6O))]),('I04D'))
+call OOoO((P[((ol6O))]),('I0PM'))
+call OOoO((P[((ol6O))]),('I0PK'))
+call OOoO((P[((ol6O))]),('I0PJ'))
+call OOoO((P[((ol6O))]),('I0RJ'))
+call OOoO((P[((ol6O))]),('SU01'))
+call OOoO((P[((ol6O))]),('SU02'))
+call OOoO((P[((ol6O))]),('I0PV'))
+call OOoO((P[((ol6O))]),('I0LH'))
+call OOoO((P[((ol6O))]),('I0PC'))
+call OOoO((P[((ol6O))]),('I0M4'))
+call OOoO((P[((ol6O))]),('I0KV'))
+call OOoO((P[((ol6O))]),('SC04'))
+endfunction

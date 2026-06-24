@@ -1,0 +1,39 @@
+// 藏品 - 装饰徽章
+// 来源:
+// - function l_op: l_1p 拥有列表/分类
+// - function l_pp: l_up 图标注册
+// 菜单名: 装饰徽章。
+
+function fzzsDecoBadgeList takes nothing returns nothing
+// [普通] I0FS 海洋徽章 | ReplaceableTextures\\CommandButtons\\BTNCollectible_DecoIcon001.blp
+call l_1p(1,'I0FS')
+// [稀有] I0H9 幽灵徽章 | ReplaceableTextures\\CommandButtons\\BTNCollectible_DecoIcon002.blp
+call l_1p(2,'I0H9')
+// [稀有] I0HA 银喵徽章 | ReplaceableTextures\\CommandButtons\\BTNCollectible_DecoIcon003.blp
+call l_1p(2,'I0HA')
+// [限定] I0RC 恐怖之夜徽章 | ReplaceableTextures\\CommandButtons\\BTNCollectible_DecoIcon004.blp
+call l_1p(3,'I0RC')
+// [特殊] I0RZ 周年庆之梦徽章 | ReplaceableTextures\\CommandButtons\\BTNCollectible_DecoIcon005.blp
+call l_1p(4,'I0RZ')
+// [传说] I03E 雪人徽章 | ReplaceableTextures\\CommandButtons\\BTNCollectible_DecoIcon006.blp
+call l_1p(5,'I03E')
+call l_lp()
+endfunction
+
+function fzzsDecoBadgeIconList takes nothing returns nothing
+call l_up('I0FS',"ReplaceableTextures\\CommandButtons\\BTNCollectible_DecoIcon001.blp")
+call l_up('I0H9',"ReplaceableTextures\\CommandButtons\\BTNCollectible_DecoIcon002.blp")
+call l_up('I0HA',"ReplaceableTextures\\CommandButtons\\BTNCollectible_DecoIcon003.blp")
+call l_up('I0RC',"ReplaceableTextures\\CommandButtons\\BTNCollectible_DecoIcon004.blp")
+call l_up('I0RZ',"ReplaceableTextures\\CommandButtons\\BTNCollectible_DecoIcon005.blp")
+call l_up('I03E',"ReplaceableTextures\\CommandButtons\\BTNCollectible_DecoIcon006.blp")
+endfunction
+
+function fzzsGrantStartupDecoBadges takes integer ol6O returns nothing
+call OOoO((P[((ol6O))]),('I0FS'))
+call OOoO((P[((ol6O))]),('I0H9'))
+call OOoO((P[((ol6O))]),('I0HA'))
+call OOoO((P[((ol6O))]),('I0RC'))
+call OOoO((P[((ol6O))]),('I0RZ'))
+call OOoO((P[((ol6O))]),('I03E'))
+endfunction

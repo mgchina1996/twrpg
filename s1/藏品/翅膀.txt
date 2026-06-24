@@ -1,0 +1,129 @@
+// 光环/翅膀外观登记清单，来源：function I09u
+// 登记格式：call I0pu(分类, '光环物品ID')
+// 获取格式：call OOoO((P[((ol6O))]),('光环物品ID'))
+
+call I0pu(1,'I0I5') // 自然之翼 藏品
+call I0pu(1,'I0IA') // 蝙蝠之翼 藏品
+call I0pu(1,'SW01') // 海洋之翼模型
+call I0pu(1,'I0OX') // 纯净翅膀 藏品
+call I0pu(1,'I0HQ') // 龙翼 藏品
+call I0pu(1,'I0HV') // 伯爵的披风 藏品
+call I0pu(1,'I0HR') // 腐败水晶之翼 藏品
+call I0pu(1,'SW02') // 嗜血·蝙蝠之翼模型
+call I0pu(1,'I0PQ') // 杀戮者长靴 藏品
+call I0pu(1,'I0HO') // 女神仙翼 藏品
+call I0pu(1,'I0HS') // 冰极天雪魂翼 藏品
+call I0pu(1,'I0HT') // 堕落的火焰魂翼 藏品
+call I0pu(1,'I0HW') // 怒焱魂翼 藏品
+call I0pu(1,'I0HX') // 信仰斗篷 藏品
+call I0pu(1,'I0HY') // 耀目星芒魂翼 藏品
+call I0pu(1,'I0I6') // 飞星流彩碎翼 藏品
+call I0pu(1,'I0HP') // 霜魂女神之翼 藏品
+call I0pu(1,'I0HU') // 星辰闪耀·圣堂之翼 藏品
+call I0pu(1,'I0HZ') // 恶魔骨翼 藏品
+call I0pu(1,'I0I0') // 暗黑不朽魂翼 藏品
+call I0pu(1,'I0I1') // 亡者灵魂 藏品
+call I0pu(1,'I0I2') // 狂暴·堕落统治魂翼 藏品
+call I0pu(1,'I0I3') // 幻想霜寒魂翼 藏品
+call I0pu(1,'I0I9') // 地狱熔岩火凰羽翼 藏品
+call I0pu(1,'I0I7') // 魔音护魂之翼 藏品
+call I0pu(1,'I0I4') // 无坚不摧战翅 藏品
+call I0pu(1,'I0JG') // 祈明·神谕血翼 藏品
+call I0pu(1,'I0KS') // 净空·至上祝福羽翼 藏品
+call I0pu(1,'I0KR') // 遂宇玄芒·灵仙魂翼 藏品
+call I0pu(1,'I0O6') // 破邪·苍穹统治者 藏品
+call I0pu(1,'I0O7') // 破穹·勇敢之心 藏品
+call I0pu(1,'I0O8') // 焚神·浴火魂翼 藏品
+call I0pu(1,'I0O9') // 荆棘·霜寒羽翼 藏品
+call I0pu(1,'I0OA') // 哀歌·守夜者翅膀 藏品
+call I0pu(1,'I0OP') // 悲魔·摄灵者 藏品
+call I0pu(1,'I0OQ') // 永生·不朽之翼 藏品
+call I0pu(1,'I0OR') // 孤寂·深渊披风 藏品
+call I0pu(1,'SW03') // 无尽·欲望斗篷模型
+call I0pu(1,'SW04') // 血风暴模型
+call I0pu(1,'SW05') // 守门人模型
+call I0pu(1,'SW06') // 神圣起源羽翼模型
+call I0pu(1,'SW07') // 寰宇之翼模型
+call I0pu(2,'SW08') // 行尽·生命烈焰模型
+call I0pu(2,'SW09') // 自由·魂灵之翼模型
+call I0pu(2,'SW10') // 灵魂隔断羽翼模型
+call I0pu(2,'SW11') // 死亡向往模型
+call I0pu(2,'SW12') // 虚空翅膀模型
+call I0pu(2,'SW13') // 吞噬者模型
+call I0pu(2,'SW14') // 回心·生命波纹模型
+call I0pu(1,'I0GQ') // 海蚀翅膀
+call I0pu(1,'I0RW') // 蔚蓝翅膀
+call I0pu(3,'SW15') // 天空之翼膀
+call I0pu(1,'I0EQ') // 万圣节耀目翅膀
+call I0pu(1,'I0H7') // 小魔王翅膀
+call I0pu(1,'I0HG') // 蓝天使翅膀
+call I0pu(1,'I0HH') // 雪花翅膀
+call I0pu(1,'I0MV') // 透明翅膀
+call I0pu(1,'I0QD') // 胜利者翅膀
+call I0pu(1,'I0QF') // 暮光翅膀
+call I0pu(1,'I0QG') // 欢乐翅膀
+call I0pu(1,'I0KU') // 小魔仙
+
+function fzzsGrantStartupAuras takes integer ol6O returns nothing
+call OOoO((P[((ol6O))]),('I0I5'))
+call OOoO((P[((ol6O))]),('I0IA'))
+call OOoO((P[((ol6O))]),('SW01'))
+call OOoO((P[((ol6O))]),('I0OX'))
+call OOoO((P[((ol6O))]),('I0HQ'))
+call OOoO((P[((ol6O))]),('I0HV'))
+call OOoO((P[((ol6O))]),('I0HR'))
+call OOoO((P[((ol6O))]),('SW02'))
+call OOoO((P[((ol6O))]),('I0PQ'))
+call OOoO((P[((ol6O))]),('I0HO'))
+call OOoO((P[((ol6O))]),('I0HS'))
+call OOoO((P[((ol6O))]),('I0HT'))
+call OOoO((P[((ol6O))]),('I0HW'))
+call OOoO((P[((ol6O))]),('I0HX'))
+call OOoO((P[((ol6O))]),('I0HY'))
+call OOoO((P[((ol6O))]),('I0I6'))
+call OOoO((P[((ol6O))]),('I0HP'))
+call OOoO((P[((ol6O))]),('I0HU'))
+call OOoO((P[((ol6O))]),('I0HZ'))
+call OOoO((P[((ol6O))]),('I0I0'))
+call OOoO((P[((ol6O))]),('I0I1'))
+call OOoO((P[((ol6O))]),('I0I2'))
+call OOoO((P[((ol6O))]),('I0I3'))
+call OOoO((P[((ol6O))]),('I0I9'))
+call OOoO((P[((ol6O))]),('I0I7'))
+call OOoO((P[((ol6O))]),('I0I4'))
+call OOoO((P[((ol6O))]),('I0JG'))
+call OOoO((P[((ol6O))]),('I0KS'))
+call OOoO((P[((ol6O))]),('I0KR'))
+call OOoO((P[((ol6O))]),('I0O6'))
+call OOoO((P[((ol6O))]),('I0O7'))
+call OOoO((P[((ol6O))]),('I0O8'))
+call OOoO((P[((ol6O))]),('I0O9'))
+call OOoO((P[((ol6O))]),('I0OA'))
+call OOoO((P[((ol6O))]),('I0OP'))
+call OOoO((P[((ol6O))]),('I0OQ'))
+call OOoO((P[((ol6O))]),('I0OR'))
+call OOoO((P[((ol6O))]),('SW03'))
+call OOoO((P[((ol6O))]),('SW04'))
+call OOoO((P[((ol6O))]),('SW05'))
+call OOoO((P[((ol6O))]),('SW06'))
+call OOoO((P[((ol6O))]),('SW07'))
+call OOoO((P[((ol6O))]),('SW08'))
+call OOoO((P[((ol6O))]),('SW09'))
+call OOoO((P[((ol6O))]),('SW10'))
+call OOoO((P[((ol6O))]),('SW11'))
+call OOoO((P[((ol6O))]),('SW12'))
+call OOoO((P[((ol6O))]),('SW13'))
+call OOoO((P[((ol6O))]),('SW14'))
+call OOoO((P[((ol6O))]),('I0GQ'))
+call OOoO((P[((ol6O))]),('I0RW'))
+call OOoO((P[((ol6O))]),('SW15'))
+call OOoO((P[((ol6O))]),('I0EQ'))
+call OOoO((P[((ol6O))]),('I0H7'))
+call OOoO((P[((ol6O))]),('I0HG'))
+call OOoO((P[((ol6O))]),('I0HH'))
+call OOoO((P[((ol6O))]),('I0MV'))
+call OOoO((P[((ol6O))]),('I0QD'))
+call OOoO((P[((ol6O))]),('I0QF'))
+call OOoO((P[((ol6O))]),('I0QG'))
+call OOoO((P[((ol6O))]),('I0KU'))
+endfunction

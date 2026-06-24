@@ -1,0 +1,250 @@
+// 藏品 - 背包
+// 来源: function uq_6 的 uqO6/uq06 背包外观模型注册。
+// 说明: Boss 掉落/拥有列表不在这里加入，只保留已经注册模型的背包外观。
+// 分类: Op = 64，菜单名为 ★大咖背包★+力量结晶。
+
+function fzzsBagModelList takes nothing returns nothing
+// shdt 火焰梦魇力量结晶 | 模型 e01I 迷你火焰梦魇
+call uqO6('shdt','e01I')
+// tmmt 白天使力量结晶 | 模型 e01J 迷你白天使
+call uqO6('tmmt','e01J')
+// oli2 死亡之翼力量结晶 | 模型 e01K 迷你死亡之翼
+call uqO6('oli2','e01K')
+// lnrn 元素领主力量结晶 | 模型 e01L 迷你巫师王
+call uqO6('lnrn','e01L')
+// amrc 守门人力量结晶 | 模型 e01M 迷你守门人
+call uqO6('amrc','e01M')
+// shen 伯爵力量结晶 | 模型 e01N 迷你伯爵
+call uqO6('shen','e01N')
+// ccmd 枭兽力量结晶 | 模型 e01O 迷你枭兽
+call uqO6('ccmd','e01O')
+// dtsb 巨人魔像力量结晶 | 模型 e01P 迷你傀儡
+call uqO6('dtsb','e01P')
+// olig 冰霜领主力量结晶 | 模型 e01Q 迷你冰霜领主
+call uqO6('olig','e01Q')
+// stre 蜘蛛女皇力量结晶 | 模型 e01R 迷你蜘蛛
+call uqO6('stre','e01R')
+// envl 远古法老力量结晶 | 模型 e01S 迷你远古法老
+call uqO6('envl','e01S')
+// drph 杰克隆登力量结晶 | 模型 e01T 迷你杰克隆登
+call uqO6('drph','e01T')
+// gvsm 触须统治者力量结晶 | 模型 e01U 迷你统治者
+call uqO6('gvsm','e01U')
+// rugt 电棍力量结晶 | 模型 e01V 迷你电棍
+call uqO6('rugt','e01V')
+// mnsf 堕落天使力量结晶 | 模型 e01W 迷你堕落天使
+call uqO6('mnsf','e01W')
+// oven 九头蛇力量结晶 | 模型 e01X 迷你许德拉
+call uqO6('oven','e01X')
+// nspi 火焰统治者力量结晶 | 模型 e01Y 迷你拉格纳
+call uqO6('nspi','e01Y')
+// wswd 恶魔领主力量结晶 | 模型 e020 迷你恶魔领主
+call uqO6('wswd','e020')
+// wshs 沧海巨兽力量结晶 | 模型 e021 迷你沧海巨兽
+call uqO6('wshs','e021')
+// fgrg 亡灵战神力量结晶 | 模型 e022 迷你骷髅王
+call uqO6('fgrg','e022')
+// sand 死亡骑士力量结晶 | 模型 e023 迷你爵士
+call uqO6('sand','e023')
+// shar 冰龙力量结晶 | 模型 e024 迷你冰龙
+call uqO6('shar','e024')
+// pomn 僵尸领主力量结晶 | 模型 e025 迷你僵尸
+call uqO6('pomn','e025')
+// pres 法爷力量结晶 | 模型 e02X 迷你法爷
+call uqO6('pres','e02X')
+// wcyc 黑瓜力量结晶 | 模型 e02Y 迷你黑瓜
+call uqO6('wcyc','e02Y')
+// infs 怨魔力量结晶 | 模型 e02Z 迷你黑暗怨魔
+call uqO6('infs','e02Z')
+// sneg 主天使力量结晶 | 模型 e04J 迷你哈乜嘢
+call uqO6('sneg','e04J')
+// rre1 远古骨龙力量结晶 | 模型 e05Z 迷你远古骨龙
+call uqO6('rre1','e05Z')
+// tst2 冰霜巨蛛力量结晶 | 模型 e07B 迷你冰霜巨蛛 极寒领主
+call uqO6('tst2','e07B')
+// I0P0 瓦尔托拉力量结晶 | 模型 e0E2 迷你雷电战神 瓦尔托拉
+call uqO6('I0P0','e0E2')
+// I0P1 火灵战神力量结晶 | 模型 e0E3 迷你火灵战神·伊弗利特
+call uqO6('I0P1','e0E3')
+// I0P2 海神力量结晶 | 模型 e0E4 迷你水灵战神
+call uqO6('I0P2','e0E4')
+// I0P3 地底君主力量结晶 | 模型 e0E5 迷你阿迦瑞斯
+call uqO6('I0P3','e0E5')
+// I0R6 公爵力量结晶 | 模型 e0GF 迷你公爵
+call uqO6('I0R6','e0GF')
+// I0R7 土神力量结晶 | 模型 e0GG 迷你土神
+call uqO6('I0R7','e0GG')
+// I0GH 古代机器力量结晶 | 模型 e0HZ 迷你古代魔导机器
+call uqO6('I0GH','e0HZ')
+// I0QE 魂灵力量结晶 | 模型 e0GH 迷你斯蒂里克斯
+call uqO6('I0QE','e0GH')
+// I0R8 引导者力量结晶 | 模型 e0GI 迷你凯梅尔
+call uqO6('I0R8','e0GI')
+// fgsk 红色水晶魔像力量结晶 | 模型 e07X 红色水晶魔像
+call uqO6('fgsk','e07X')
+// cosl 蓝色水晶魔像力量结晶 | 模型 e08S 蓝色水晶魔像
+call uqO6('cosl','e08S')
+// sfog 黄色水晶魔像力量结晶 | 模型 e08U 黄色水晶魔像
+call uqO6('sfog','e08U')
+// pclr 绿色水晶魔像力量结晶 | 模型 e08T 绿色水晶魔像
+call uqO6('pclr','e08T')
+// klmm 白色水晶魔像力量结晶 | 模型 e08V 白色水晶魔像
+call uqO6('klmm','e08V')
+// gldo 不一般的水晶魔像力量结晶 | 模型 e08W 不一般的水晶魔像
+call uqO6('gldo','e08W')
+// I0J5 不朽猫咪力量结晶 | 模型 e09S 不朽猫咪
+call uqO6('I0J5','e09S')
+// stwp 令牌力量结晶 | 模型 e09C 结晶
+call uqO6('stwp','e09C')
+// I0S4 彩虹猫咪力量结晶 | 模型 e0I1 彩虹猫
+call uqO6('I0S4','e0I1')
+// I0LD 鸭子骑士力量结晶 | 模型 e0CU 鸭子骑士
+call uqO6('I0LD','e0CU')
+// rdis 海洋姑娘1力量结晶 | 模型 e05M 海洋姑娘
+call uqO6('rdis','e05M')
+// rsps 海洋姑娘2力量结晶 | 模型 e05K 海洋姑娘
+call uqO6('rsps','e05K')
+// rreb 海洋姑娘3力量结晶 | 模型 e05L 海洋姑娘
+call uqO6('rreb','e05L')
+// I0RY 勇敢的螃蟹力量结晶 | 模型 e0HE 勇敢的花螃蟹
+call uqO6('I0RY','e0HE')
+// I00M 星星力量结晶 | 模型 e028 星星
+call uqO6('I00M','e028')
+// rma2 万圣节蜘蛛力量结晶 | 模型 e04T 迷你万圣节蜘蛛
+call uqO6('rma2','e04T')
+// rhe3 万圣节傀儡力量结晶 | 模型 e04U 迷你万圣节傀儡
+call uqO6('rhe3','e04U')
+// rman 万圣节小孩力量结晶 | 模型 e04Z 迷你万圣节小孩
+call uqO6('rman','e04Z')
+// texp 万圣节特别力量结晶 | 模型 e04V 迷你万圣节巫师
+call uqO6('texp','e04V')
+// gold 万圣节小鬼力量结晶 | 模型 e04Y 迷你万圣节小鬼
+call uqO6('gold','e04Y')
+// tdex 迷你雪人力量结晶 | 模型 e056 迷你雪人
+call uqO6('tdex','e056')
+// rej2 圣诞力量结晶 | 模型 e032 迷你圣诞老人
+call uqO6('rej2','e032')
+// lmbr 迷你圣诞老人MK2力量结晶 | 模型 e055 迷你圣诞老人 MK2
+call uqO6('lmbr','e055')
+// tdx2 幻想力量结晶 | 模型 e057 幻想
+call uqO6('tdx2','e057')
+// lure 企鹅首领力量结晶 | 模型 e0GR 迷你企鹅首领
+call uqO6('lure','e0GR')
+// e05J 迷你箱子 | 模型 e05J 迷你箱子
+call uq06('e05J',"")
+// e0BX 狼 | 模型 e0BX 狼
+call uq06('e0BX',"")
+// e0BU 青蛙 | 模型 e0BU 青蛙
+call uq06('e0BU',"")
+// e00B 兔子 | 模型 e00B 兔子
+call uq06('e00B',"")
+// e0BV 洋仔 | 模型 e0BV 洋仔
+call uq06('e0BV',"")
+// e0BS 战鹰 | 模型 e0BS 战鹰
+call uq06('e0BS',"")
+// e0BZ 猫头鹰 | 模型 e0BZ 猫头鹰
+call uq06('e0BZ',"")
+// e0C6 小鹿 | 模型 e0C6 小鹿
+call uq06('e0C6',"")
+// e0C7 野猪 | 模型 e0C7 野猪
+call uq06('e0C7',"")
+// e0C8 小浣熊 | 模型 e0C8 小浣熊
+call uq06('e0C8',"")
+// e0C9 水狗 | 模型 e0C9 水狗
+call uq06('e0C9',"")
+// e0CA 螃蟹 | 模型 e0CA 螃蟹
+call uq06('e0CA',"")
+// e0CB 世界大咖·超级巨熊 | 模型 e0CB 世界大咖·超级巨熊
+call uq06('e0CB',"")
+// e00O 宝箱 | 模型 e00O 宝箱
+call uq06('e00O',"")
+// e00U 小马 | 模型 e00U 小马
+call uq06('e00U',"")
+// e00N 矿工 | 模型 e00N 矿工
+call uq06('e00N',"")
+// e0BT e0BT | 模型 e0BT
+call uq06('e0BT',"")
+// e0BW 火凤凰 | 模型 e0BW 火凤凰
+call uq06('e0BW',"")
+// e0BY 复仇幽魂 | 模型 e0BY 复仇幽魂
+call uq06('e0BY',"")
+// e0C0 幽灵 | 模型 e0C0 幽灵
+call uq06('e0C0',"")
+// e0C1 熔岩巨兽 | 模型 e0C1 熔岩巨兽
+call uq06('e0C1',"")
+// e0C2 装甲坦克 | 模型 e0C2 装甲坦克
+call uq06('e0C2',"")
+// e0C3 恶魔 | 模型 e0C3 恶魔
+call uq06('e0C3',"")
+// e0C4 火焱猫咪 | 模型 e0C4 火焱猫咪
+call uq06('e0C4',"")
+// e0C5 风暴之灵 | 模型 e0C5 风暴之灵
+call uq06('e0C5',"")
+// e00W 小鸡 | 模型 e00W 小鸡
+call uq06('e00W',"")
+// e00Y 娃娃 | 模型 e00Y 娃娃
+call uq06('e00Y',"")
+// e04O 泥沼小怪 | 模型 e04O 泥沼小怪
+call uq06('e04O',"")
+// e04P 熔岩犬 | 模型 e04P 熔岩犬
+call uq06('e04P',"")
+// e029 爱心 | 模型 e029 爱心
+call uq06('e029',"")
+// e02B 迷你亚马罗斯 | 模型 e02B 迷你亚马罗斯
+call uq06('e02B',"")
+// e0FG 记忆石 | 模型 e0FG 记忆石
+call uq06('e0FG',"")
+endfunction
+
+function fzzsGrantStartupBags takes integer ol6O returns nothing
+call OOoO((P[((ol6O))]),('stwp'))
+call OOoO((P[((ol6O))]),('I0S4'))
+call OOoO((P[((ol6O))]),('I0LD'))
+call OOoO((P[((ol6O))]),('rdis'))
+call OOoO((P[((ol6O))]),('rsps'))
+call OOoO((P[((ol6O))]),('rreb'))
+call OOoO((P[((ol6O))]),('I0RY'))
+call OOoO((P[((ol6O))]),('I00M'))
+call OOoO((P[((ol6O))]),('rma2'))
+call OOoO((P[((ol6O))]),('rhe3'))
+call OOoO((P[((ol6O))]),('rman'))
+call OOoO((P[((ol6O))]),('texp'))
+call OOoO((P[((ol6O))]),('gold'))
+call OOoO((P[((ol6O))]),('tdex'))
+call OOoO((P[((ol6O))]),('rej2'))
+call OOoO((P[((ol6O))]),('lmbr'))
+call OOoO((P[((ol6O))]),('tdx2'))
+call OOoO((P[((ol6O))]),('lure'))
+call OOoO((P[((ol6O))]),('e05J'))
+call OOoO((P[((ol6O))]),('e0BX'))
+call OOoO((P[((ol6O))]),('e0BU'))
+call OOoO((P[((ol6O))]),('e00B'))
+call OOoO((P[((ol6O))]),('e0BV'))
+call OOoO((P[((ol6O))]),('e0BS'))
+call OOoO((P[((ol6O))]),('e0BZ'))
+call OOoO((P[((ol6O))]),('e0C6'))
+call OOoO((P[((ol6O))]),('e0C7'))
+call OOoO((P[((ol6O))]),('e0C8'))
+call OOoO((P[((ol6O))]),('e0C9'))
+call OOoO((P[((ol6O))]),('e0CA'))
+call OOoO((P[((ol6O))]),('e0CB'))
+call OOoO((P[((ol6O))]),('e00O'))
+call OOoO((P[((ol6O))]),('e00U'))
+call OOoO((P[((ol6O))]),('e00N'))
+call OOoO((P[((ol6O))]),('e0BT'))
+call OOoO((P[((ol6O))]),('e0BW'))
+call OOoO((P[((ol6O))]),('e0BY'))
+call OOoO((P[((ol6O))]),('e0C0'))
+call OOoO((P[((ol6O))]),('e0C1'))
+call OOoO((P[((ol6O))]),('e0C2'))
+call OOoO((P[((ol6O))]),('e0C3'))
+call OOoO((P[((ol6O))]),('e0C4'))
+call OOoO((P[((ol6O))]),('e0C5'))
+call OOoO((P[((ol6O))]),('e00W'))
+call OOoO((P[((ol6O))]),('e00Y'))
+call OOoO((P[((ol6O))]),('e04O'))
+call OOoO((P[((ol6O))]),('e04P'))
+call OOoO((P[((ol6O))]),('e029'))
+call OOoO((P[((ol6O))]),('e02B'))
+call OOoO((P[((ol6O))]),('e0FG'))
+endfunction

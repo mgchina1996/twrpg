@@ -1,0 +1,129 @@
+// 光环登记清单，来源：function lI0u
+// 登记格式：call lIIu(分类, '光环物品ID')
+// 获取格式：call OOoO((P[((ol6O))]),('光环物品ID'))
+
+call lIIu(1,'I0H6') // 输出记录器
+call lIIu(1,'I0RV') // 魔法石碑
+call lIIu(1,'I0HJ') // 夜视镜
+call lIIu(1,'I0R0') // 银狼魔术棒
+call lIIu(1,'I0QV') // 自然守护者魔术棒
+call lIIu(1,'I0QW') // 魔龙魔术棒
+call lIIu(1,'I0LL') // 恶魔领主魔术棒
+call lIIu(1,'I0QX') // 火焰梦魇魔术棒
+call lIIu(1,'I0QY') // 主天使魔术棒
+call lIIu(1,'I0R1') // 冰龙魔术棒
+call lIIu(1,'I0QS') // 怨魔魔术棒
+call lIIu(1,'I0QU') // 死亡吞噬者魔术棒
+call lIIu(1,'I0QT') // 女妖魔术棒
+call lIIu(1,'I0QR') // 瓦尔托拉魔术棒
+call lIIu(1,'I0QQ') // 火神魔术棒
+call lIIu(1,'I0QP') // 水神魔术棒
+call lIIu(1,'I0QO') // 阿加雷斯魔术棒
+call lIIu(1,'I0J3') // 旅行商人魔术棒
+call lIIu(1,'I0J2') // 附魔师魔术棒
+call lIIu(1,'I0J1') // 收割者魔术棒
+call lIIu(1,'I0J4') // 赏金猎人魔术棒
+call lIIu(1,'I0JC') // 风系魔导士魔术棒
+call lIIu(1,'I0JD') // 追星剑圣魔术棒
+call lIIu(1,'I0JE') // 神射手魔术棒
+call lIIu(1,'I0JH') // 火法万圣节魔术棒
+call lIIu(1,'I0JN') // 驯鹿鲁道夫
+call lIIu(1,'I0JM') // 迷你小仙魔术棒
+call lIIu(1,'I0JO') // 火凤凰魔术棒
+call lIIu(1,'I0JP') // 附魔师万圣节魔术棒
+call lIIu(1,'I0KW') // 逮捕魔术棒
+call lIIu(7,'I03M') // 维奇(新年)魔术棒
+call lIIu(1,'I0EP') // 召唤亚莫亚
+call lIIu(1,'I0QL') // 螃蟹魔术棒
+call lIIu(5,'I001') // 蓝守护者魔术棒
+call lIIu(6,'I00N') // 心心魔术棒
+call lIIu(1,'I0PB') // 幼小幽灵魔术棒
+call lIIu(4,'I04C') // 幼小幽灵魔术棒 2
+call lIIu(1,'I0M5') // 小兔魔术棒
+call lIIu(1,'I0HI') // 雪花法杖
+call lIIu(1,'I0I8') // 谎言戒指
+call lIIu(1,'I0MX') // 彩虹味糖果
+call lIIu(1,'I0PU') // 烟花
+call lIIu(8,'SM01') // 物品数据未找到
+call lIIu(1,'I0GX') // 神秘杆
+call lIIu(2,'I0S0') // 周年庆留念
+call lIIu(1,'I0EO') // 女巫的神秘糖果
+call lIIu(1,'I0H8') // 女巫的糖块
+call lIIu(1,'I0HB') // 魔女的神秘糖果
+call lIIu(1,'I0FC') // 圣诞帽
+call lIIu(1,'I0RK') // 圣诞树
+call lIIu(1,'SC02') // 物品数据未找到
+call lIIu(1,'SC03') // 物品数据未找到
+call lIIu(1,'SA01') // 物品数据未找到
+call lIIu(1,'SA02') // 物品数据未找到
+call lIIu(1,'SA03') // 物品数据未找到
+call lIIu(1,'SA04') // 物品数据未找到
+call lIIu(1,'SA05') // 物品数据未找到
+call lIIu(1,'SA06') // 物品数据未找到
+call lIIu(1,'SA07') // 物品数据未找到
+call lIIu(1,'SA08') // 物品数据未找到
+call lIIu(1,'SA09') // 物品数据未找到
+call lIIu(1,'SA10') // 物品数据未找到
+call lIIu(1,'SA11') // 物品数据未找到
+call lIIu(3,'SA12') // 物品数据未找到
+call lIIu(3,'SA13') // 物品数据未找到
+call lIIu(3,'SA14') // 物品数据未找到
+call lIIu(1,'SD01') // 物品数据未找到
+call lIIu(1,'SB01') // 物品数据未找到
+call lIIu(1,'SB02') // 物品数据未找到
+call lIIu(1,'SB03') // 物品数据未找到
+call lIIu(1,'SB04') // 物品数据未找到
+call lIIu(1,'SC01') // 物品数据未找到
+call lIIu(1,'I0KV') // 山丘之堕
+
+function fzzsGrantStartupAuras takes integer ol6O returns nothing
+call OOoO((P[((ol6O))]),('I0H6'))
+call OOoO((P[((ol6O))]),('I0RV'))
+call OOoO((P[((ol6O))]),('I0HJ'))
+call OOoO((P[((ol6O))]),('I0R0'))
+call OOoO((P[((ol6O))]),('I0QV'))
+call OOoO((P[((ol6O))]),('I0QW'))
+call OOoO((P[((ol6O))]),('I0LL'))
+call OOoO((P[((ol6O))]),('I0QX'))
+call OOoO((P[((ol6O))]),('I0QY'))
+call OOoO((P[((ol6O))]),('I0R1'))
+call OOoO((P[((ol6O))]),('I0QS'))
+call OOoO((P[((ol6O))]),('I0QU'))
+call OOoO((P[((ol6O))]),('I0QT'))
+call OOoO((P[((ol6O))]),('I0QR'))
+call OOoO((P[((ol6O))]),('I0QQ'))
+call OOoO((P[((ol6O))]),('I0QP'))
+call OOoO((P[((ol6O))]),('I0QO'))
+call OOoO((P[((ol6O))]),('I0J3'))
+call OOoO((P[((ol6O))]),('I0J2'))
+call OOoO((P[((ol6O))]),('I0J1'))
+call OOoO((P[((ol6O))]),('I0J4'))
+call OOoO((P[((ol6O))]),('I0JC'))
+call OOoO((P[((ol6O))]),('I0JD'))
+call OOoO((P[((ol6O))]),('I0JE'))
+call OOoO((P[((ol6O))]),('I0JH'))
+call OOoO((P[((ol6O))]),('I0JN'))
+call OOoO((P[((ol6O))]),('I0JM'))
+call OOoO((P[((ol6O))]),('I0JO'))
+call OOoO((P[((ol6O))]),('I0JP'))
+call OOoO((P[((ol6O))]),('I0KW'))
+call OOoO((P[((ol6O))]),('I03M'))
+call OOoO((P[((ol6O))]),('I0EP'))
+call OOoO((P[((ol6O))]),('I0QL'))
+call OOoO((P[((ol6O))]),('I001'))
+call OOoO((P[((ol6O))]),('I00N'))
+call OOoO((P[((ol6O))]),('I0PB'))
+call OOoO((P[((ol6O))]),('I04C'))
+call OOoO((P[((ol6O))]),('I0M5'))
+call OOoO((P[((ol6O))]),('I0HI'))
+call OOoO((P[((ol6O))]),('I0I8'))
+call OOoO((P[((ol6O))]),('I0MX'))
+call OOoO((P[((ol6O))]),('I0PU'))
+call OOoO((P[((ol6O))]),('I0GX'))
+call OOoO((P[((ol6O))]),('I0S0'))
+call OOoO((P[((ol6O))]),('I0EO'))
+call OOoO((P[((ol6O))]),('I0H8'))
+call OOoO((P[((ol6O))]),('I0HB'))
+call OOoO((P[((ol6O))]),('I0FC'))
+call OOoO((P[((ol6O))]),('I0RK'))
+endfunction
