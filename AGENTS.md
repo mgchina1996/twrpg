@@ -11,3 +11,5 @@ war3map.w3u.json 是单位数据。
 - 优先分析 data/war3map.w3a.json、data/war3map.w3t.json、data/war3map.w3u.json。
 - 每次只处理一个小任务，不要全项目扫描。
 
+
+每次修改都要写到s1\更新日志.txt，简洁的，按照顺序1,2,3...
