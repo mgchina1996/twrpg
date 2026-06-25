@@ -64,7 +64,7 @@ call I0pu(1,'I0QF') // 暮光翅膀
 call I0pu(1,'I0QG') // 欢乐翅膀
 call I0pu(1,'I0KU') // 小魔仙
 
-function fzzsGrantStartupAuras takes integer ol6O returns nothing
+function fzzsGrantChibang takes integer ol6O returns nothing
 call OOoO((P[((ol6O))]),('I0I5'))
 call OOoO((P[((ol6O))]),('I0IA'))
 call OOoO((P[((ol6O))]),('SW01'))
