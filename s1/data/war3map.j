@@ -60966,6 +60966,9 @@ call l1qO('A0JE',function Iu_u)
 call lliO('A0JE',function Iu0u)
 endfunction
 function Iupu takes unit l9oo returns integer
+if i6lO(GetUnitUserData(l9oo))<=4 then
+return 1
+endif
 return 2
 endfunction
 function Iu6u takes unit l9oo returns real
