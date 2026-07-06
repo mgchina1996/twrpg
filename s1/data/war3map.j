@@ -132322,7 +132322,6 @@ if O0l1[l9uo]and Jz[(GetUnitUserData((u)))]then
 return true
 elseif not u__O(Jn,u)then
 call uuoO(Jn,u,1.)
-call pq1O((GetUnitUserData((u))),'A19B',$D02BC)
 call DestroyEffect(AddSpecialEffectTarget("Effects\\AncientsWrath.mdl",u,"chest"))
 endif
 endif
@@ -132549,7 +132548,6 @@ if i_i0(u,(yx[(l9uo)]))and not u__O(Jn,u)then
 call uuoO(Jn,u,1.)
 call o9I0((yx[(l9uo)]),u,il_6i((yx[(l9uo)]),u,bW[O_11[l9uo]],false))
 call q0ip((GetUnitUserData((u))),-il_9i((yx[(l9uo)]),u,bW[O_11[l9uo]],false))
-call pq1O((GetUnitUserData((u))),'A19B',$D02BC)
 call DestroyEffect(AddSpecialEffectTarget("Effects\\AncientsWrath.mdl",u,"chest"))
 endif
 endif
