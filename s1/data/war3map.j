@@ -3813,6 +3813,7 @@ integer array l16
 real array ll6
 real array lI6
 integer array lo6
+integer array i1poolCount
 integer array lO6
 integer array l06
 timer array l_6
@@ -71981,10 +71982,15 @@ call pu0o((p_uo("Abilities\\Spells\\Orc\\LightningBolt\\LightningBolt.wav",$A,$A
 call IiqO((l96O("Effects\\ChaosExplosion.mdl",x,y,NW[lo6[l9uo]]/ 150.)),1,.0)
 endfunction
 function i1lp takes integer l9uo returns boolean
+local integer owner
 if lo6[l9uo]!=0 then
 if Qw[lo6[l9uo]]then
 set sw[(lo6[l9uo])]=true
 else
+set owner=GetUnitUserData(oW[lo6[l9uo]])
+if owner!=0 and i1poolCount[owner]>0 then
+set i1poolCount[owner]=i1poolCount[owner]-1
+endif
 set Qw[(lo6[l9uo])]=(true)
 call ii9p(l9uo)
 set Qw[(lo6[l9uo])]=(false)
@@ -72060,9 +72066,9 @@ set lI6[l9uo]=iipp(oW[lo6[l9uo]],NW[lo6[l9uo]]/ 500.)
 call i1ip(l9uo,1)
 endif
 if l16[l9uo]==2 then
-set NW[lo6[l9uo]]=O_io(NW[lo6[l9uo]]-Te*(.01*20.)*(500.-250.),250.)
+set NW[lo6[l9uo]]=O_io(NW[lo6[l9uo]]-Te*(.01*40.)*(500.-250.),250.)
 elseif l16[l9uo]==1 then
-set NW[lo6[l9uo]]=O_io(NW[lo6[l9uo]]-Te*(.01*6.66)*(500.-250.),250.)
+set NW[lo6[l9uo]]=O_io(NW[lo6[l9uo]]-Te*(.01*13.32)*(500.-250.),250.)
 else
 set NW[lo6[l9uo]]=O09o(NW[lo6[l9uo]]+Te*(.01*2.5)*(500.-250.),500.)
 endif
@@ -72100,7 +72106,15 @@ call lop0(lo6[l9uo],function i1op)
 return l9uo
 endfunction
 function i10p takes unit l9oo,real x,real y returns nothing
-local integer l9uo=i1Op()
+local integer owner=GetUnitUserData(l9oo)
+local integer l9uo
+if owner!=0 and i6lO(owner)<=4 and i1poolCount[owner]>=3 then
+return
+endif
+set l9uo=i1Op()
+if owner!=0 then
+set i1poolCount[owner]=i1poolCount[owner]+1
+endif
 set oW[lo6[l9uo]]=l9oo
 set NW[lo6[l9uo]]=375.
 set i96[l9uo]=l99O("Effects\\AnnihilationTarget.mdl",x,y,25.,1.)
