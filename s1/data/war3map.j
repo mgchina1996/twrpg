@@ -156058,7 +156058,7 @@ local string oopo
 local integer i9_oi
 local string i9_Oi
 local boolean autoOnly=AS_ACTIVE_SLOT[ol6O]>=1 and AS_ACTIVE_SLOT[ol6O]<=5 and FM[ll0l[p9io]]==1 and not llOl[p9io]
-if GetLocalPlayer()==i9_1i and not autoOnly then
+if GetLocalPlayer()==i9_1i then
 call PreloadGenClear()
 call PreloadGenStart()
 call Preload("---------------------------------------")
@@ -156079,11 +156079,11 @@ endif
 loop
 exitwhen lopO(jM[ll0l[p9io]])
 set oopo=louO(jM[ll0l[p9io]])
-if GetLocalPlayer()==i9_1i and not autoOnly then
+if GetLocalPlayer()==i9_1i then
 call Preload(oopo)
 endif
 endloop
-if GetLocalPlayer()==i9_1i and not autoOnly then
+if GetLocalPlayer()==i9_1i then
 call Preload("---------------------------------------")
 endif
 if not llOl[p9io]then
@@ -156104,7 +156104,7 @@ set i9_Oi=q11o("存档代码 ","Load Code ")+I2S(1+i9_li)+": -load "+i9_Oi
 elseif FM[ll0l[p9io]]==2 then
 set i9_Oi=q11o("存档代码 ","Load Code ")+I2S(1+i9_li)+": -aload "+i9_Oi
 endif
-if GetLocalPlayer()==i9_1i and not autoOnly then
+if GetLocalPlayer()==i9_1i then
 call Preload(i9_Oi)
 endif
 exitwhen i9_oi==-1
@@ -156114,7 +156114,9 @@ set i9_li=i9_li+1
 endloop
 endif
 if GetLocalPlayer()==i9_1i then
-if not autoOnly then
+if autoOnly then
+call PreloadGenEnd(AS_SAVE_DIR+AutoSlot_Key(AS_ACTIVE_SLOT[ol6O],"view")+".txt")
+else
 call PreloadGenEnd("TWRPG"+"\\"+hM[ll0l[p9io]]+".txt")
 endif
 call AutoSlot_SaveCurrent(p9io)
