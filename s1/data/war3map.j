@@ -171560,7 +171560,7 @@ return .05*u6_O((GetUnitUserData((l9oo))))
 endif
 endfunction
 function lO00i takes unit l9oo returns integer
-return 1
+return 4
 endfunction
 function lO0_i takes unit l9oo,unit l9_o returns nothing
 call q00O(null,(l9oo),((lO0Oi(l9oo,l9_o))*1.))
