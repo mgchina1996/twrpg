@@ -245816,6 +245816,7 @@ endfunction
 function ouq1i takes integer l9uo returns nothing
 local group g
 local unit l9_o
+local integer IiOo=2
 if not UnitAlive((yx[(l9uo)]))or not nt[(GetUnitUserData(((yx[(l9uo)]))))]then
 call ouqii(l9uo)
 elseif Tw[llqo[l9uo]]==0 then
@@ -245825,7 +245826,10 @@ call SetUnitAnimation((yx[(l9uo)]),"spell")
 call QueueUnitAnimation((yx[(l9uo)]),"stand")
 call loO0(llqo[l9uo],.25)
 elseif Tw[llqo[l9uo]]==2 then
-set g=(ipq0(((yx[(l9uo)])),((MM[(k6[(GetUnitUserData(((yx[(l9uo)]))))])])),(2),true,true))
+if i6lO(l9uo)<=4 then
+set IiOo=1
+endif
+set g=(ipq0(((yx[(l9uo)])),((MM[(k6[(GetUnitUserData(((yx[(l9uo)]))))])])),(IiOo),true,true))
 loop
 set l9_o=FirstOfGroup(g)
 exitwhen l9_o==null
