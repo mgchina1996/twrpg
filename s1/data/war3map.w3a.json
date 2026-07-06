@@ -23862,7 +23862,7 @@
         "code": "aub1",
         "label": "Ubertip",
         "level": 1,
-        "value": "|c0087cefa[被动技能]|r\r\n提高剑的强度.\r\n|c002040f0∴|c0080ff00剑刃附魔的伤害 25%提高\r\n\r\n|c00da70d6[主动技能]|r\r\n诵读一个洪亮的咒语.\r\n|c002040f0∴|c0080ff00可以施放只影响附近友军的附魔",
+        "value": "|c00dfdfdf附魔精研|c00ffcc00(T)|r\r\n|c0087cefa[被动技能]|r\r\n提高剑的强度.\r\n|c002040f0∴|c0080ff00剑刃附魔的伤害 30%提高\r\n\r\n|c00da70d6[主动技能]|r\r\n诵读一个洪亮的咒语.\r\n|c002040f0∴|c0080ff00可以施放只影响附近友军的附魔",
         "valType": "STRING"
       },
       {
@@ -27698,7 +27698,7 @@
         "code": "acdn",
         "label": "Cool",
         "level": 1,
-        "value": 8.0,
+        "value": 7.0,
         "valType": "UNREAL"
       },
       {
@@ -27768,7 +27768,7 @@
         "code": "aub1",
         "label": "Ubertip",
         "level": 1,
-        "value": "|c00da70d6[主动技能]|r\r\n诵读一个强化速度的咒语.\r\n|c002040f0∴|c0080ff00空绝斩2次触发\r\n|c002040f0∴|c0080ff006秒内移动速度 400~150提高\r\n|c002040f0∴|c00bae9e1剑刃附魔 - 175码距离瞬间移动周期创建空绝斩1次触发\r\n|c002040f0∴|c00ff0000气运附魔不叠加",
+        "value": "|c00da70d6[主动技能]|r\r\n诵读一个强化速度的咒语.\r\n|c002040f0∴|c0080ff00空绝斩2次触发\r\n|c002040f0∴|c0080ff006秒内移动速度 400~150提高\r\n|c002040f0∴|c00bae9e1剑刃附魔 - 150码距离瞬间移动周期创建空绝斩1次触发\r\n|c002040f0∴|c00ff0000气运附魔不叠加",
         "valType": "STRING"
       },
       {
@@ -31996,7 +31996,7 @@
         "code": "acdn",
         "label": "Cool",
         "level": 1,
-        "value": 10.0,
+        "value": 20.0,
         "valType": "UNREAL"
       },
       {
@@ -117074,7 +117074,7 @@
         "code": "Ncl1",
         "label": "Ncl1",
         "level": 1,
-        "value": 4.0,
+        "value": 2.0,
         "valType": "UNREAL"
       },
       {
@@ -201340,7 +201340,7 @@
         "code": "aub1",
         "label": "Ubertip",
         "level": 1,
-        "value": "|c00da70d6[主动技能]|r\r\n强大气运给予你无限的力量.\r\n|c002040f0∴|c0080ff00空绝斩2次触发\r\n|c002040f0∴|c0080ff004秒内攻击伤害 20%提高\r\n|c002040f0∴|c00bae9e1剑刃附魔 -伤害 20%提高，同时可以立即释放空绝斩触发所需攻击次数减少至3次\r\n|c002040f0∴|c00ff0000灵动附魔不叠加",
+        "value": "|c00da70d6[主动技能]|r\r\n强大气运给予你无限的力量.\r\n|c002040f0∴|c0080ff00空绝斩2次触发\r\n|c002040f0∴|c0080ff005秒内攻击伤害 20%提高\r\n|c002040f0∴|c00bae9e1剑刃附魔 -伤害 20%提高，同时可以立即释放空绝斩触发所需攻击次数减少至2次\r\n|c002040f0∴|c00ff0000灵动附魔不叠加",
         "valType": "STRING"
       },
       {
@@ -222683,7 +222683,7 @@
         "code": "abpx",
         "label": "Buttonpos",
         "level": 0,
-        "value": 1,
+        "value": 3,
         "valType": "INT"
       },
       {
@@ -224888,7 +224888,7 @@
         "code": "aub1",
         "label": "Ubertip",
         "level": 1,
-        "value": "|c00da70d6[主动技能]|r\r\n以极快的速度疾驰.\r\n|c002040f0∴|c0080ff00接下来6次基础攻击造成|c00b1a6d2(力量+ 智力) X 4 |c0080ff00的额外伤害(最多3秒持续时间)\r\n|c002040f0∴|c00cd96ff施法后可追加施放1次",
+        "value": "|c00da70d6[主动技能]|r\r\n以极快的速度疾驰.\r\n|c002040f0∴|c0080ff00接下来6次基础攻击造成|c00b1a6d2(力量+ 智力) X 6 |c0080ff00的额外伤害(最多4秒持续时间)\r\n|c002040f0∴|c00cd96ff施法后可追加施放1次",
         "valType": "STRING"
       },
       {
@@ -225035,7 +225035,7 @@
         "code": "aub1",
         "label": "Ubertip",
         "level": 1,
-        "value": "|c00da70d6[主动技能]|r\r\n以极快的速度疾驰.\r\n|c002040f0∴|c0080ff00接下来6次基础攻击造成|c00b1a6d2(力量+ 智力) X 4 |c0080ff00的额外伤害(最多3秒持续时间)\r\n|c002040f0∴|c00cd96ff施法后可追加施放1次",
+        "value": "|c00da70d6[主动技能]|r\r\n以极快的速度疾驰.\r\n|c002040f0∴|c0080ff00接下来6次基础攻击造成|c00b1a6d2(力量+ 智力) X 6 |c0080ff00的额外伤害(最多4秒持续时间)\r\n|c002040f0∴|c00cd96ff施法后可追加施放1次",
         "valType": "STRING"
       },
       {
@@ -225616,7 +225616,7 @@
         "code": "aub1",
         "label": "Ubertip",
         "level": 1,
-        "value": "|c00da70d6[主动技能]|r\r\n周身的魔法让你以牙还牙.\r\n|c002040f0∴|c0080ff00最多1秒内受到伤害 70%减少并抵挡下一次施加的技能\r\n|c002040f0∴|c0080ff00结束时造成|c00b1a6d2(力量+ 智力) X 20 |c0080ff00的魔法伤害反击\r\n|c002040f0∴|c00cd96ff抵挡成功时持续时间重置，且反击时造成150% 额外伤害提高",
+        "value": "|c00da70d6[主动技能]|r\r\n周身的魔法让你以牙还牙.\r\n|c002040f0∴|c0080ff00最多1.25秒内受到伤害 70%减少并抵挡下一次施加的技能\r\n|c002040f0∴|c0080ff00结束时造成|c00b1a6d2(力量+ 智力) X 20 |c0080ff00的魔法伤害反击\r\n|c002040f0∴|c00cd96ff抵挡成功时持续时间重置，且反击时造成200% 额外伤害提高",
         "valType": "STRING"
       }
     ]
@@ -225637,7 +225637,7 @@
         "code": "aub1",
         "label": "Ubertip",
         "level": 1,
-        "value": "|c00da70d6[主动技能]|r\r\n月光照耀下释放一道剑影.\r\n|c002040f0∴|c00b1a6d2攻击伤害 X 5 + (力量+ 智力) X 40 |c0080ff00魔法伤害\r\n|c002040f0∴|c00cd96ff如果月影印记被消耗，将清除魔法护盾，并造成100% 额外伤害提高",
+        "value": "|c00da70d6[主动技能]|r\r\n月光照耀下释放一道剑影.\r\n|c002040f0∴|c00b1a6d2攻击伤害 X 5 + (力量+ 智力) X 40 |c0080ff00魔法伤害\r\n|c002040f0∴|c00cd96ff如果月影印记被消耗，将清除魔法护盾，并造成125% 额外伤害提高",
         "valType": "STRING"
       },
       {
@@ -225777,7 +225777,7 @@
         "code": "acdn",
         "label": "Cool",
         "level": 1,
-        "value": 30.0,
+        "value": 25.0,
         "valType": "UNREAL"
       },
       {
@@ -226099,7 +226099,7 @@
         "code": "acdn",
         "label": "Cool",
         "level": 1,
-        "value": 90.0,
+        "value": 60.0,
         "valType": "UNREAL"
       },
       {
@@ -228038,7 +228038,7 @@
         "code": "aub1",
         "label": "Ubertip",
         "level": 1,
-        "value": "|c00da70d6[主动技能]|r\r\n诵读加强你防御的咒语.\r\n|c002040f0∴|c0080ff00空绝斩2次触发\r\n|c002040f0∴|c0080ff00免疫负面影响以及3秒内所受伤害40% 减少\r\n|c002040f0∴|c00cd96ff在1秒内格挡一次即将受到的伤害后，以剑刃附魔进行反击，造成300%~750%的伤害（效果随自身等级提升）",
+        "value": "|c00da70d6[主动技能]|r\r\n诵读加强你防御的咒语.\r\n|c002040f0∴|c0080ff00空绝斩2次触发\r\n|c002040f0∴|c0080ff00免疫负面影响以及3秒内所受伤害40% 减少\r\n|c002040f0∴|c00cd96ff在1.5秒内格挡一次即将受到的伤害后，以剑刃附魔进行反击，造成300%~750%的伤害（效果随自身等级提升）",
         "valType": "STRING"
       },
       {
@@ -231939,6 +231939,1469 @@
         "level": 1,
         "value": 0.5,
         "valType": "UNREAL"
+      }
+    ]
+  },
+  {
+    "id": "A13S",
+    "originalId": "ANcl",
+    "name": "Recall",
+    "fields": [
+      {
+        "code": "aani",
+        "label": "Animnames",
+        "level": 0,
+        "value": "spell",
+        "valType": "STRING"
+      },
+      {
+        "code": "aart",
+        "label": "Art",
+        "level": 0,
+        "value": "ReplaceableTextures\\CommandButtons\\BTNMassTeleport.blp",
+        "valType": "STRING"
+      },
+      {
+        "code": "abpx",
+        "label": "Buttonpos",
+        "level": 0,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "abpy",
+        "label": "Buttonpos",
+        "level": 0,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "acat",
+        "label": "CasterArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "acap",
+        "label": "Casterattach",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "acdn",
+        "label": "Cool",
+        "level": 1,
+        "value": 1.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl1",
+        "label": "Ncl1",
+        "level": 1,
+        "value": 0.4,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl3",
+        "label": "Ncl3",
+        "level": 1,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "Ncl4",
+        "label": "Ncl4",
+        "level": 1,
+        "value": 0.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl5",
+        "label": "Ncl5",
+        "level": 1,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "Ncl6",
+        "label": "Ncl6",
+        "level": 1,
+        "value": "blizzard",
+        "valType": "STRING"
+      },
+      {
+        "code": "aeat",
+        "label": "EffectArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "aher",
+        "label": "hero",
+        "level": 0,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "ahky",
+        "label": "Hotkey",
+        "level": 0,
+        "value": "D",
+        "valType": "STRING"
+      },
+      {
+        "code": "alev",
+        "label": "levels",
+        "level": 0,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "anam",
+        "label": "Name",
+        "level": 0,
+        "value": "Recall",
+        "valType": "STRING"
+      },
+      {
+        "code": "arac",
+        "label": "race",
+        "level": 0,
+        "value": "nightelf",
+        "valType": "STRING"
+      },
+      {
+        "code": "aran",
+        "label": "Rng",
+        "level": 1,
+        "value": 0.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "atat",
+        "label": "TargetArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "ata0",
+        "label": "Targetattach",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "atp1",
+        "label": "Tip",
+        "level": 1,
+        "value": "|c00b3fff0返回|cffffcc00(D)|r",
+        "valType": "STRING"
+      },
+      {
+        "code": "aub1",
+        "label": "Ubertip",
+        "level": 1,
+        "value": "|c0087cefa[被动技能]|r\r\n助手与主人建立辅助链接，强化主人作战能力。\r\n|c002040f0∴|c0080ff00主人移动速度提高100|r\r\n|c002040f0∴|c0080ff00主人最终伤害提高20%|r\r\n|c002040f0∴|c0080ff00主人主属性提高20%|r\r\n|c002040f0∴|c0080ff00主人所受伤害25%减少|r\r\n|c002040f0∴|c00cd96ff助手可携带装备，装备无携带限制，属性加成不生效，装备被动与主动效果正常触发|r\r\n|c00da70d6[主动技能]|r\r\n使助手立即返回英雄身边。",
+        "valType": "STRING"
+      }
+    ]
+  },
+  {
+    "id": "A13V",
+    "originalId": "ANcl",
+    "name": "终符·禁忌解放",
+    "fields": [
+      {
+        "code": "aani",
+        "label": "Animnames",
+        "level": 0,
+        "value": "attack",
+        "valType": "STRING"
+      },
+      {
+        "code": "aart",
+        "label": "Art",
+        "level": 0,
+        "value": "ReplaceableTextures\\CommandButtons\\BTNMerchantF.blp",
+        "valType": "STRING"
+      },
+      {
+        "code": "abpx",
+        "label": "Buttonpos",
+        "level": 0,
+        "value": 3,
+        "valType": "INT"
+      },
+      {
+        "code": "abpy",
+        "label": "Buttonpos",
+        "level": 0,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "acat",
+        "label": "CasterArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "acap",
+        "label": "Casterattach",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "acdn",
+        "label": "Cool",
+        "level": 1,
+        "value": 60.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl1",
+        "label": "Ncl1",
+        "level": 1,
+        "value": 0.3,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl3",
+        "label": "Ncl3",
+        "level": 1,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "Ncl4",
+        "label": "Ncl4",
+        "level": 1,
+        "value": 0.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl5",
+        "label": "Ncl5",
+        "level": 1,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "Ncl6",
+        "label": "Ncl6",
+        "level": 1,
+        "value": "coldarrows",
+        "valType": "STRING"
+      },
+      {
+        "code": "aeat",
+        "label": "EffectArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "aher",
+        "label": "hero",
+        "level": 0,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "ahky",
+        "label": "Hotkey",
+        "level": 0,
+        "value": "F",
+        "valType": "STRING"
+      },
+      {
+        "code": "alev",
+        "label": "levels",
+        "level": 0,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "anam",
+        "label": "Name",
+        "level": 0,
+        "value": "终符·禁忌解放",
+        "valType": "STRING"
+      },
+      {
+        "code": "arac",
+        "label": "race",
+        "level": 0,
+        "value": "orc",
+        "valType": "STRING"
+      },
+      {
+        "code": "arlv",
+        "label": "reqLevel",
+        "level": 0,
+        "value": 6,
+        "valType": "INT"
+      },
+      {
+        "code": "arar",
+        "label": "ResearchArt",
+        "level": 0,
+        "value": "ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp",
+        "valType": "STRING"
+      },
+      {
+        "code": "aran",
+        "label": "Rng",
+        "level": 1,
+        "value": 0.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "atat",
+        "label": "TargetArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "ata0",
+        "label": "Targetattach",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "atar",
+        "label": "targs",
+        "level": 1,
+        "value": "invulnerable,nonancient,hero,self,vulnerable,friend",
+        "valType": "STRING"
+      },
+      {
+        "code": "atp1",
+        "label": "Tip",
+        "level": 1,
+        "value": "|c00b3fff0终符·禁忌解放|c00ffcc00(F)|r",
+        "valType": "STRING"
+      },
+      {
+        "code": "aub1",
+        "label": "Ubertip",
+        "level": 1,
+        "value": "|c00FF0000[终极技能]|r\r\n「权限验证通过——终末协议，启动。」\r\n「从现在开始，由我保护你。」\r\n|c002040f0∴|c00cd96ff12秒内赋予主人永不屈服的力量\r\n|c002040f0∴|c00cd96ff免疫影响移动速度的debuff\r\n|c002040f0∴|c00cd96ff最终伤害30%提高\r\n|c002040f0∴|c00cd96ff所受伤害60% 减少\r\n|c002040f0∴|c00cd96ff每秒造成最大生命值X 30% 恢复",
+        "valType": "STRING"
+      }
+    ]
+  },
+  {
+    "id": "A14G",
+    "originalId": "ANcl",
+    "name": "破灭",
+    "fields": [
+      {
+        "code": "aani",
+        "label": "Animnames",
+        "level": 0,
+        "value": "spell",
+        "valType": "STRING"
+      },
+      {
+        "code": "aare",
+        "label": "Area",
+        "level": 1,
+        "value": 500.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "aart",
+        "label": "Art",
+        "level": 0,
+        "value": "ReplaceableTextures\\CommandButtons\\BTNWitchTQ.blp",
+        "valType": "STRING"
+      },
+      {
+        "code": "abpx",
+        "label": "Buttonpos",
+        "level": 0,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "abpy",
+        "label": "Buttonpos",
+        "level": 0,
+        "value": 2,
+        "valType": "INT"
+      },
+      {
+        "code": "acat",
+        "label": "CasterArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "acap",
+        "label": "Casterattach",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "acdn",
+        "label": "Cool",
+        "level": 1,
+        "value": 10.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl1",
+        "label": "Ncl1",
+        "level": 1,
+        "value": 0.5,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl2",
+        "label": "Ncl2",
+        "level": 1,
+        "value": 2,
+        "valType": "INT"
+      },
+      {
+        "code": "Ncl3",
+        "label": "Ncl3",
+        "level": 1,
+        "value": 3,
+        "valType": "INT"
+      },
+      {
+        "code": "Ncl4",
+        "label": "Ncl4",
+        "level": 1,
+        "value": 0.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl5",
+        "label": "Ncl5",
+        "level": 1,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "aeat",
+        "label": "EffectArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "aher",
+        "label": "hero",
+        "level": 0,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "ahky",
+        "label": "Hotkey",
+        "level": 0,
+        "value": "Q",
+        "valType": "STRING"
+      },
+      {
+        "code": "alev",
+        "label": "levels",
+        "level": 0,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "anam",
+        "label": "Name",
+        "level": 0,
+        "value": "破灭",
+        "valType": "STRING"
+      },
+      {
+        "code": "arac",
+        "label": "race",
+        "level": 0,
+        "value": "nightelf",
+        "valType": "STRING"
+      },
+      {
+        "code": "arar",
+        "label": "ResearchArt",
+        "level": 0,
+        "value": "ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp",
+        "valType": "STRING"
+      },
+      {
+        "code": "aran",
+        "label": "Rng",
+        "level": 1,
+        "value": 1500.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "atat",
+        "label": "TargetArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "ata0",
+        "label": "Targetattach",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "atp1",
+        "label": "Tip",
+        "level": 1,
+        "value": "|c00b3fff0破灭|cffffcc00(Q)|r",
+        "valType": "STRING"
+      },
+      {
+        "code": "aub1",
+        "label": "Ubertip",
+        "level": 1,
+        "value": "|c00da70d6[主动技能]|r\r\n使用破灭之力，瓦解目标身上的防护力量。\r\n|c002040f0∴|c00cd96ff清除目标的魔法护盾|r",
+        "valType": "STRING"
+      }
+    ]
+  },
+  {
+    "id": "A14P",
+    "originalId": "ANcl",
+    "name": "生命回响",
+    "fields": [
+      {
+        "code": "aani",
+        "label": "Animnames",
+        "level": 0,
+        "value": "spell,three",
+        "valType": "STRING"
+      },
+      {
+        "code": "aart",
+        "label": "Art",
+        "level": 0,
+        "value": "ReplaceableTextures\\CommandButtons\\BTNMerchantT.blp",
+        "valType": "STRING"
+      },
+      {
+        "code": "abpy",
+        "label": "Buttonpos",
+        "level": 0,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "acat",
+        "label": "CasterArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "acap",
+        "label": "Casterattach",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "acdn",
+        "label": "Cool",
+        "level": 1,
+        "value": 60.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl1",
+        "label": "Ncl1",
+        "level": 1,
+        "value": 0.7,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl3",
+        "label": "Ncl3",
+        "level": 1,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "Ncl4",
+        "label": "Ncl4",
+        "level": 1,
+        "value": 0.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl5",
+        "label": "Ncl5",
+        "level": 1,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "Ncl6",
+        "label": "Ncl6",
+        "level": 1,
+        "value": "clusterrockets",
+        "valType": "STRING"
+      },
+      {
+        "code": "aeat",
+        "label": "EffectArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "aher",
+        "label": "hero",
+        "level": 0,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "ahky",
+        "label": "Hotkey",
+        "level": 0,
+        "value": "T",
+        "valType": "STRING"
+      },
+      {
+        "code": "alev",
+        "label": "levels",
+        "level": 0,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "anam",
+        "label": "Name",
+        "level": 0,
+        "value": "生命回响",
+        "valType": "STRING"
+      },
+      {
+        "code": "arac",
+        "label": "race",
+        "level": 0,
+        "value": "human",
+        "valType": "STRING"
+      },
+      {
+        "code": "arlv",
+        "label": "reqLevel",
+        "level": 0,
+        "value": 5,
+        "valType": "INT"
+      },
+      {
+        "code": "atat",
+        "label": "TargetArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "ata0",
+        "label": "Targetattach",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "atp1",
+        "label": "Tip",
+        "level": 1,
+        "value": "|c00b3fff0生命回响|c00ffcc00(T)|r",
+        "valType": "STRING"
+      },
+      {
+        "code": "aub1",
+        "label": "Ubertip",
+        "level": 1,
+        "value": "|c00da70d6[主动技能]|r\r\n守护精灵洒下灵露，让沉寂的生命再次回应呼唤。\r\n|c002040f0∴|c0080ff00周围的英雄1名复活\r\n|c002040f0∴|c0080ff00最大生命值\u0026魔法值100% 恢复\r\n|c002040f0∴|c00cd96ff被复活的英雄获得5秒内不死之身",
+        "valType": "STRING"
+      }
+    ]
+  },
+  {
+    "id": "A15B",
+    "originalId": "ANcl",
+    "name": "灵露调和",
+    "fields": [
+      {
+        "code": "aani",
+        "label": "Animnames",
+        "level": 0,
+        "value": "spell",
+        "valType": "STRING"
+      },
+      {
+        "code": "aart",
+        "label": "Art",
+        "level": 0,
+        "value": "ReplaceableTextures\\CommandButtons\\BTNManaRecharge.blp",
+        "valType": "STRING"
+      },
+      {
+        "code": "abpx",
+        "label": "Buttonpos",
+        "level": 0,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "abpy",
+        "label": "Buttonpos",
+        "level": 0,
+        "value": 2,
+        "valType": "INT"
+      },
+      {
+        "code": "acat",
+        "label": "CasterArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "acap",
+        "label": "Casterattach",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "Ncl1",
+        "label": "Ncl1",
+        "level": 1,
+        "value": 0.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl3",
+        "label": "Ncl3",
+        "level": 1,
+        "value": 3,
+        "valType": "INT"
+      },
+      {
+        "code": "Ncl4",
+        "label": "Ncl4",
+        "level": 1,
+        "value": 0.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl5",
+        "label": "Ncl5",
+        "level": 1,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "Ncl6",
+        "label": "Ncl6",
+        "level": 1,
+        "value": "charm",
+        "valType": "STRING"
+      },
+      {
+        "code": "aeat",
+        "label": "EffectArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "aher",
+        "label": "hero",
+        "level": 0,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "ahky",
+        "label": "Hotkey",
+        "level": 0,
+        "value": "W",
+        "valType": "STRING"
+      },
+      {
+        "code": "alev",
+        "label": "levels",
+        "level": 0,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "anam",
+        "label": "Name",
+        "level": 0,
+        "value": "灵露调和",
+        "valType": "STRING"
+      },
+      {
+        "code": "arac",
+        "label": "race",
+        "level": 0,
+        "value": "human",
+        "valType": "STRING"
+      },
+      {
+        "code": "arlv",
+        "label": "reqLevel",
+        "level": 0,
+        "value": 6,
+        "valType": "INT"
+      },
+      {
+        "code": "arar",
+        "label": "ResearchArt",
+        "level": 0,
+        "value": "ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp",
+        "valType": "STRING"
+      },
+      {
+        "code": "aran",
+        "label": "Rng",
+        "level": 1,
+        "value": 0.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "atat",
+        "label": "TargetArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "ata0",
+        "label": "Targetattach",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "atar",
+        "label": "targs",
+        "level": 1,
+        "value": "nonancient,self,friend",
+        "valType": "STRING"
+      },
+      {
+        "code": "atp1",
+        "label": "Tip",
+        "level": 1,
+        "value": "|c00b3fff0灵露调和|cffffcc00(W)|r",
+        "valType": "STRING"
+      },
+      {
+        "code": "aub1",
+        "label": "Ubertip",
+        "level": 1,
+        "value": "|c0087cefa[被动技能]|r\r\n解决友军的饥渴问题。\r\n|c002040f0∴|c0080ff00周围1000半径内的友军每秒恢复|c00bae0fc(目标最大生命值X 2% + 主人主属性 X 0.3) |c0080ff00生命值恢复\r\n|c00da70d6[主动技能]|r\r\n守护精灵凝成生命药剂，洒落在主人身边，等待回应受伤的灵魂。\r\n|c002040f0∴|c0080ff005秒内每秒生成1瓶药剂\r\n|c002040f0∴|c0080ff00拾取药剂时恢复|c00bae0fc主人主属性 X 3|c0080ff00生命值\r\n|c002040f0∴|c0080ff00拾取后30秒内技能伤害20%额外提高，魔法防御15%提高\r\n|c002040f0∴|c00cd96ff药剂最多持续300秒，场上最多保存8瓶",
+        "valType": "STRING"
+      },
+      {
+        "code": "acdn",
+        "label": "Cool",
+        "level": 1,
+        "value": 10.0,
+        "valType": "UNREAL"
+      }
+    ]
+  },
+  {
+    "id": "A16D",
+    "originalId": "Aasl",
+    "name": "灵露调和",
+    "fields": [
+      {
+        "code": "aare",
+        "label": "Area",
+        "level": 1,
+        "value": 0.01,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "abuf",
+        "label": "BuffID",
+        "level": 1,
+        "value": "B0DR",
+        "valType": "STRING"
+      },
+      {
+        "code": "Slo1",
+        "label": "Slo1",
+        "level": 1,
+        "value": 0.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "anam",
+        "label": "Name",
+        "level": 0,
+        "value": "灵露调和",
+        "valType": "STRING"
+      },
+      {
+        "code": "arac",
+        "label": "race",
+        "level": 0,
+        "value": "undead",
+        "valType": "STRING"
+      },
+      {
+        "code": "atar",
+        "label": "targs",
+        "level": 1,
+        "value": "invulnerable,self,vulnerable",
+        "valType": "STRING"
+      }
+    ]
+  },
+  {
+    "id": "A16J",
+    "originalId": "ANcl",
+    "name": "守护契约",
+    "fields": [
+      {
+        "code": "aani",
+        "label": "Animnames",
+        "level": 0,
+        "value": "spell",
+        "valType": "STRING"
+      },
+      {
+        "code": "aart",
+        "label": "Art",
+        "level": 0,
+        "value": "ReplaceableTextures\\CommandButtons\\BTNMerchantE.blp",
+        "valType": "STRING"
+      },
+      {
+        "code": "abpy",
+        "label": "Buttonpos",
+        "level": 0,
+        "value": 2,
+        "valType": "INT"
+      },
+      {
+        "code": "acat",
+        "label": "CasterArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "acap",
+        "label": "Casterattach",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "acdn",
+        "label": "Cool",
+        "level": 1,
+        "value": 20.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl1",
+        "label": "Ncl1",
+        "level": 1,
+        "value": 0.3,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl3",
+        "label": "Ncl3",
+        "level": 1,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "Ncl4",
+        "label": "Ncl4",
+        "level": 1,
+        "value": 0.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl5",
+        "label": "Ncl5",
+        "level": 1,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "Ncl6",
+        "label": "Ncl6",
+        "level": 1,
+        "value": "chemicalrage",
+        "valType": "STRING"
+      },
+      {
+        "code": "aeat",
+        "label": "EffectArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "aher",
+        "label": "hero",
+        "level": 0,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "ahky",
+        "label": "Hotkey",
+        "level": 0,
+        "value": "E",
+        "valType": "STRING"
+      },
+      {
+        "code": "alev",
+        "label": "levels",
+        "level": 0,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "anam",
+        "label": "Name",
+        "level": 0,
+        "value": "守护契约",
+        "valType": "STRING"
+      },
+      {
+        "code": "arac",
+        "label": "race",
+        "level": 0,
+        "value": "human",
+        "valType": "STRING"
+      },
+      {
+        "code": "areq",
+        "label": "Requires",
+        "level": 0,
+        "value": "e0EW",
+        "valType": "STRING"
+      },
+      {
+        "code": "atat",
+        "label": "TargetArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "ata0",
+        "label": "Targetattach",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "atp1",
+        "label": "Tip",
+        "level": 1,
+        "value": "|c00b3fff0守护契约|cffffcc00(E)|r",
+        "valType": "STRING"
+      },
+      {
+        "code": "aub1",
+        "label": "Ubertip",
+        "level": 1,
+        "value": "|c00da70d6[主动技能]|r\r\n缔结守护契约。\r\n|c002040f0∴|c0080ff00创建可吸收|c00bae0fc(主人生命值 X 25% + 主人主属性 x 2)|c0080ff00伤害的护盾\r\n|c002040f0∴|c00cd96ff护盾持续|c00bae0fc10|c00cd96ff秒，持续期间每秒再充能护盾上限的10%\r\n|c002040f0∴|c00cd96ff施法时清除主人DEBUFF",
+        "valType": "STRING"
+      }
+    ]
+  },
+  {
+    "id": "A16V",
+    "originalId": "ANcl",
+    "name": "永恒之息",
+    "fields": [
+      {
+        "code": "aani",
+        "label": "Animnames",
+        "level": 0,
+        "value": "spell,throw",
+        "valType": "STRING"
+      },
+      {
+        "code": "aare",
+        "label": "Area",
+        "level": 1,
+        "value": 375.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "aart",
+        "label": "Art",
+        "level": 0,
+        "value": "ReplaceableTextures\\CommandButtons\\BTNMoonStone.blp",
+        "valType": "STRING"
+      },
+      {
+        "code": "abpx",
+        "label": "Buttonpos",
+        "level": 0,
+        "value": 3,
+        "valType": "INT"
+      },
+      {
+        "code": "abpy",
+        "label": "Buttonpos",
+        "level": 0,
+        "value": 2,
+        "valType": "INT"
+      },
+      {
+        "code": "acat",
+        "label": "CasterArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "acap",
+        "label": "Casterattach",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "acdn",
+        "label": "Cool",
+        "level": 1,
+        "value": 25.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl1",
+        "label": "Ncl1",
+        "level": 1,
+        "value": 0.6,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl2",
+        "label": "Ncl2",
+        "level": 1,
+        "value": 2,
+        "valType": "INT"
+      },
+      {
+        "code": "Ncl3",
+        "label": "Ncl3",
+        "level": 1,
+        "value": 3,
+        "valType": "INT"
+      },
+      {
+        "code": "Ncl4",
+        "label": "Ncl4",
+        "level": 1,
+        "value": 0.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl5",
+        "label": "Ncl5",
+        "level": 1,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "Ncl6",
+        "label": "Ncl6",
+        "level": 1,
+        "value": "controlmagic",
+        "valType": "STRING"
+      },
+      {
+        "code": "aeat",
+        "label": "EffectArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "aher",
+        "label": "hero",
+        "level": 0,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "ahky",
+        "label": "Hotkey",
+        "level": 0,
+        "value": "R",
+        "valType": "STRING"
+      },
+      {
+        "code": "alev",
+        "label": "levels",
+        "level": 0,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "anam",
+        "label": "Name",
+        "level": 0,
+        "value": "永恒之息",
+        "valType": "STRING"
+      },
+      {
+        "code": "arac",
+        "label": "race",
+        "level": 0,
+        "value": "human",
+        "valType": "STRING"
+      },
+      {
+        "code": "arar",
+        "label": "ResearchArt",
+        "level": 0,
+        "value": "ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp",
+        "valType": "STRING"
+      },
+      {
+        "code": "aran",
+        "label": "Rng",
+        "level": 1,
+        "value": 1200.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "atat",
+        "label": "TargetArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "ata0",
+        "label": "Targetattach",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "atp1",
+        "label": "Tip",
+        "level": 1,
+        "value": "|c00b3fff0永恒之息|c00ffcc00(R)|r",
+        "valType": "STRING"
+      },
+      {
+        "code": "aub1",
+        "label": "Ubertip",
+        "level": 1,
+        "value": "|c00da70d6[主动技能]|r\r\n能够短暂干涉命运的流向。\r\n|c002040f0∴|c0080ff00敌人1.5秒内锁定单位\r\n|c002040f0∴|c0080ff00让友军在2秒内免疫有害效果",
+        "valType": "STRING"
+      }
+    ]
+  },
+  {
+    "id": "A17M",
+    "originalId": "ANcl",
+    "name": "转移助手",
+    "fields": [
+      {
+        "code": "aani",
+        "label": "Animnames",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "aart",
+        "label": "Art",
+        "level": 0,
+        "value": "ReplaceableTextures\\CommandButtons\\BTNPickUpItem.blp",
+        "valType": "STRING"
+      },
+      {
+        "code": "abpx",
+        "label": "Buttonpos",
+        "level": 0,
+        "value": 3,
+        "valType": "INT"
+      },
+      {
+        "code": "acat",
+        "label": "CasterArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "acap",
+        "label": "Casterattach",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "acdn",
+        "label": "Cool",
+        "level": 1,
+        "value": 5.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl1",
+        "label": "Ncl1",
+        "level": 1,
+        "value": 0.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl2",
+        "label": "Ncl2",
+        "level": 1,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "Ncl3",
+        "label": "Ncl3",
+        "level": 1,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "Ncl4",
+        "label": "Ncl4",
+        "level": 1,
+        "value": 0.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "Ncl5",
+        "label": "Ncl5",
+        "level": 1,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "Ncl6",
+        "label": "Ncl6",
+        "level": 1,
+        "value": "healingwave",
+        "valType": "STRING"
+      },
+      {
+        "code": "aeat",
+        "label": "EffectArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "aher",
+        "label": "hero",
+        "level": 0,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "ahky",
+        "label": "Hotkey",
+        "level": 0,
+        "value": "A",
+        "valType": "STRING"
+      },
+      {
+        "code": "alev",
+        "label": "levels",
+        "level": 0,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "anam",
+        "label": "Name",
+        "level": 0,
+        "value": "转移助手",
+        "valType": "STRING"
+      },
+      {
+        "code": "arac",
+        "label": "race",
+        "level": 0,
+        "value": "other",
+        "valType": "STRING"
+      },
+      {
+        "code": "aran",
+        "label": "Rng",
+        "level": 1,
+        "value": 100000.0,
+        "valType": "UNREAL"
+      },
+      {
+        "code": "atat",
+        "label": "TargetArt",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "ata0",
+        "label": "Targetattach",
+        "level": 0,
+        "value": "",
+        "valType": "STRING"
+      },
+      {
+        "code": "atar",
+        "label": "targs",
+        "level": 1,
+        "value": "item",
+        "valType": "STRING"
+      },
+      {
+        "code": "atp1",
+        "label": "Tip",
+        "level": 1,
+        "value": "|c00d7e169转移助手|c00ffcc00(A)|r",
+        "valType": "STRING"
+      },
+      {
+        "code": "aub1",
+        "label": "Ubertip",
+        "level": 1,
+        "value": "把物品转移给助手。",
+        "valType": "STRING"
       }
     ]
   }

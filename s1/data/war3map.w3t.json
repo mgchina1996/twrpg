@@ -479,6 +479,13 @@
         "level": 0,
         "value": 0,
         "valType": "INT"
+      },
+      {
+        "code": "istr",
+        "label": "stockRegen",
+        "level": 0,
+        "value": 0,
+        "valType": "INT"
       }
     ]
   },
@@ -5929,6 +5936,20 @@
       {
         "code": "iuse",
         "label": "uses",
+        "level": 0,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "isst",
+        "label": "stockStart",
+        "level": 0,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "istr",
+        "label": "stockRegen",
         "level": 0,
         "value": 0,
         "valType": "INT"
@@ -17188,6 +17209,20 @@
         "level": 0,
         "value": 0,
         "valType": "INT"
+      },
+      {
+        "code": "istr",
+        "label": "stockRegen",
+        "level": 0,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "isst",
+        "label": "stockStart",
+        "level": 0,
+        "value": 0,
+        "valType": "INT"
       }
     ]
   },
@@ -20692,6 +20727,13 @@
       {
         "code": "iuse",
         "label": "uses",
+        "level": 0,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "istr",
+        "label": "stockRegen",
         "level": 0,
         "value": 0,
         "valType": "INT"
@@ -31339,6 +31381,13 @@
       {
         "code": "iuse",
         "label": "uses",
+        "level": 0,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "istr",
+        "label": "stockRegen",
         "level": 0,
         "value": 0,
         "valType": "INT"
@@ -47593,6 +47642,20 @@
       {
         "code": "iusa",
         "label": "usable",
+        "level": 0,
+        "value": 1,
+        "valType": "INT"
+      },
+      {
+        "code": "istr",
+        "label": "stockRegen",
+        "level": 0,
+        "value": 0,
+        "valType": "INT"
+      },
+      {
+        "code": "ubpx",
+        "label": "Buttonpos",
         "level": 0,
         "value": 1,
         "valType": "INT"
@@ -94881,6 +94944,13 @@
         "level": 0,
         "value": 0,
         "valType": "INT"
+      },
+      {
+        "code": "istr",
+        "label": "stockRegen",
+        "level": 0,
+        "value": 0,
+        "valType": "INT"
       }
     ]
   },
@@ -135682,7 +135752,7 @@
         "code": "ides",
         "label": "Description",
         "level": 0,
-        "value": "希望掉落特定物品.\r\n\r\n|cffcdff9b有愿望指定时|r: 其他物品不会掉落.\r\n|cffcdff9b无有愿望指定时|r: 所有物品均可掉落，但掉落率将被均分为N份并额外增加15%的掉落率。\r\n\r\n灵魂宝石/结晶不受影响.",
+        "value": "希望掉落特定物品.\r\n\r\n|cffcdff9b有愿望指定时|r: 其他物品不会掉落，但指定物品的掉率提高50%.\r\n|cffcdff9b无有愿望指定时|r: 所有物品均可掉落，但掉落率将被均分为N份并额外增加100%的掉落率。\r\n\r\n灵魂宝石/结晶不受影响.",
         "valType": "STRING"
       },
       {
@@ -135745,7 +135815,7 @@
         "code": "utub",
         "label": "Ubertip",
         "level": 0,
-        "value": "希望掉落特定物品.\r\n\r\n|cffcdff9b有愿望指定时|r: 其他物品不会掉落.\r\n|cffcdff9b无有愿望指定时|r: 所有物品均可掉落，但掉落率将被均分为N份并额外增加15%的掉落率。\r\n\r\n灵魂宝石/结晶不受影响.",
+        "value": "希望掉落特定物品.\r\n\r\n|cffcdff9b有愿望指定时|r: 其他物品不会掉落，但指定物品的掉率提高50%.\r\n|cffcdff9b无有愿望指定时|r: 所有物品均可掉落，但掉落率将被均分为N份并额外增加100%的掉落率。\r\n\r\n灵魂宝石/结晶不受影响.",
         "valType": "STRING"
       }
     ]
