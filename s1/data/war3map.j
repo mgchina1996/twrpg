@@ -173573,9 +173573,12 @@ set OOql=l0lIi
 call q00O(null,(l9_o),((.01*OOql*u6_O((GetUnitUserData((l9_o)))))*1.))
 call ou60((l9_o),(l9_o),(OO6l),((.0)*1.),1,1)
 endfunction
+function l0l2i takes unit l9_o returns nothing
+call q00O(null,(l9_o),((.02*u6_O((GetUnitUserData((l9_o)))))*1.))
+endfunction
 function l0loi takes integer q9OO returns boolean
 if nt[(GetUnitUserData(((tT[(q9OO)]))))]and not o1pl[((GetUnitUserData(((tT[(q9OO)])))))]then
-call l0lli((tT[(q9OO)]),(Oo0o((y6[(((GetUnitUserData(((((tT[(q9OO)]))))))))]),4,$A,5.,2.5)))
+call l0l2i((tT[(q9OO)]))
 call DestroyEffect(AddSpecialEffectTarget("Effects\\DoomDeath_Teal.mdl",(tT[(q9OO)]),"origin"))
 endif
 return true
