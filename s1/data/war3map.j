@@ -164816,7 +164816,7 @@ set Ip0l[l9uo]=false
 set XW[Ipul[l9uo]]=O11O(k6[(l9uo)])
 set OW[Ipul[l9uo]]=O1lO(k6[(l9uo)])
 call p6_O((l9uo),true)
-call io_0(my[Ipul[l9uo]],p1pO((l9uo),50.))
+call io_0(my[Ipul[l9uo]],p1pO((l9uo),25.))
 call qIqo((yx[(l9uo)]),'A196',2)
 endif
 endfunction
