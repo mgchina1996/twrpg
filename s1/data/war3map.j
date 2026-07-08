@@ -37613,6 +37613,7 @@ if GetUnitAbilityLevel((yx[(yS[(l9uo)])]),'A091')==0 then
 call qIpo((yx[(yS[(l9uo)])]),'A091')
 endif
 call qIpo((yx[(yS[(l9uo)])]),'A14E')
+call qIpo((yx[(yS[(l9uo)])]),'A1A2')
 set Iu_o=BN[WS[l9uo]]
 if not Iu_o and bN[WS[l9uo]]!='e01Z' then
 set q10O=Oo_O((TS[l9uo]),4)
@@ -217485,6 +217486,23 @@ set caster=null
 set owner=null
 set it=null
 endfunction
+function fzzsA1A2 takes nothing returns nothing
+local unit caster=GetTriggerUnit()
+local integer pid=GetPlayerId(GetOwningPlayer(caster))
+local item it=GetSpellTargetItem()
+local integer o1po=GetItemTypeId(it)
+if it==null then
+call qoIo(caster,"没有目标物品")
+elseif Tl[pid]==0 then
+call qoIo(caster,"仓库不存在")
+elseif not q11O(Tl[pid],it)then
+call qoIo(caster,"仓库已满")
+else
+call o1IO(pid,GetObjectName(o1po)+" (被转移到仓库)")
+endif
+set caster=null
+set it=null
+endfunction
 function fzzsA14G takes nothing returns nothing
 local unit u=GetTriggerUnit()
 local unit target=null
@@ -250821,6 +250839,7 @@ call lliO('A16J',function fzzsA16J)
 call lliO('A16V',function fzzsA16V)
 call lliO('A17M',function fzzsA17M)
 call lliO('A19T',function fzzsA19T)
+call lliO('A1A2',function fzzsA1A2)
 call lliO('A10G',function I6qli)
 call lliO('A0DH',function Iqi9i)
 call I9_O('A13Y')
