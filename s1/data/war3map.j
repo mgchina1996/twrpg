@@ -164638,9 +164638,6 @@ return false
 endfunction
 function llppi takes integer l9uo returns nothing
 local unit u
-local real pupo
-local real OOlo
-local integer i
 if Tw[Ipul[l9uo]]==0 then
 if(uw[(Ipul[l9uo])]==0)then
 if IpOl[l9uo]then
@@ -164648,11 +164645,6 @@ set Sw[Ipul[l9uo]]=2.5
 set qW[Ipul[l9uo]]=llpoi((yx[(l9uo)]))
 call qIio((yx[(l9uo)]),"在大自然力量的面前，你就是渣渣 !",18,$7F,$FF,$7F)
 set Ip_l[l9uo]=0
-loop
-set Ip_l[l9uo]=Ip_l[l9uo]+1
-call Op6o(Ip1l[l9uo],Ip_l[l9uo])
-exitwhen Ip_l[l9uo]==8
-endloop
 else
 set Sw[Ipul[l9uo]]=1.
 endif
@@ -164685,14 +164677,6 @@ call SetUnitState((yx[(((l9uo)))]),UNIT_STATE_MANA,((lIo0(Ipul[l9uo])*(GetUnitSt
 if lIp0(Ipul[l9uo],.5)then
 call u6pO((l9uo),u6uO((l9uo))+qW[Ipul[l9uo]]/(Sw[Ipul[l9uo]]/ .5))
 call IiqO((l96O("Effects\\HolyLight_Green.mdl",XW[Ipul[l9uo]],OW[Ipul[l9uo]],4.+2.*lIo0(Ipul[l9uo]))),1,.0)
-endif
-if Ip_l[l9uo]>0 and lI_0(Ipul[l9uo],2)then
-set Ip_l[l9uo]=Ip_l[l9uo]-1
-set i=Oppo(Ip1l[l9uo])
-call Op9o(Ip1l[l9uo],i)
-set pupo=SquareRoot(GetRandomReal(750.*750.,1200.*1200.))
-set OOlo=ao*(i+GetRandomReal(-.5,.5))/ 8.
-call u0u6((yx[(l9uo)]),XW[Ipul[l9uo]]+pupo*Cos(OOlo),OW[Ipul[l9uo]]+pupo*Sin(OOlo),false)
 endif
 elseif lIp0(Ipul[l9uo],.5)then
 call DestroyEffect(AddSpecialEffectTarget("Effects\\Heal_Green.mdl",(yx[(l9uo)]),"origin"))
@@ -164754,9 +164738,6 @@ call u_Op((GetUnitUserData(((yx[(l9uo)])))))
 else
 if IpOl[l9uo]then
 if MW[Ipul[l9uo]]<=.0 then
-set pupo=SquareRoot(GetRandomReal(600.*600.,1000.*1000.))
-set OOlo=GetRandomReal(0,ao)
-call u0u6((yx[(l9uo)]),XW[Ipul[l9uo]]+pupo*Cos(OOlo),OW[Ipul[l9uo]]+pupo*Sin(OOlo),true)
 set MW[Ipul[l9uo]]=llpOi((yx[(l9uo)]),Uw[Ipul[l9uo]])
 else
 set MW[Ipul[l9uo]]=MW[Ipul[l9uo]]-tw[Ipul[l9uo]]
