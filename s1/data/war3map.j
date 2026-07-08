@@ -36185,7 +36185,7 @@ function pIpO takes integer l9uo returns real
 if not Jz[(l9uo)]or Hl[cz[(l9uo)]]or GetHeroLevel((yx[(l9uo)]))>='d' then
 return .0
 else
-return 5.*(1.+(If[(As[(l9uo)])]))
+return 10.*(1.+(If[(As[(l9uo)])]))
 endif
 endfunction
 function pI6O takes integer l9uo returns nothing
