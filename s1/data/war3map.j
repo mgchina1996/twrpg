@@ -41470,6 +41470,42 @@ set Ty[l9uo]=Ty[l9uo]+1
 endif
 set i=i+1
 endloop
+if fzzsl[(l9uo)]!=0 then
+set uu9o=(yx[(fzzsl[(l9uo)])])
+if uu9o!=null then
+set i=0
+set oq9o=UnitInventorySize(uu9o)
+loop
+exitwhen i==oq9o
+set it=UnitItemInSlot(uu9o,i)
+if it!=null then
+set o1po=GetItemTypeId(it)
+set Uy[500*l9uo+Ty[l9uo]]=it
+if(HaveSavedInteger(Nv,(Sy[l9uo]),(o1po)))then
+set op6o=(LoadInteger(Nv,(Sy[l9uo]),(o1po)))
+else
+set uy[l9uo]=uy[l9uo]+1
+set op6o=500*l9uo+uy[l9uo]
+call SaveInteger(Nv,(Sy[l9uo]),(o1po),(op6o))
+set wy[op6o]=OOOO((LoadInteger(Nv,(jp),((o1po)))))
+set Wy[op6o]=0
+endif
+if wy[op6o]then
+set Wy[op6o]=Wy[op6o]+1
+else
+set poIo=GetItemCharges(it)
+if poIo==0 then
+set Wy[op6o]=Wy[op6o]+1
+else
+set Wy[op6o]=Wy[op6o]+poIo
+endif
+endif
+set Ty[l9uo]=Ty[l9uo]+1
+endif
+set i=i+1
+endloop
+endif
+endif
 set i=0
 set oq9o=(YS[(tl[((l9uo))])])
 loop
