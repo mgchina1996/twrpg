@@ -59131,7 +59131,7 @@ call lliO('A1BY',function lpOu)
 endif
 endfunction
 function lpuu takes unit l9oo returns real
-return 2.5
+return 3.
 endfunction
 function lppu takes integer l9uo returns boolean
 if not(mw[(III[l9uo])])or not bW[III[l9uo]]then
@@ -125710,10 +125710,10 @@ call q_oq('A09F','A05T',"Consecrate.mdx")
 call q_oq('A09G','A0AJ',"ConvictionAura.mdx")
 endfunction
 function q_uq takes unit l9oo returns integer
-return 20
+return 25
 endfunction
 function q_pq takes unit l9oo returns real
-return yQ[(GetUnitUserData((l9oo)))]*(6.*GetHeroStr(l9oo,true))
+return yQ[(GetUnitUserData((l9oo)))]*(8.*GetHeroStr(l9oo,true))
 endfunction
 function q_6q takes unit l9oo returns string
 if bQ[(GetUnitUserData((l9oo)))]=='H01U' then
@@ -140071,7 +140071,7 @@ function iO6Oi takes nothing returns nothing
 call lliO('A105',function iO6oi)
 endfunction
 function iO60i takes unit l9oo returns real
-return yQ[(GetUnitUserData((l9oo)))]*(1.*pu_O((GetUnitUserData((l9oo))))+15.*GetHeroStr(l9oo,true))
+return yQ[(GetUnitUserData((l9oo)))]*(1.2*pu_O((GetUnitUserData((l9oo))))+18.*GetHeroStr(l9oo,true))
 endfunction
 function iO6_i takes integer q9OO returns boolean
 local real x=(GetUnitX(bJ[(kT[q9OO])]))
@@ -140187,7 +140187,7 @@ else
 set ii06=$96
 endif
 call iOqii(l9oo,GetUnitX(l9oo),GetUnitY(l9oo),GetUnitFlyHeight(l9oo)+ii06,i09O,i_iO,iO60i(l9oo))
-call qupq((GetUnitUserData((l9oo))),2)
+call qupq((GetUnitUserData((l9oo))),4)
 call p1q0(l9oo,75,0,OOlo+bj_PI,.25,1,false)
 call q_lo((GetUnitUserData((l9oo))),"spell")
 call l_I0((Player((((GetPlayerId((GetOwningPlayer(l9oo)))))))),((60)*1.),((.25)*1.))
