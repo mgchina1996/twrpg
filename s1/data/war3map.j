@@ -9715,6 +9715,7 @@ boolean array AS_STARTUP_MENU
 integer array AS_PENDING_NEW
 integer AS_BUTTON_KEY=900001
 integer AS_PUBLIC_STORAGE_KEY=900002
+integer AS_PUBLIC_ASSISTANT_KEY=900003
 endglobals
 native DzAPI_Map_GetPlayerUserName takes player whichPlayer returns string
 native DzSyncData takes string prefix,string data returns nothing
@@ -136366,6 +136367,9 @@ call SelectUnit((yx[(Sl[((l9uo))])]),true)
 endif
 call luO0(((((l9uo)))),GetUnitX((yx[(Sl[((l9uo))])])),GetUnitY((yx[(Sl[((l9uo))])])),0)
 set fzzsl[(l9uo)] = cfzzs98(yx[(Sl[(l9uo)])])
+if AS_ACTIVE_SLOT[l9uo]>=1 and AS_ACTIVE_SLOT[l9uo]<=5 then
+call ExecuteFunc("AutoSlot_ApplyPublicStorageForReady")
+endif
 if uio1[l9uo]then
 call SetPlayerState((P[((((l9uo))))]),PLAYER_STATE_RESOURCE_GOLD,(500))
 call UnitAddItem((yx[(Sl[((l9uo))])]),plOo('I007',GetUnitX((yx[(Sl[((l9uo))])])),GetUnitY((yx[(Sl[((l9uo))])]))))
@@ -153406,6 +153410,62 @@ call RemoveSavedString(AS_TABLE,AS_PUBLIC_STORAGE_KEY,pid)
 endif
 endif
 endfunction
+function AutoSlot_PublicAssistantApply takes integer pid,string data returns boolean
+local integer id
+local unit helper
+local integer slot
+local integer pos=0
+local integer comma
+local integer semi
+local integer o160
+local integer charges
+local item it
+if pid<0 or pid>=lo then
+return false
+endif
+set id=fzzsl[pid]
+if id==0 or yx[(id)]==null or GetUnitTypeId((yx[(id)]))==0 then
+return false
+endif
+set helper=yx[(id)]
+set slot=UnitInventorySize(helper)
+loop
+exitwhen slot==0
+set slot=slot-1
+set it=UnitItemInSlot(helper,slot)
+if it!=null then
+call RemoveItem(it)
+endif
+endloop
+loop
+set comma=AS_FindChar(data,",",pos)
+set semi=AS_FindChar(data,";",pos)
+exitwhen comma<0 or semi<0 or comma>semi
+set o160=S2I(SubString(data,pos,comma))
+set charges=S2I(SubString(data,comma+1,semi))
+if o160!=0 then
+set it=plOo(o160,GetUnitX(helper),GetUnitY(helper))
+if charges>0 then
+call SetItemCharges(it,charges)
+endif
+call SetItemUserData((it),pid+1)
+call UnitAddItem(helper,it)
+endif
+set pos=semi+1
+endloop
+set it=null
+set helper=null
+return true
+endfunction
+function AutoSlot_PublicAssistantApplyPending takes integer pid returns nothing
+local string data
+if HaveSavedString(AS_TABLE,AS_PUBLIC_ASSISTANT_KEY,pid) then
+set data=LoadStr(AS_TABLE,AS_PUBLIC_ASSISTANT_KEY,pid)
+if AutoSlot_PublicAssistantApply(pid,data) then
+call RemoveSavedString(AS_TABLE,AS_PUBLIC_ASSISTANT_KEY,pid)
+endif
+endif
+endfunction
 function fzzsloaditemkey takes integer p9Io returns integer
 return StringHash("fzzsloaditems")+p9Io
 endfunction
@@ -153415,56 +153475,22 @@ endfunction
 function fzzsloaditems takes nothing returns nothing
 local integer p9Io=i6Il
 local integer p6lo=ip6l[p9Io]
-local integer key=fzzsloaditemkey(p9Io)
 local integer uOiO=(Ipuo((O1l1)))
 local integer uO1O
 local integer o160
 local integer olio
-local integer poOo
-local integer count=0
-call FlushChildHashtable(Nv,(key))
 loop
 set uO1O=(o00o(((p6lo)),(uOiO)+1))
 exitwhen uO1O==0
 set o160=(Ip6o((O1l1),(uO1O)))
 set olio=ollo(O1I1,o160)
 if olio>0 then
-set poOo=(o00o(((p6lo)),(olio)+1))
-else
-set poOo=0
+call o00o(((p6lo)),(olio)+1)
 endif
-set count=count+1
-call SaveInteger(Nv,(key),(2*count-1),(o160))
-call SaveInteger(Nv,(key),(2*count),(poOo))
 endloop
-call SaveInteger(Nv,(key),(0),(count))
 endfunction
 function fzzsapplyloaditems takes integer p9Io returns nothing
-local integer key=fzzsloaditemkey(p9Io)
-local integer count=LoadInteger(Nv,(key),(0))
-local integer pid=iu9l[p9Io]
-local integer id=fzzsl[pid]
-local integer i=1
-local integer o160
-local integer poOo
-local item it
-if count>0 and id!=0 and yx[(id)]!=null and GetUnitTypeId((yx[(id)]))!=0 then
-loop
-exitwhen i>count
-set o160=LoadInteger(Nv,(key),(2*i-1))
-set poOo=LoadInteger(Nv,(key),(2*i))
-set it=plOo(o160,GetUnitX((yx[(id)])),GetUnitY((yx[(id)])))
-call o9qO(ip1l[p9Io],it)
-if poOo>0 then
-call SetItemCharges(it,poOo)
-endif
-call SetItemUserData((it),GetPlayerId((Player(pid)))+1)
-call UnitAddItem((yx[(id)]),it)
-set i=i+1
-endloop
-endif
-call FlushChildHashtable(Nv,(key))
-set it=null
+call fzzsclearloaditems(p9Io)
 endfunction
 function iq_Ii takes integer l9uo returns nothing
 local integer i
@@ -153491,6 +153517,7 @@ set MR[iu9l[l9uo]]=true
 call iol0i(((iu9l[l9uo])))
 call fzzsapplyloaditems(l9uo)
 call AutoSlot_PublicStorageApplyPending(iu9l[l9uo])
+call AutoSlot_PublicAssistantApplyPending(iu9l[l9uo])
 endif
 else
 if not ipOl[l9uo]then
@@ -155581,20 +155608,10 @@ function i9OOi takes integer p9io returns nothing
 call p_1o(ll6l[p9io],0,Ipuo((O1l1)))
 endfunction
 function fzzssaveitemsize takes integer p9io returns real
-local integer id=fzzsl[l19l[p9io]]
-if id!=0 and yx[(id)]!=null and GetUnitTypeId((yx[(id)]))!=0 then
-return(Ln((Ipuo((O1l1))))/ 4.18965)*(UnitInventorySize((yx[(id)]))+1)
-endif
 return(Ln((Ipuo((O1l1))))/ 4.18965)
 endfunction
 function fzzssaveitems takes integer p9io returns nothing
-local integer id=fzzsl[l19l[p9io]]
-if id!=0 and yx[(id)]!=null and GetUnitTypeId((yx[(id)]))!=0 then
-call o1l0(p9io,(yx[(id)]),0,O1l1,O1I1,q11o("助手装备","Assistant Inventory"))
-else
-call ul1o(((jM[ll0l[p9io]])),("----------"+q11o("助手装备","Assistant Inventory")+"----------"))
 call p_1o(ll6l[p9io],0,Ipuo((O1l1)))
-endif
 endfunction
 function i9O0i takes integer p9io returns real
 return(Ln((Ipuo((O1o1))))/ 4.18965+.16544)*(oq_O(Oo_O(llil[p9io],1))+1)
@@ -155849,44 +155866,73 @@ endloop
 set it=null
 return value
 endfunction
-function AutoSlot_PublicStorageSync takes integer pid,string value returns nothing
-local integer pos=0
-local integer idx=0
-local integer count=(StringLength(value)+AS_CHUNK-1)/AS_CHUNK
-local string chunk
-if count<=0 then
-call DzSyncData("twslotstore",I2S(pid)+"|0|1:")
-return
+function AutoSlot_PublicAssistantEncode takes integer pid returns string
+local integer id
+local unit helper
+local integer slot=0
+local item it
+local integer charges
+local string value=""
+if pid<0 or pid>=lo then
+return value
 endif
+set id=fzzsl[pid]
+if id==0 or yx[(id)]==null or GetUnitTypeId((yx[(id)]))==0 then
+return value
+endif
+set helper=yx[(id)]
 loop
-exitwhen pos>=StringLength(value)
-set chunk=SubString(value,pos,pos+AS_CHUNK)
-call DzSyncData("twslotstore",I2S(pid)+"|"+I2S(idx)+"|"+I2S(count)+":"+chunk)
-set pos=pos+AS_CHUNK
-set idx=idx+1
+exitwhen slot>=UnitInventorySize(helper)
+set it=UnitItemInSlot(helper,slot)
+if it!=null and GetItemTypeId(it)!=0 then
+set charges=GetItemCharges(it)
+set value=value+I2S(GetItemTypeId(it))+","+I2S(charges)+";"
+endif
+set slot=slot+1
 endloop
+set it=null
+set helper=null
+return value
 endfunction
-function AutoSlot_SavePublicStorage takes player p,string value returns nothing
+function AutoSlot_SavePublicData takes player p,string storage,string assistant returns nothing
+local string value=storage+"|"+assistant
 local integer size=240
 local integer pos=0
 local integer i=0
 local integer count=(StringLength(value)+size-1)/size
 if count<=0 then
-call AutoSlot_SaveStr(p,"shared_storage_count","1")
-call AutoSlot_SaveStr(p,"shared_storage_code0","")
+call AutoSlot_SaveStr(p,"shared_public_count","1")
+call AutoSlot_SaveStr(p,"shared_public_code0","|")
 return
 endif
-call AutoSlot_SaveStr(p,"shared_storage_count",I2S(count))
+call AutoSlot_SaveStr(p,"shared_public_count",I2S(count))
 loop
 exitwhen pos>=StringLength(value)
-call AutoSlot_SaveStr(p,"shared_storage_code"+I2S(i),SubString(value,pos,pos+size))
+call AutoSlot_SaveStr(p,"shared_public_code"+I2S(i),SubString(value,pos,pos+size))
 set pos=pos+size
 set i=i+1
 endloop
 endfunction
-function AutoSlot_SavePublicStorageView takes player p,integer pid returns nothing
+function AutoSlot_LoadPublicData takes integer pid returns string
+local string countText=AutoSlot_LoadStr(pid,"shared_public_count")
+local integer count=S2I(countText)
+local integer i=0
+local string value=""
+if StringLength(countText)<=0 or count<=0 or count>20 then
+return "__AS_NO_PUBLIC_DATA__"
+endif
+loop
+exitwhen i>=count
+set value=value+AutoSlot_LoadStr(pid,"shared_public_code"+I2S(i))
+set i=i+1
+endloop
+return value
+endfunction
+function AutoSlot_SavePublicDataView takes player p,integer pid returns nothing
 local integer slot=0
 local integer line=1
+local integer id
+local unit helper
 local item it
 local string text
 if GetLocalPlayer()==p then
@@ -155908,27 +155954,50 @@ set line=line+1
 endif
 set slot=slot+1
 endloop
+call Preload("----------公共助手装备----------")
+set line=1
+set slot=0
+set id=fzzsl[pid]
+if id!=0 and yx[(id)]!=null and GetUnitTypeId((yx[(id)]))!=0 then
+set helper=yx[(id)]
+loop
+exitwhen slot>=UnitInventorySize(helper)
+set it=UnitItemInSlot(helper,slot)
+if it!=null and GetItemTypeId(it)!=0 then
+set text=I2S(line)+". "+oIoo(GetItemName(it))
+if GetItemCharges(it)>0 then
+set text=text+" x"+I2S(GetItemCharges(it))
+endif
+call Preload(text)
+set line=line+1
+endif
+set slot=slot+1
+endloop
+endif
 call Preload("---------------------------------------")
-call PreloadGenEnd(AS_SAVE_DIR+"shared_storage_view.txt")
+call PreloadGenEnd(AS_SAVE_DIR+"shared_public_view.txt")
 endif
 set it=null
+set helper=null
 endfunction
-function AutoSlot_LoadPublicStorage takes integer pid returns string
-local string countText=AutoSlot_LoadStr(pid,"shared_storage_count")
-local integer count=S2I(countText)
-local integer i=0
-local string value=""
-if StringLength(countText)<=0 or count<=0 or count>20 then
-return "__AS_NO_PUBLIC_STORAGE__"
+function AutoSlot_PublicDataSync takes integer pid,string value returns nothing
+local integer pos=0
+local integer idx=0
+local integer count=(StringLength(value)+AS_CHUNK-1)/AS_CHUNK
+local string chunk
+if count<=0 then
+call DzSyncData("twslotpublic",I2S(pid)+"|0|1:|")
+return
 endif
 loop
-exitwhen i>=count
-set value=value+AutoSlot_LoadStr(pid,"shared_storage_code"+I2S(i))
-set i=i+1
+exitwhen pos>=StringLength(value)
+set chunk=SubString(value,pos,pos+AS_CHUNK)
+call DzSyncData("twslotpublic",I2S(pid)+"|"+I2S(idx)+"|"+I2S(count)+":"+chunk)
+set pos=pos+AS_CHUNK
+set idx=idx+1
 endloop
-return value
 endfunction
-function AutoSlot_OnPublicStorageSync takes nothing returns nothing
+function AutoSlot_OnPublicDataSync takes nothing returns nothing
 local string data=DzGetTriggerSyncData()
 local integer a=AS_FindChar(data,"|",0)
 local integer b=AS_FindChar(data,"|",a+1)
@@ -155939,6 +156008,7 @@ local integer count
 local integer parent
 local integer got
 local integer i
+local integer split
 local string value=""
 if a<0 or b<0 or c<0 then
 return
@@ -155949,7 +156019,7 @@ set count=S2I(SubString(data,b+1,c))
 if pid<0 or pid>=lo or idx<0 or count<=0 or count>200 then
 return
 endif
-set parent=AS_PUBLIC_STORAGE_KEY+1+pid
+set parent=AS_PUBLIC_STORAGE_KEY+AS_PUBLIC_ASSISTANT_KEY+1+pid
 if not HaveSavedString(AS_TABLE,parent,idx) then
 call SaveStr(AS_TABLE,parent,idx,SubString(data,c+1,StringLength(data)))
 set got=LoadInteger(AS_TABLE,parent,-1)+1
@@ -155964,9 +156034,14 @@ exitwhen i>=count
 set value=value+LoadStr(AS_TABLE,parent,i)
 set i=i+1
 endloop
-call SaveStr(AS_TABLE,AS_PUBLIC_STORAGE_KEY,pid,value)
+set split=AS_FindChar(value,"|",0)
+if split>=0 then
+call SaveStr(AS_TABLE,AS_PUBLIC_STORAGE_KEY,pid,SubString(value,0,split))
+call SaveStr(AS_TABLE,AS_PUBLIC_ASSISTANT_KEY,pid,SubString(value,split+1,StringLength(value)))
+endif
 call FlushChildHashtable(AS_TABLE,parent)
 call AutoSlot_PublicStorageApplyPending(pid)
+call AutoSlot_PublicAssistantApplyPending(pid)
 endif
 endfunction
 function AutoSlot_ApplyPublicStorageForReady takes nothing returns nothing
@@ -155974,15 +156049,16 @@ local integer pid=0
 loop
 exitwhen pid>=lo
 call AutoSlot_PublicStorageApplyPending(pid)
+call AutoSlot_PublicAssistantApplyPending(pid)
 set pid=pid+1
 endloop
 endfunction
 function AutoSlot_StartPublicStorageLoad takes integer pid returns nothing
-local string sharedStorage
+local string sharedPublic
 if GetLocalPlayer()==Player(pid) then
-set sharedStorage=AutoSlot_LoadPublicStorage(pid)
-if sharedStorage!="__AS_NO_PUBLIC_STORAGE__" then
-call AutoSlot_PublicStorageSync(pid,sharedStorage)
+set sharedPublic=AutoSlot_LoadPublicData(pid)
+if sharedPublic!="__AS_NO_PUBLIC_DATA__" then
+call AutoSlot_PublicDataSync(pid,sharedPublic)
 endif
 endif
 endfunction
@@ -156002,6 +156078,7 @@ endif
 set count=uB[save]
 set u=(yx[(Sl[(l19l[p9io])])])
 call AutoSlot_PublicStorageApplyPending(l19l[p9io])
+call AutoSlot_PublicAssistantApplyPending(l19l[p9io])
 call AutoSlot_SaveStr(p,AutoSlot_Key(slot,"count"),I2S(count))
 call AutoSlot_SaveStr(p,AutoSlot_Key(slot,"meta"),oIoo(GetUnitName(u))+"|"+I2S(GetHeroLevel(u))+"|"+I2S(count))
 set i=0
@@ -156010,8 +156087,8 @@ exitwhen i>=count
 call AutoSlot_SaveStr(p,AutoSlot_Key(slot,"code"+I2S(i)),LoadStr(Nv,TB[save],i))
 set i=i+1
 endloop
-call AutoSlot_SavePublicStorage(p,AutoSlot_PublicStorageEncode(l19l[p9io]))
-call AutoSlot_SavePublicStorageView(p,l19l[p9io])
+call AutoSlot_SavePublicData(p,AutoSlot_PublicStorageEncode(l19l[p9io]),AutoSlot_PublicAssistantEncode(l19l[p9io]))
+call AutoSlot_SavePublicDataView(p,l19l[p9io])
 call DisplayTimedTextToPlayer(p,.22,.18,25.,"|c00ffff80【本地存档 "+I2S(slot)+" 保存成功】|r\n|c00ffff80下次进图可选择编号 "+I2S(slot)+" 加载该角色。|r")
 set u=null
 set p=null
@@ -156070,7 +156147,7 @@ function AutoSlot_StartLoad takes integer pid,integer slot returns nothing
 local integer count
 local integer i=0
 local string saveCode
-local string sharedStorage
+local string sharedPublic
 if GetLocalPlayer()==Player(pid) then
 set count=S2I(AutoSlot_LoadStr(pid,AutoSlot_Key(slot,"count")))
 if count<=0 then
@@ -156087,9 +156164,9 @@ endif
 call DzSyncData("twslotload",I2S(pid)+"|"+I2S(slot)+"|"+I2S(i)+"|"+I2S(count)+":"+saveCode)
 set i=i+1
 endloop
-set sharedStorage=AutoSlot_LoadPublicStorage(pid)
-if sharedStorage!="__AS_NO_PUBLIC_STORAGE__" then
-call AutoSlot_PublicStorageSync(pid,sharedStorage)
+set sharedPublic=AutoSlot_LoadPublicData(pid)
+if sharedPublic!="__AS_NO_PUBLIC_DATA__" then
+call AutoSlot_PublicDataSync(pid,sharedPublic)
 endif
 endif
 endfunction
@@ -156259,7 +156336,7 @@ endloop
 endfunction
 function AutoSlot_Init takes nothing returns nothing
 local trigger t=CreateTrigger()
-local trigger store=CreateTrigger()
+local trigger public=CreateTrigger()
 local trigger chat=CreateTrigger()
 local trigger dialogTrig=CreateTrigger()
 local trigger prompt=CreateTrigger()
@@ -156271,8 +156348,8 @@ set i=i+1
 endloop
 call DzTriggerRegisterSyncData(t,"twslotload",false)
 call TriggerAddAction(t,function AutoSlot_OnSync)
-call DzTriggerRegisterSyncData(store,"twslotstore",false)
-call TriggerAddAction(store,function AutoSlot_OnPublicStorageSync)
+call DzTriggerRegisterSyncData(public,"twslotpublic",false)
+call TriggerAddAction(public,function AutoSlot_OnPublicDataSync)
 set i=0
 loop
 exitwhen i>=lo
