@@ -37606,12 +37606,13 @@ call qIpo((yx[(yS[(l9uo)])]),'A1C5')
 endif
 call qIpo((yx[(yS[(l9uo)])]),'A02W')
 if bN[WS[l9uo]]=='e0CR' then
+call qIpo((yx[(yS[(l9uo)])]),'A19T')
+call qIpo((yx[(yS[(l9uo)])]),'A17M')
 else
 if GetUnitAbilityLevel((yx[(yS[(l9uo)])]),'A091')==0 then
 call qIpo((yx[(yS[(l9uo)])]),'A091')
 endif
 call qIpo((yx[(yS[(l9uo)])]),'A14E')
-call qIpo((yx[(yS[(l9uo)])]),'A17M')
 set Iu_o=BN[WS[l9uo]]
 if not Iu_o and bN[WS[l9uo]]!='e01Z' then
 set q10O=Oo_O((TS[l9uo]),4)
@@ -217454,6 +217455,36 @@ set caster=null
 set helper=null
 set it=null
 endfunction
+function fzzsA19T takes nothing returns nothing
+local unit caster=GetTriggerUnit()
+local integer pid=GetPlayerId(GetOwningPlayer(caster))
+local unit owner=yx[(Sl[(pid)])]
+local item it=GetSpellTargetItem()
+local integer slot=0
+local boolean hasEmpty=false
+if owner==null or GetUnitTypeId(owner)==0 then
+call qoIo(caster,"主人不存在")
+elseif it==null then
+call qoIo(caster,"没有目标物品")
+else
+loop
+exitwhen slot>=UnitInventorySize(owner)
+if UnitItemInSlot(owner,slot)==null then
+set hasEmpty=true
+exitwhen true
+endif
+set slot=slot+1
+endloop
+if not hasEmpty then
+call qoIo(caster,"英雄背包已满")
+elseif not UnitAddItem(owner,it)then
+call qoIo(caster,"英雄背包已满")
+endif
+endif
+set caster=null
+set owner=null
+set it=null
+endfunction
 function fzzsA14G takes nothing returns nothing
 local unit u=GetTriggerUnit()
 local unit target=null
@@ -250789,6 +250820,7 @@ call lliO('A15B',function fzzsA15B)
 call lliO('A16J',function fzzsA16J)
 call lliO('A16V',function fzzsA16V)
 call lliO('A17M',function fzzsA17M)
+call lliO('A19T',function fzzsA19T)
 call lliO('A10G',function I6qli)
 call lliO('A0DH',function Iqi9i)
 call I9_O('A13Y')
