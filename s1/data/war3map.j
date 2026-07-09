@@ -169528,11 +169528,11 @@ set opOl[l9uo]=piuO((e2[bf]),.0)
 set op0l[l9uo]=pl_O((e2[bf]),.0)
 call lO9O(opol[l9uo],$A5,$EB,$E1,$FF)
 endif
-call qi9o(opOl[l9uo],Oo0o(O2[bf],1,4,-25,-'d'))
-call qi9o(op0l[l9uo],Oo0o(O2[bf],1,4,4,$A))
+call qi9o(opOl[l9uo],Oo0o(O2[bf],1,4,-10,-40))
+call qi9o(op0l[l9uo],Oo0o(O2[bf],1,4,1,4))
 set ej[opol[l9uo]]=Oo0o(O2[bf],1,4,6.,7.5)
 call lOuO(opol[l9uo],1.15*ej[opol[l9uo]])
-call lO_O(opol[l9uo],I2S(R2I(-100.*O2[bf]/ 4))+"%")
+call lO_O(opol[l9uo],I2S(R2I(-10.*O2[bf]))+"%")
 endfunction
 function louii takes unit l9oo,unit l9_o returns nothing
 if op_l==0 then
@@ -169546,7 +169546,7 @@ call quio(op_l,function lo_9i,0)
 call quIo(op_l,function lo_qi,0)
 endif
 if Jz[(GetUnitUserData((l9_o)))]then
-call ou60((l9oo),(l9_o),(op_l),((12.)*1.),1,1)
+call ou60((l9oo),(l9_o),(op_l),((8.)*1.),1,1)
 endif
 endfunction
 function lou1i takes integer q9OO,unit u returns boolean
