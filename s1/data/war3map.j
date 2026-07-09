@@ -167809,7 +167809,7 @@ function lIqpi takes integer l9uo,integer oup0 returns nothing
 if not ooIl[l9uo]then
 return
 endif
-set oup0=OO0o(oup0,0,20)
+set oup0=OO0o(oup0,0,30)
 if oo6l[l9uo]!=oup0 then
 set oo6l[l9uo]=oup0
 call qi9o(oo0l[l9uo],3.*(oo6l[(l9uo)]))
@@ -167817,13 +167817,13 @@ call qi9o(oo_l[l9uo],1.*(oo6l[(l9uo)]))
 if(oo6l[(l9uo)])<=0 then
 call lIqui(l9uo)
 else
-if oo6l[l9uo]>=20 then
+if oo6l[l9uo]>=30 then
 call lO9O(ooOl[l9uo],$F0,$E1,$A0,$FF)
 else
 call lO9O(ooOl[l9uo],$EB,$EB,$B9,$FF)
 endif
 call lO_O(ooOl[l9uo],"希望("+I2S(oo6l[l9uo])+")")
-set ej[ooOl[l9uo]]=Oo0o(oo6l[l9uo],1,20,5.,6.)
+set ej[ooOl[l9uo]]=Oo0o(oo6l[l9uo],1,30,5.,6.)
 call lOuO(ooOl[l9uo],1.15*ej[ooOl[l9uo]])
 call l0_O(ooOl[l9uo],4.)
 endif
@@ -167831,11 +167831,19 @@ endif
 endfunction
 function lIq6i takes unit l9_o,integer OOio returns nothing
 local integer l9uo=(GetUnitUserData((l9_o)))
+local boolean hopeHard=false
 if not ooIl[l9uo]then
 return
 endif
+if oool[l9uo]!=null then
+set hopeHard=o10l[(GetUnitUserData((oool[l9uo])))]
+endif
 if OOio>=0 then
-set oopl[l9uo]=1.5
+if hopeHard then
+set oopl[l9uo]=1.
+else
+set oopl[l9uo]=.75
+endif
 set ooul[l9uo]=.0
 call lIqpi(l9uo,(oo6l[(l9uo)])-OOio)
 if(oo6l[(l9uo)])<=0 then
@@ -167855,13 +167863,16 @@ call lOIO(ooOl[l9uo],false)
 else
 call lOIO(ooOl[l9uo],true)
 endif
-if(oo6l[(l9uo)])>=20 then
+if(oo6l[(l9uo)])>=30 then
 set ooul[l9uo]=.0
 elseif oopl[l9uo]>.0 then
 set oopl[l9uo]=oopl[l9uo]-Te
 else
 set ooul[l9uo]=ooul[l9uo]+Te
-if ooul[l9uo]>=1.5 then
+if(o10l[(GetUnitUserData((oool[l9uo])))])and ooul[l9uo]>=1. then
+set ooul[l9uo]=.0
+call lIqpi(l9uo,(oo6l[(l9uo)])+1)
+elseif not(o10l[(GetUnitUserData((oool[l9uo])))])and ooul[l9uo]>=.75 then
 set ooul[l9uo]=.0
 call lIqpi(l9uo,(oo6l[(l9uo)])+1)
 endif
@@ -167897,7 +167908,7 @@ call lIq9i()
 call qIOo((yx[(l9uo)]),'A1CC')
 endif
 if ooIl[l9uo]then
-call lIqpi(l9uo,(oo6l[(l9uo)])+1)
+call lIqpi(l9uo,(oo6l[(l9uo)])+5)
 call DestroyEffect(AddSpecialEffectTarget("Effects\\HolyLight.mdl",(yx[(l9uo)]),"origin"))
 endif
 endfunction
@@ -181447,6 +181458,7 @@ local real qu00
 local real OOlo
 local integer q9OO
 local integer u9_o
+local boolean autoLampHeal=false
 if not UnitAlive((yx[(l9uo)]))or not nt[(l9uo)]then
 call lupui(l9uo)
 elseif Tw[u_ul[l9uo]]==0 then
@@ -181597,6 +181609,12 @@ call io60(My[u_ul[l9uo]],false)
 call ioq0(My[u_ul[l9uo]],false)
 call qIio((yx[(l9uo)]),"离开那艘简陋的船，加入我们..",$F,55,55,55)
 call u_60((GetUnitUserData(((yx[(l9uo)])))),2.5)
+else
+set u__l[l9uo]=u__l[l9uo]+tw[u_ul[l9uo]]
+if u__l[l9uo]>=10. then
+set u__l[l9uo]=.0
+set autoLampHeal=true
+endif
 endif
 if(mw[(Oqil[oIOq])])then
 set it=(po9o(2,(ic[o69l[O6Ol[oIOq]]])))
@@ -181607,15 +181625,17 @@ if(uw[(u_ul[l9uo])]==0)then
 call lupli((l09qi))
 call l0o_i((l09qi))
 if o6Ol[l09qi]==CV then
-call u6pO((l09qi),1.)
-call DestroyEffect(AddSpecialEffectTarget("Effects\\HolyLight.mdx",(yx[(l09qi)]),"origin"))
+call u6pO((l09qi),u6_O((l09qi)))
+call l_09i((yx[(l09qi)]))
+call lI96i((yx[(l09qi)]))
+call DestroyEffect(AddSpecialEffect("Effects\\Holy\\HolyStomp.mdl",GetUnitX((yx[(l09qi)])),GetUnitY((yx[(l09qi)]))))
 else
 call SetUnitInvulnerable((yx[(l09qi)]),true)
 endif
 elseif o6Ol[l09qi]==CV then
 if(ouo0(((yx[(l09qi)])),(oO1l))!=0)then
 call u6pO((l09qi),1.)
-elseif u6uO((l09qi))>=u6_O((l09qi))-1 then
+elseif autoLampHeal or u6uO((l09qi))>=u6_O((l09qi))-1 then
 call u6pO((l09qi),1.)
 call l_09i((yx[(l09qi)]))
 call lI96i((yx[(l09qi)]))
