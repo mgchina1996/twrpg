@@ -166814,7 +166814,7 @@ call qI9o((yx[(l9uo)]),'A1C9')
 call qIpo((yx[(l9uo)]),'A14U')
 call qIpo((yx[(l9uo)]),'A0V7')
 call qIpo((yx[(l9uo)]),'A0MP')
-call qIpo((yx[(l9uo)]),'A199')
+call qI9o((yx[(l9uo)]),'A199')
 call qIpo((yx[(l9uo)]),'A12P')
 call qI9o((yx[(l9uo)]),'A12O')
 call qIpo((yx[(l9uo)]),'A12N')
@@ -166824,6 +166824,7 @@ function lI00i takes integer l9uo returns nothing
 call lI0Ii(l9uo,false)
 call lI0oi(l9uo,false)
 call lI0Oi(l9uo,false)
+call qI9o((yx[(l9uo)]),'A199')
 endfunction
 function lI0_i takes unit l9oo returns integer
 if(v7[((GetUnitUserData((l9oo))))])==2 then
@@ -186403,7 +186404,6 @@ call iOi0(My[p1Il[l9uo]],true)
 endif
 endfunction
 function l6lqi takes nothing returns nothing
-call lliO('A199',function l6l6i)
 endfunction
 function l6l9i takes nothing returns nothing
 local player p
