@@ -171028,7 +171028,7 @@ set Oiul[l9uo]=Oiul[l9uo]+1
 if lO1qi(l9uo)then
 set Oi1l[l9uo]=I1pO()
 set OiIl[l9uo]=0
-if o10l[(GetUnitUserData(((yx[(l9uo)]))))]then
+if o10l[(GetUnitUserData(((yx[(l9uo)]))))]and v7[l9uo]==2 then
 if Oiul[l9uo]>=3 then
 set Oiul[l9uo]=0
 set cW[Oi_l[l9uo]]=3
