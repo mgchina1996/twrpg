@@ -181543,6 +181543,11 @@ call lupOi((l09qi))
 elseif o6Ol[l09qi]==cV and u6uO((l09qi))<=$A then
 call lupli((l09qi))
 call lopOi(l09qi,CV)
+call u6pO((l09qi),u6_O((l09qi)))
+if not(HaveSavedBoolean(Nv,(((u_ll[l9uo]))),(l09qi)))then
+call SaveBoolean(Nv,(((u_ll[l9uo]))),(l09qi),(true))
+call l0o6i((l09qi))
+endif
 elseif o6Ol[l09qi]==CV and not(mw[(O0_l[(l09qi)])])and u6uO((l09qi))>=.99*u6_O((l09qi))then
 if not(HaveSavedBoolean(Nv,(((u_ll[l9uo]))),(l09qi)))then
 call SaveBoolean(Nv,(((u_ll[l9uo]))),(l09qi),(true))
@@ -181589,6 +181594,11 @@ set l09qi=pOlo(it)
 if o6Ol[l09qi]==cV and u6uO((l09qi))<=$A then
 call lupli((l09qi))
 call lopOi(l09qi,CV)
+call u6pO((l09qi),u6_O((l09qi)))
+if not(HaveSavedBoolean(Nv,(((u_ll[l9uo]))),(l09qi)))then
+call SaveBoolean(Nv,(((u_ll[l9uo]))),(l09qi),(true))
+call l0o6i((l09qi))
+endif
 elseif o6Ol[l09qi]==CV and not(mw[(O0_l[(l09qi)])])and u6uO((l09qi))>=.99*u6_O((l09qi))then
 if not(HaveSavedBoolean(Nv,(((u_ll[l9uo]))),(l09qi)))then
 call SaveBoolean(Nv,(((u_ll[l9uo]))),(l09qi),(true))
