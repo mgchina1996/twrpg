@@ -169487,8 +169487,8 @@ set opll[l9uo]=p1qO((e2[bf]),.0)
 else
 call SetUnitScale(bJ[(opil[l9uo])],((.5+O2[bf])*1.),0,0)
 endif
-call qi9o(op1l[l9uo],-$A*O2[bf])
-call qi9o(opll[l9uo],$F*O2[bf])
+call qi9o(op1l[l9uo],-5*O2[bf])
+call qi9o(opll[l9uo],5*O2[bf])
 endfunction
 function lo_6i takes unit l9oo,unit l9_o returns nothing
 if opIl==0 then
