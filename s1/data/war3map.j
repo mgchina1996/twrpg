@@ -166816,7 +166816,7 @@ call qIpo((yx[(l9uo)]),'A0V7')
 call qIpo((yx[(l9uo)]),'A0MP')
 call qIpo((yx[(l9uo)]),'A199')
 call qIpo((yx[(l9uo)]),'A12P')
-call qIpo((yx[(l9uo)]),'A12O')
+call qI9o((yx[(l9uo)]),'A12O')
 call qIpo((yx[(l9uo)]),'A12N')
 endif
 endfunction
@@ -248008,7 +248008,6 @@ function opOli takes nothing returns nothing
 call opO1i(((GetUnitUserData((GetTriggerUnit())))))
 endfunction
 function opOIi takes nothing returns nothing
-call lliO('A12O',function opOli)
 endfunction
 function SASlam___GetZigZagAngle takes nothing returns real
 return GetRandomReal(-$F,30)
