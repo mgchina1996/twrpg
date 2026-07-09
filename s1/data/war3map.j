@@ -9717,14 +9717,12 @@ integer AS_BUTTON_KEY=900001
 integer AS_PUBLIC_STORAGE_KEY=900002
 integer AS_PUBLIC_ASSISTANT_KEY=900003
 endglobals
+native DzAPI_Map_GetPlayerUserName takes player whichPlayer returns string
 native DzSyncData takes string prefix,string data returns nothing
 native DzTriggerRegisterSyncData takes trigger trig,string prefix,boolean server returns nothing
 native DzGetTriggerSyncPlayer takes nothing returns player
 native DzGetTriggerSyncData takes nothing returns string
 native UnitAlive takes unit u returns boolean
-function DzAPI_Map_GetPlayerUserName takes player whichPlayer returns string
-return "Heavy丶rain#5346"
-endfunction
 function DzAPI_Map_HasMallItem takes player whichPlayer,string key returns boolean
 if((((GetPlayerController(whichPlayer) == MAP_CONTROL_USER) and (GetPlayerSlotState(whichPlayer) == PLAYER_SLOT_STATE_PLAYING))))then
 if (key == "V5001") then
@@ -181590,7 +181588,11 @@ if(uw[(u_ul[l9uo])]==0)then
 set tw[u_ul[l9uo]]=Te
 set u__l[l9uo]=.0
 set u_Ol[l9uo]=false
+if o10l[l9uo]then
 set u_0l[l9uo]=60.
+else
+set u_0l[l9uo]=90.
+endif
 call io60(My[u_ul[l9uo]],false)
 call ioq0(My[u_ul[l9uo]],false)
 call qIio((yx[(l9uo)]),"离开那艘简陋的船，加入我们..",$F,55,55,55)
@@ -181621,31 +181623,6 @@ call DestroyEffect(AddSpecialEffect("Effects\\Holy\\HolyStomp.mdl",GetUnitX((yx[
 endif
 endif
 endloop
-endif
-call GroupEnumUnitsInRange(G,p0uo,p0po,750+128.,null)
-loop
-set u=FirstOfGroup(G)
-exitwhen u==null
-call GroupRemoveUnit(G,u)
-if GetUnitAbilityLevel(u,'Aloc')==0 and IsUnitInRangeXY(u,p0uo,p0po,750)then
-exitwhen UnitAlive(u)and l960((GetUnitUserData((u))))
-endif
-endloop
-if u!=null or i6lO((l9uo))>1 then
-set u_0l[l9uo]=60.
-set u__l[l9uo]=.0
-if u_ol[l9uo]!=0 then
-call IiqO((u_ol[l9uo]),1,.0)
-set u_ol[l9uo]=0
-endif
-else
-set u__l[l9uo]=u__l[l9uo]+tw[u_ul[l9uo]]
-if u__l[l9uo]>=2.5 then
-if u_ol[l9uo]==0 then
-set u_ol[l9uo]=l96O("Effects\\DAAura.mdx",O11O(OooO),O1lO(OooO),1.5)
-endif
-set u_0l[l9uo]=Ooqo(u_0l[l9uo],60./ 3.,tw[u_ul[l9uo]]*(60./ 3.))
-endif
 endif
 call SetUnitState((yx[(((l9uo)))]),UNIT_STATE_MANA,(((GetUnitState((yx[(((l9uo)))]),UNIT_STATE_MANA))+tw[u_ul[l9uo]]*((GetUnitState((yx[(((l9uo)))]),UNIT_STATE_MAX_MANA))/ u_0l[l9uo]))*1.))
 if not u_Ol[l9uo]and(GetUnitState((yx[(((l9uo)))]),UNIT_STATE_MANA))>=75 then
