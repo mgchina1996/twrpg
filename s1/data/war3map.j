@@ -167809,7 +167809,7 @@ function lIqpi takes integer l9uo,integer oup0 returns nothing
 if not ooIl[l9uo]then
 return
 endif
-set oup0=OO0o(oup0,0,20)
+set oup0=OO0o(oup0,0,30)
 if oo6l[l9uo]!=oup0 then
 set oo6l[l9uo]=oup0
 call qi9o(oo0l[l9uo],3.*(oo6l[(l9uo)]))
@@ -167817,13 +167817,13 @@ call qi9o(oo_l[l9uo],1.*(oo6l[(l9uo)]))
 if(oo6l[(l9uo)])<=0 then
 call lIqui(l9uo)
 else
-if oo6l[l9uo]>=20 then
+if oo6l[l9uo]>=30 then
 call lO9O(ooOl[l9uo],$F0,$E1,$A0,$FF)
 else
 call lO9O(ooOl[l9uo],$EB,$EB,$B9,$FF)
 endif
 call lO_O(ooOl[l9uo],"希望("+I2S(oo6l[l9uo])+")")
-set ej[ooOl[l9uo]]=Oo0o(oo6l[l9uo],1,20,5.,6.)
+set ej[ooOl[l9uo]]=Oo0o(oo6l[l9uo],1,30,5.,6.)
 call lOuO(ooOl[l9uo],1.15*ej[ooOl[l9uo]])
 call l0_O(ooOl[l9uo],4.)
 endif
@@ -167831,13 +167831,30 @@ endif
 endfunction
 function lIq6i takes unit l9_o,integer OOio returns nothing
 local integer l9uo=(GetUnitUserData((l9_o)))
+local integer hopeDeduct=OOio
+local boolean hopeHard=false
 if not ooIl[l9uo]then
 return
 endif
+if oool[l9uo]!=null then
+set hopeHard=o10l[(GetUnitUserData((oool[l9uo])))]
+endif
 if OOio>=0 then
-set oopl[l9uo]=1.5
+if hopeHard then
+set oopl[l9uo]=1.
+if OOio>=3 then
+set hopeDeduct=OOio-1
+endif
+else
+set oopl[l9uo]=.75
+if OOio==2 then
+set hopeDeduct=1
+elseif OOio>=3 then
+set hopeDeduct=2
+endif
+endif
 set ooul[l9uo]=.0
-call lIqpi(l9uo,(oo6l[(l9uo)])-OOio)
+call lIqpi(l9uo,(oo6l[(l9uo)])-hopeDeduct)
 if(oo6l[(l9uo)])<=0 then
 call lIqui(l9uo)
 endif
@@ -167845,6 +167862,7 @@ endif
 endfunction
 function lIqqi takes nothing returns boolean
 local integer l9uo=ooll[(0)]
+local real hopeRate
 loop
 exitwhen l9uo==0
 if not nt[(GetUnitUserData((oool[l9uo])))]or not OIiO((k6[((GetUnitUserData((oool[l9uo]))))]),(yx[(l9uo)]))then
@@ -167855,13 +167873,18 @@ call lOIO(ooOl[l9uo],false)
 else
 call lOIO(ooOl[l9uo],true)
 endif
-if(oo6l[(l9uo)])>=20 then
+if(oo6l[(l9uo)])>=30 then
 set ooul[l9uo]=.0
 elseif oopl[l9uo]>.0 then
 set oopl[l9uo]=oopl[l9uo]-Te
 else
+if o10l[(GetUnitUserData((oool[l9uo])))]then
+set hopeRate=1.
+else
+set hopeRate=.75
+endif
 set ooul[l9uo]=ooul[l9uo]+Te
-if ooul[l9uo]>=1.5 then
+if ooul[l9uo]>=hopeRate then
 set ooul[l9uo]=.0
 call lIqpi(l9uo,(oo6l[(l9uo)])+1)
 endif
@@ -173646,7 +173669,11 @@ endfunction
 function l0lpi takes nothing returns nothing
 if Jz[((LD))]and o19l!=null and UnitAlive(o19l)and OIiO(OI6O(JV),KD)then
 if o1pl[(GetUnitUserData((o19l)))]then
+if o10l[(GetUnitUserData((o19l)))]then
 call lIq6i(KD,(oo6l[((GetUnitUserData((KD))))])/ 2)
+else
+call lIq6i(KD,(oo6l[((GetUnitUserData((KD))))])/ 4)
+endif
 elseif l960(((LD)))then
 call l0lui(KD,o19l)
 endif
