@@ -170596,7 +170596,7 @@ function lOi_i takes nothing returns nothing
 local unit l9oo=GetTriggerUnit()
 local real i0pO=GetUnitX(l9oo)
 local real i06O=GetUnitY(l9oo)
-local group g=qoqO(l9oo,(MM[((k6[((GetUnitUserData((l9oo))))]))]),2,function lOiOi)
+local group g=qoqO(l9oo,(MM[((k6[((GetUnitUserData((l9oo))))]))]),1,function lOiOi)
 local unit u
 loop
 set u=FirstOfGroup(g)
