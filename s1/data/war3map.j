@@ -169672,7 +169672,7 @@ call ForForce(bj_FORCE_PLAYER[0],(function louOi))
 endfunction
 function lou_i takes unit O66O,integer louui returns real
 if louui==cV then
-return Oo0o((y6[(((GetUnitUserData(((O66O))))))]),7,$A,$989680,$10B0760)
+return Oo0o((y6[(((GetUnitUserData(((O66O))))))]),7,$A,7500000,15000000)
 else
 return Oo0o((y6[(((GetUnitUserData(((O66O))))))]),6,$A,$7530,$C350)
 endif
