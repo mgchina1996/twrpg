@@ -183334,9 +183334,6 @@ if uppl[l9uo]!=0 then
 call io_O(uppl[l9uo])
 set uppl[l9uo]=0
 endif
-if vu[q9OO]==2 then
-call lpIOi(ST[q9OO],KT[q9OO],lT[q9OO])
-endif
 endfunction
 function lpI_i takes integer q9OO,unit u returns boolean
 local integer l9uo=q9OO
