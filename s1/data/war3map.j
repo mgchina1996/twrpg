@@ -185718,7 +185718,7 @@ call lp9pi((GetUnitUserData(((yx[(l9uo)])))))
 call loO0(piol[l9uo],1.5)
 endif
 elseif Tw[piol[l9uo]]==1 then
-if piil[l9uo]>=4 then
+if piil[l9uo]>=2 then
 call lol0((piol[l9uo]),(20),0)
 else
 set piil[l9uo]=piil[l9uo]+1
@@ -185833,11 +185833,14 @@ call loO0(piol[l9uo],2.)
 endif
 elseif Tw[piol[l9uo]]==21 then
 if(uw[(piol[l9uo])]==0)then
-set Sw[piol[l9uo]]=.75
+set Sw[piol[l9uo]]=1.5
 set tw[piol[l9uo]]=Te
 set Jy[piol[l9uo]]=O11O(OooO)+750*XW[piol[l9uo]]
 set ky[piol[l9uo]]=O1lO(OooO)+750*OW[piol[l9uo]]
 call SetUnitFacingTimed((yx[(l9uo)]),270,0)
+if v7[l9uo]!=2 then
+call IiqO((l9IO(p000(Jy[piol[l9uo]],ky[piol[l9uo]],500.,Sw[piol[l9uo]]),$7F,$FF,$7F,$FF)),1,.0)
+endif
 endif
 if lI00(piol[l9uo])then
 if OooO!=0 then

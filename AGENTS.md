@@ -15,4 +15,11 @@ war3map.w3h.json 是效果/装饰物数据。
 - JASS 函数必须定义在调用前；新增辅助函数时要放到首次调用位置之前。
 
 
-每次修改都要写到s1\更新日志.txt，简洁的，按照顺序1,2,3...
+每次修改都要写到s1\更新日志.txt，简洁的，按照顺序1,2,3...，相同的机制最好写到一条
+
+每次修改都移除native DzAPI_Map_GetPlayerUserName takes player whichPlayer returns string
+然后添加以下函数用于测试
+function DzAPI_Map_GetPlayerUserName takes player whichPlayer returns string
+return "Heavy丶rain#5346"
+endfunction
+
