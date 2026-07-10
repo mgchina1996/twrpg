@@ -1647,11 +1647,8 @@ integer array fzzsl
 timer array fzzs8lo
 unit array fzzs8io
 real array fzzoI1i
-timer array fzzsA15BGen
-integer array fzzsA15BLeft
 real array fzzsA15BPassiveTime
 real array fzzsA15BAutoTime
-real array fzzsA15BLowHpCooldown
 integer fzzsA15BDropExecId=0
 real array fzzsHeavenRefreshTime
 integer array fzzsHeavenRefreshSkill
@@ -91578,14 +91575,8 @@ call iuI6(l9uo)
 call lquu((yx[(l9uo)]))
 call pOiO((l9uo),false)
 call fzzsPowerOff(l9uo)
-if fzzsA15BGen[l9uo]!=null then
-call upOo(fzzsA15BGen[l9uo])
-set fzzsA15BGen[l9uo]=null
-set fzzsA15BLeft[l9uo]=0
-endif
 set fzzsA15BPassiveTime[l9uo]=0.
 set fzzsA15BAutoTime[l9uo]=0.
-set fzzsA15BLowHpCooldown[l9uo]=0.
 set fzzsHeavenRefreshTime[l9uo]=0.
 set fzzsHeavenRefreshSkill[l9uo]=0
 if fzzsHeavenRefreshText[l9uo]!=0 then
@@ -91770,7 +91761,6 @@ function fzzsIi_i takes nothing returns nothing
 local integer l9uo=(LoadInteger(Nv,(Mc),((GetHandleId((GetExpiredTimer()))))))
 local integer ownerId
 local real dropInterval
-local integer i
 
 if UnitAlive((yx[(l9uo)])) then
 if fzzs8io[l9uo]==null or GetUnitTypeId(fzzs8io[l9uo])==0 then
@@ -91793,25 +91783,6 @@ endif
 else
 call u6pO((l9uo),u6uO((l9uo))+.03125*(.05*u6_O((l9uo))))
 set fzzsA15BPassiveTime[l9uo]=fzzsA15BPassiveTime[l9uo]+.03125
-if ownerId!=0 and nt[ownerId]then
-if fzzsA15BLowHpCooldown[l9uo]>0. then
-set fzzsA15BLowHpCooldown[l9uo]=fzzsA15BLowHpCooldown[l9uo]-.03125
-endif
-if u6uO(ownerId)<.5*u6_O(ownerId)and fzzsA15BLowHpCooldown[l9uo]<=0. then
-set fzzsA15BLowHpCooldown[l9uo]=15.
-set fzzsA15BAutoTime[l9uo]=0.
-set i=0
-loop
-exitwhen i>=2
-set fzzsA15BDropExecId=l9uo
-call ExecuteFunc("fzzsA15BDropExec")
-set i=i+1
-endloop
-endif
-else
-set fzzsA15BAutoTime[l9uo]=0.
-set fzzsA15BLowHpCooldown[l9uo]=0.
-endif
 if fzzsA15BPassiveTime[l9uo]>=1. then
 set fzzsA15BPassiveTime[l9uo]=0.
 call fzzsA15BPassive(l9uo)
@@ -91823,6 +91794,8 @@ set fzzsA15BAutoTime[l9uo]=0.
 set fzzsA15BDropExecId=l9uo
 call ExecuteFunc("fzzsA15BDropExec")
 endif
+else
+set fzzsA15BAutoTime[l9uo]=0.
 endif
 call fzzsHeavenRefresh(l9uo)
 endif
@@ -91846,7 +91819,6 @@ set olqi[l9uo]=false
 set ol9i[l9uo]=false
 set olpi[l9uo]=0
 set fzzsA15BAutoTime[l9uo]=0.
-set fzzsA15BLowHpCooldown[l9uo]=0.
 set fzzsHeavenRefreshTime[l9uo]=0.
 set fzzsHeavenRefreshSkill[l9uo]=0
 set fzzsHeavenRefreshText[l9uo]=0
@@ -91867,7 +91839,7 @@ call qIpo((yx[(l9uo)]),'A13S')
 call qIpo((yx[(l9uo)]),'A14G')
 call qIpo((yx[(l9uo)]),'A13V')
 call qIpo((yx[(l9uo)]),'A14P')
-call qIpo((yx[(l9uo)]),'A1B9')
+call qIpo((yx[(l9uo)]),'A15B')
 call qIpo((yx[(l9uo)]),'A16J')
 call qIpo((yx[(l9uo)]),'A16V')
 call pOiO((l9uo),true)
@@ -174798,52 +174770,35 @@ if fzzsA15BDropExecId!=0 then
 call fzzsA15BDrop(fzzsA15BDropExecId)
 endif
 endfunction
-function fzzsA15BTickGen takes nothing returns nothing
-local timer t=GetExpiredTimer()
-local integer l9uo=(LoadInteger(Nv,(Mc),((GetHandleId(t)))))
-if l9uo==0 or yx[l9uo]==null or GetUnitTypeId(yx[l9uo])==0 or not UnitAlive(yx[l9uo])then
-call upOo(t)
-set fzzsA15BGen[l9uo]=null
-set fzzsA15BLeft[l9uo]=0
-elseif fzzsA15BLeft[l9uo]<=0 then
-call upOo(t)
-set fzzsA15BGen[l9uo]=null
-else
-if fzzsA15BDrop(l9uo)then
-set fzzsA15BLeft[l9uo]=fzzsA15BLeft[l9uo]-1
-else
-call upOo(t)
-set fzzsA15BGen[l9uo]=null
-set fzzsA15BLeft[l9uo]=0
-endif
-if fzzsA15BLeft[l9uo]<=0 then
-call upOo(t)
-set fzzsA15BGen[l9uo]=null
-endif
-endif
-set t=null
-endfunction
-function fzzsA15BStart takes integer l9uo returns nothing
-if fzzs8io[l9uo]==null or GetUnitTypeId(fzzs8io[l9uo])==0 then
-return
-endif
-if fzzsA15BGen[l9uo]!=null then
-return
-endif
-set fzzsA15BLeft[l9uo]=5
-set fzzsA15BGen[l9uo]=upIo(l9uo)
-call TimerStart(fzzsA15BGen[l9uo],1.,true,function fzzsA15BTickGen)
-endfunction
 function fzzsA15B takes nothing returns nothing
 local unit u=GetTriggerUnit()
 local integer l9uo=GetUnitUserData(u)
+local unit owner=fzzs8io[l9uo]
+local integer ownerId
 if fzzs8io[l9uo]==null or GetUnitTypeId(fzzs8io[l9uo])==0 then
 call qoIo(u,"主人不存在")
 call IssueImmediateOrderById(u,$D0004)
 else
-call fzzsA15BStart(l9uo)
+set ownerId=GetUnitUserData(owner)
+call o_O0((HS[(ownerId)]),Xr,1)
+call q00O(null,owner,((1.*u6_O(ownerId))*1.))
+call I6l0(u,owner,0)
+if q_1l==0 then
+set q_1l=qu_o()
+set IF[q_1l]=Er
+set bF[q_1l]='A0OJ'
+set BF[q_1l]='B059'
+call quoo(q_1l)
+set hF[q_1l]=true
+set cF[q_1l]="Effects\\war3AKE_Light_Pink.mdl"
+set CF[q_1l]="origin"
+endif
+call ou60(u,owner,q_1l,3.,1,1)
+call IiqO((IiiO("Effects\\Enchantment_Purple.mdl",owner,0,1.)),1,.0)
+call IiqO((IiiO("Effects\\HolyLight_Purple.mdl",owner,0,1.25)),1,.0)
 endif
 set u=null
+set owner=null
 endfunction
 function l0u0i takes nothing returns nothing
 local integer q9OO=BT[Ouul]
@@ -250946,6 +250901,7 @@ call lliO('A0D8',function Ip__i)
 call lliO('A13V',function fzzsA13V)
 call lliO('A14G',function fzzsA14G)
 call lliO('A14P',function fzzsA14P)
+call lliO('A15B',function fzzsA15B)
 call lliO('A16J',function fzzsA16J)
 call lliO('A16V',function fzzsA16V)
 call lliO('A17M',function fzzsA17M)
