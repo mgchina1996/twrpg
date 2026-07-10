@@ -1650,6 +1650,9 @@ real array fzzoI1i
 timer array fzzsA15BGen
 integer array fzzsA15BLeft
 real array fzzsA15BPassiveTime
+real array fzzsHeavenRefreshTime
+integer array fzzsHeavenRefreshSkill
+integer array fzzsHeavenRefreshText
 integer fzzsA15BBuff=0
 integer array fzzsA15BStat
 integer array fzzsA15BMagicStat
@@ -91578,6 +91581,12 @@ set fzzsA15BGen[l9uo]=null
 set fzzsA15BLeft[l9uo]=0
 endif
 set fzzsA15BPassiveTime[l9uo]=0.
+set fzzsHeavenRefreshTime[l9uo]=0.
+set fzzsHeavenRefreshSkill[l9uo]=0
+if fzzsHeavenRefreshText[l9uo]!=0 then
+call l0pO(fzzsHeavenRefreshText[l9uo],0,.5)
+set fzzsHeavenRefreshText[l9uo]=0
+endif
 call upOo(fzzs8lo[l9uo])
 call RemoveUnit((yx[(l9uo)]))
 call o9Oo((l9uo))
@@ -91693,6 +91702,46 @@ endloop
 set u=null
 set owner=null
 endfunction
+function fzzsHeavenRefresh takes integer l9uo returns nothing
+local integer ownerId
+if fzzs8io[l9uo]==null or GetUnitTypeId(fzzs8io[l9uo])==0 then
+if fzzsHeavenRefreshText[l9uo]!=0 then
+call l0pO(fzzsHeavenRefreshText[l9uo],0,.5)
+set fzzsHeavenRefreshText[l9uo]=0
+endif
+return
+endif
+set ownerId=GetUnitUserData(fzzs8io[l9uo])
+if ownerId==0 or not UnitAlive((yx[(ownerId)]))or not Jz[(ownerId)]then
+if fzzsHeavenRefreshText[l9uo]!=0 then
+call l0pO(fzzsHeavenRefreshText[l9uo],0,.5)
+set fzzsHeavenRefreshText[l9uo]=0
+endif
+return
+endif
+set fzzsHeavenRefreshTime[l9uo]=fzzsHeavenRefreshTime[l9uo]+1.
+if fzzsHeavenRefreshTime[l9uo]>=13. and fzzsHeavenRefreshText[l9uo]==0 then
+set fzzsHeavenRefreshSkill[l9uo]=GetRandomInt(1,6)
+set fzzsHeavenRefreshText[l9uo]=l06O(GetOwningPlayer((yx[(ownerId)])))
+call lO_O(fzzsHeavenRefreshText[l9uo],"重置:"+iqO0(ownerId,fzzsHeavenRefreshSkill[l9uo]))
+call l0OO(fzzsHeavenRefreshText[l9uo],(yx[(ownerId)]))
+call lOoO(fzzsHeavenRefreshText[l9uo],150.)
+call lO9O(fzzsHeavenRefreshText[l9uo],$FF,$FF,$7F,$FF)
+endif
+if fzzsHeavenRefreshTime[l9uo]>=16. then
+set fzzsHeavenRefreshTime[l9uo]=0.
+if fzzsHeavenRefreshSkill[l9uo]==0 then
+set fzzsHeavenRefreshSkill[l9uo]=GetRandomInt(1,6)
+endif
+call iqp0(ownerId,fzzsHeavenRefreshSkill[l9uo])
+set fzzsHeavenRefreshSkill[l9uo]=0
+if fzzsHeavenRefreshText[l9uo]!=0 then
+call l0pO(fzzsHeavenRefreshText[l9uo],0,.5)
+set fzzsHeavenRefreshText[l9uo]=0
+endif
+call DestroyEffect(AddSpecialEffectTarget("Effects\\HolyLight.mdl",(yx[(ownerId)]),"origin"))
+endif
+endfunction
 function fzzsFollowOwner takes integer l9uo returns nothing
 local real OOlo
 local real pupo
@@ -91738,6 +91787,7 @@ set fzzsA15BPassiveTime[l9uo]=fzzsA15BPassiveTime[l9uo]+.03125
 if fzzsA15BPassiveTime[l9uo]>=1. then
 set fzzsA15BPassiveTime[l9uo]=0.
 call fzzsA15BPassive(l9uo)
+call fzzsHeavenRefresh(l9uo)
 endif
 endif
 else
@@ -91758,6 +91808,9 @@ set ol_i[l9uo]=true
 set olqi[l9uo]=false
 set ol9i[l9uo]=false
 set olpi[l9uo]=0
+set fzzsHeavenRefreshTime[l9uo]=0.
+set fzzsHeavenRefreshSkill[l9uo]=0
+set fzzsHeavenRefreshText[l9uo]=0
 
 
 call po0O((l9uo),true)
