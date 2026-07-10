@@ -9720,14 +9720,12 @@ integer AS_BUTTON_KEY=900001
 integer AS_PUBLIC_STORAGE_KEY=900002
 integer AS_PUBLIC_ASSISTANT_KEY=900003
 endglobals
+native DzAPI_Map_GetPlayerUserName takes player whichPlayer returns string
 native DzSyncData takes string prefix,string data returns nothing
 native DzTriggerRegisterSyncData takes trigger trig,string prefix,boolean server returns nothing
 native DzGetTriggerSyncPlayer takes nothing returns player
 native DzGetTriggerSyncData takes nothing returns string
 native UnitAlive takes unit u returns boolean
-function DzAPI_Map_GetPlayerUserName takes player whichPlayer returns string
-return "Heavy丶rain#5346"
-endfunction
 function DzAPI_Map_HasMallItem takes player whichPlayer,string key returns boolean
 if((((GetPlayerController(whichPlayer) == MAP_CONTROL_USER) and (GetPlayerSlotState(whichPlayer) == PLAYER_SLOT_STATE_PLAYING))))then
 if (key == "V5001") then
