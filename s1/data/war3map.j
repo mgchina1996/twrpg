@@ -9720,12 +9720,14 @@ integer AS_BUTTON_KEY=900001
 integer AS_PUBLIC_STORAGE_KEY=900002
 integer AS_PUBLIC_ASSISTANT_KEY=900003
 endglobals
-native DzAPI_Map_GetPlayerUserName takes player whichPlayer returns string
 native DzSyncData takes string prefix,string data returns nothing
 native DzTriggerRegisterSyncData takes trigger trig,string prefix,boolean server returns nothing
 native DzGetTriggerSyncPlayer takes nothing returns player
 native DzGetTriggerSyncData takes nothing returns string
 native UnitAlive takes unit u returns boolean
+function DzAPI_Map_GetPlayerUserName takes player whichPlayer returns string
+return "Heavy丶rain#5346"
+endfunction
 function DzAPI_Map_HasMallItem takes player whichPlayer,string key returns boolean
 if((((GetPlayerController(whichPlayer) == MAP_CONTROL_USER) and (GetPlayerSlotState(whichPlayer) == PLAYER_SLOT_STATE_PLAYING))))then
 if (key == "V5001") then
@@ -155974,6 +155976,7 @@ local integer id
 local unit helper
 local integer slot=0
 local item it
+local item savedItem
 local integer charges
 local string value=""
 if pid<0 or pid>=lo then
@@ -155989,10 +155992,12 @@ exitwhen slot>=UnitInventorySize(helper)
 set it=UnitItemInSlot(helper,slot)
 if it!=null and GetItemTypeId(it)!=0 then
 set charges=GetItemCharges(it)
-set value=value+I2S(GetItemTypeId(it))+","+I2S(charges)+";"
+set savedItem=l1i0(helper,it)
+set value=value+I2S(GetItemTypeId(savedItem))+","+I2S(charges)+";"
 endif
 set slot=slot+1
 endloop
+set savedItem=null
 set it=null
 set helper=null
 return value
@@ -156037,6 +156042,7 @@ local integer line=1
 local integer id
 local unit helper
 local item it
+local item savedItem
 local string text
 if GetLocalPlayer()==p then
 call PreloadGenClear()
@@ -156067,7 +156073,8 @@ loop
 exitwhen slot>=UnitInventorySize(helper)
 set it=UnitItemInSlot(helper,slot)
 if it!=null and GetItemTypeId(it)!=0 then
-set text=I2S(line)+". "+oIoo(GetItemName(it))
+set savedItem=l1i0(helper,it)
+set text=I2S(line)+". "+oIoo(GetItemName(savedItem))
 if GetItemCharges(it)>0 then
 set text=text+" x"+I2S(GetItemCharges(it))
 endif
@@ -156080,6 +156087,7 @@ endif
 call Preload("---------------------------------------")
 call PreloadGenEnd(AS_SAVE_DIR+"shared_public_view.txt")
 endif
+set savedItem=null
 set it=null
 set helper=null
 endfunction
