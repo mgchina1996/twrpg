@@ -91546,7 +91546,7 @@ return
 endif
 set fzzsOwner[l9uo]=id
 set fzzsFinal[l9uo]=u90O(id,20.,0)
-set fzzsReduce[l9uo]=p16O(id,25.,0)
+set fzzsReduce[l9uo]=p16O(id,15.,0)
 set fzzsMove[l9uo]=pI1O(id,100.,0)
 set fzzsMain[l9uo]=pilO(id,20.)
 endfunction
