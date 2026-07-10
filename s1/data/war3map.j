@@ -143748,7 +143748,7 @@ endif
 return false
 endfunction
 function i_oli takes unit qiq0 returns real
-return vs[(GetUnitUserData((qiq0)))]*(5.*uqiO((GetUnitUserData((qiq0))))+50.*p__O((GetUnitUserData((qiq0)))))
+return vs[(GetUnitUserData((qiq0)))]*(5.*uqiO((GetUnitUserData((qiq0))))+60.*p__O((GetUnitUserData((qiq0)))))
 endfunction
 function i_oIi takes unit qiq0,real i_ooi returns real
 return 10.+15.*i_ooi
