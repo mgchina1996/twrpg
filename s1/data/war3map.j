@@ -227708,7 +227708,7 @@ function oiq6i takes nothing returns nothing
 call lliO('A082',function oiqpi)
 endfunction
 function oiqqi takes unit l9oo,integer ulO6 returns real
-return(1.+1.*OOOo(0,ulO6-1))*(.85*pu_O((GetUnitUserData((l9oo))))+.3*u6_O((GetUnitUserData((l9oo)))))
+return(1.+1.*OOOo(0,ulO6-1))*(1.*pu_O((GetUnitUserData((l9oo))))+.35*u6_O((GetUnitUserData((l9oo)))))
 endfunction
 function oiq9i takes unit qiq0,integer ulO6 returns real
 return Oo0o(ulO6,1,5,900,$4B0)
@@ -228294,7 +228294,7 @@ else
 call iOp0(u,.5)
 endif
 set q_Ou=Oo0o(u66O((GetUnitUserData((u)))),1,.4,0,1)
-set O010=o610(oW[u9qI[l9uo]],u,(1.+.4*(Oolo(1.25-1.25*u66O(((GetUnitUserData((u))))),0,1)))*PW[u9qI[l9uo]],2,1,false,false)
+set O010=o610(oW[u9qI[l9uo]],u,(1.+.6*(Oolo(1.25-1.25*u66O(((GetUnitUserData((u))))),0,1)))*PW[u9qI[l9uo]],2,1,false,false)
 set P2[O010]=true
 set p2[O010]=true
 if q_Ou>=1. then
