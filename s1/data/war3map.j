@@ -224655,7 +224655,7 @@ function I9_Oi takes nothing returns nothing
 call lliO('A0FG',function I9_oi)
 endfunction
 function I9_0i takes unit qiq0 returns real
-return YQ[(GetUnitUserData((qiq0)))]*(6.*GetHeroInt(qiq0,true)+.5*uqiO((GetUnitUserData((qiq0)))))
+return YQ[(GetUnitUserData((qiq0)))]*(8.*GetHeroInt(qiq0,true)+.6*uqiO((GetUnitUserData((qiq0)))))
 endfunction
 function I9__i takes unit qiq0 returns real
 return .5
