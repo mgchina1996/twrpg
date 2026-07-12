@@ -172408,6 +172408,12 @@ else
 return 3
 endif
 endfunction
+function GuardianTargetCount takes unit l9oo returns integer
+if y6[(GetUnitUserData((l9oo)))]<=4 then
+return 2
+endif
+return 4
+endfunction
 function lOu_i takes nothing returns nothing
 local integer l9uo=(GetUnitUserData((f2[i3])))
 local real lOuui=.25*u6_O((l9uo))
@@ -172623,8 +172629,10 @@ elseif Tw[OIOl[l9uo]]==20 then
 if(uw[(OIOl[l9uo])]==0)then
 set Sw[OIOl[l9uo]]=mW[OIOl[l9uo]]
 call lo19i(oW[OIOl[l9uo]],3,XW[OIOl[l9uo]],OW[OIOl[l9uo]],NW[OIOl[l9uo]],true,Sw[OIOl[l9uo]],0)
+if lI1_i()<GuardianTargetCount(oW[OIOl[l9uo]])then
 set ll9li=lI10i(oW[OIOl[l9uo]],x,y,O0lo(x,y,O11O(OooO),O1lO(OooO)))
 call lI1ii(ll9li,2,Sw[OIOl[l9uo]]+2.)
+endif
 endif
 if lI00(OIOl[l9uo])then
 set AW[OIOl[l9uo]]=GetRandomReal(0,ao)
@@ -184732,7 +184740,7 @@ call SetUnitAnimation((yx[(ll9li)]),"stand channel alternate")
 set ll9li=I66l[ll9li]
 endloop
 else
-if lIp0(uq_l[l9uo],.5)and fW[uq_l[l9uo]]<4 then
+if lIp0(uq_l[l9uo],.5)and fW[uq_l[l9uo]]<GuardianTargetCount((yx[(l9uo)]))then
 set OOlo=bj_DEGTORAD*(45+90*fW[uq_l[l9uo]])
 set x=p0uo-1550.*Cos(OOlo)
 set y=p0po-1550.*Sin(OOlo)
