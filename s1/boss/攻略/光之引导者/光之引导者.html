@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TWRPG 国服光之引导者凯梅尔团队攻略，包含阶段机制、技能应对、站位与辅助分工。">
+  <title>光之引导者·凯梅尔 | 团队攻略</title>
+  <style>
+    :root {
+      --bg: #111315;
+      --surface: #1a1d20;
+      --surface-2: #22262a;
+      --line: #343a40;
+      --text: #f0f2f3;
+      --muted: #aeb5bb;
+      --gold: #e5bd5a;
+      --red: #ef6a64;
+      --blue: #66aef2;
+      --green: #67c992;
+      --yellow: #f1cf55;
+      --sidebar: 244px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      line-height: 1.65;
+      letter-spacing: 0;
+    }
+    button, input { font: inherit; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .shell { min-height: 100vh; }
+    .sidebar {
+      position: fixed;
+      inset: 0 auto 0 0;
+      width: var(--sidebar);
+      padding: 22px 16px;
+      overflow-y: auto;
+      background: #15181a;
+      border-right: 1px solid var(--line);
+      z-index: 20;
+    }
+    .brand { padding: 0 8px 18px; border-bottom: 1px solid var(--line); }
+    .brand-kicker { color: var(--gold); font-size: 12px; font-weight: 700; }
+    .brand h1 { margin: 4px 0 2px; font-size: 20px; line-height: 1.3; }
+    .brand p { margin: 0; color: var(--muted); font-size: 12px; }
+    .nav { display: grid; gap: 3px; margin-top: 16px; }
+    .nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 38px;
+      padding: 7px 10px;
+      color: var(--muted);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+    }
+    .nav a:hover, .nav a.active { color: var(--text); background: var(--surface-2); border-left-color: var(--gold); }
+    .phase-dot { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: var(--muted); }
+    .nav a[data-phase="p1"] .phase-dot { background: var(--blue); }
+    .nav a[data-phase="p2"] .phase-dot { background: var(--green); }
+    .nav a[data-phase="p3"] .phase-dot { background: #bca1f2; }
+    .nav a[data-phase="p4"] .phase-dot { background: var(--yellow); }
+    .nav a[data-phase="p5"] .phase-dot { background: var(--red); }
+    .nav a[data-phase="p6"] .phase-dot { background: #e7e9eb; }
+
+    main { margin-left: var(--sidebar); }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 15;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 12px clamp(18px, 4vw, 54px);
+      background: rgba(17, 19, 21, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+    .search-wrap { position: relative; flex: 1; max-width: 620px; }
+    .search-wrap::before { content: "⌕"; position: absolute; left: 13px; top: 6px; color: var(--muted); font-size: 20px; }
+    #search {
+      width: 100%; height: 40px; padding: 0 38px;
+      color: var(--text); background: var(--surface);
+      border: 1px solid var(--line); border-radius: 6px; outline: none;
+    }
+    #search:focus { border-color: var(--gold); }
+    #clearSearch {
+      width: 32px; height: 32px; padding: 0; color: var(--muted);
+      background: transparent; border: 0; cursor: pointer;
+    }
+    .result-count { color: var(--muted); font-size: 12px; white-space: nowrap; }
+
+    .content { width: min(1180px, 100%); margin: 0 auto; padding: 36px clamp(18px, 4vw, 54px) 80px; }
+    .intro { padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+    .eyebrow { margin: 0 0 6px; color: var(--gold); font-size: 13px; font-weight: 700; }
+    .intro h2 { margin: 0; font-size: clamp(30px, 5vw, 52px); line-height: 1.15; }
+    .intro-copy { max-width: 820px; margin: 13px 0 0; color: var(--muted); font-size: 15px; }
+    .quick-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; margin-top: 24px; background: var(--line); border: 1px solid var(--line); }
+    .quick-item { min-height: 96px; padding: 16px; background: var(--surface); }
+    .quick-label { color: var(--muted); font-size: 12px; }
+    .quick-value { display: block; margin-top: 4px; color: var(--text); font-size: 20px; font-weight: 700; }
+    .quick-value.gold { color: var(--gold); }
+
+    section { scroll-margin-top: 78px; padding-top: 44px; }
+    .section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; margin-bottom: 18px; }
+    .section-head h2 { margin: 0; font-size: 25px; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 13px; }
+    .phase-title { display: flex; align-items: center; gap: 12px; }
+    .phase-code { min-width: 43px; padding: 4px 7px; text-align: center; color: #111; background: var(--gold); font-size: 12px; font-weight: 800; border-radius: 4px; }
+
+    .alert { padding: 14px 16px; margin: 16px 0; border-left: 3px solid var(--gold); background: #24231f; }
+    .alert.danger { border-color: var(--red); background: #281d1d; }
+    .alert.info { border-color: var(--blue); background: #19232c; }
+    .alert strong { display: block; margin-bottom: 2px; }
+    .alert p { margin: 0; color: var(--muted); }
+
+    .mechanics-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .mechanic { padding: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+    .mechanic h3 { margin: 0 0 8px; font-size: 17px; }
+    .mechanic p { margin: 7px 0; color: var(--muted); }
+    .mechanic ul, .mechanic ol { margin: 9px 0 0; padding-left: 20px; color: var(--muted); }
+    .mechanic li + li { margin-top: 5px; }
+    .mechanic.wide { grid-column: 1 / -1; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+    .tag { padding: 2px 7px; color: var(--muted); background: var(--surface-2); border: 1px solid var(--line); border-radius: 4px; font-size: 11px; }
+    .tag.red { color: #ffc1bd; border-color: #7a3c39; }
+    .tag.blue { color: #b8dcff; border-color: #355f86; }
+    .tag.gold { color: #ffe69a; border-color: #78612a; }
+    .tag.green { color: #b5f0ce; border-color: #356b4d; }
+
+    details { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+    details + details { margin-top: 8px; }
+    summary { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 10px 16px; cursor: pointer; list-style: none; font-weight: 700; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; margin-left: auto; color: var(--muted); font-size: 20px; font-weight: 400; }
+    details[open] summary::after { content: "−"; }
+    .detail-body { padding: 0 16px 16px; color: var(--muted); border-top: 1px solid var(--line); }
+    .detail-body p { margin: 12px 0 0; }
+    .detail-body ul, .detail-body ol { margin: 10px 0 0; padding-left: 20px; }
+    .skill-index { min-width: 27px; color: var(--gold); font-size: 12px; }
+
+    .media { margin: 18px 0; background: #0c0d0e; border: 1px solid var(--line); }
+    .media img { width: 100%; max-height: 620px; object-fit: contain; }
+    .media figcaption { padding: 9px 12px; color: var(--muted); background: var(--surface); font-size: 12px; border-top: 1px solid var(--line); }
+    .media.compact img { max-height: 390px; }
+
+    .rune-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .rune { padding: 15px; background: var(--surface); border-top: 3px solid var(--line); }
+    .rune.red { border-color: var(--red); }
+    .rune.blue { border-color: var(--blue); }
+    .rune.yellow { border-color: var(--yellow); }
+    .rune h3 { margin: 0 0 5px; font-size: 16px; }
+    .rune p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .role-controls { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+    .role-filter { padding: 7px 11px; color: var(--muted); background: var(--surface); border: 1px solid var(--line); border-radius: 5px; cursor: pointer; }
+    .role-filter.active { color: #16181a; background: var(--gold); border-color: var(--gold); font-weight: 700; }
+    .role-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .role { min-height: 150px; padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+    .role h3 { margin: 0 0 8px; font-size: 16px; }
+    .role p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .timeline { display: grid; grid-template-columns: 96px 1fr; gap: 0 16px; }
+    .timeline-time { padding: 14px 0; color: var(--gold); font-weight: 800; border-bottom: 1px solid var(--line); }
+    .timeline-body { padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .timeline-body strong { display: block; }
+    .timeline-body span { color: var(--muted); font-size: 13px; }
+    .source { margin-top: 48px; padding-top: 20px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--line); }
+    .source a { color: var(--blue); }
+    .hidden { display: none !important; }
+
+    @media (max-width: 980px) {
+      :root { --sidebar: 0px; }
+      .sidebar { position: sticky; top: 0; width: 100%; height: auto; padding: 10px 14px; border-right: 0; border-bottom: 1px solid var(--line); }
+      .brand { display: none; }
+      .nav { display: flex; margin: 0; overflow-x: auto; scrollbar-width: none; }
+      .nav a { flex: 0 0 auto; border-left: 0; border-bottom: 2px solid transparent; }
+      .nav a:hover, .nav a.active { border-left-color: transparent; border-bottom-color: var(--gold); }
+      main { margin-left: 0; }
+      .topbar { top: 59px; }
+      .quick-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .role-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      section { scroll-margin-top: 130px; }
+    }
+    @media (max-width: 680px) {
+      .content { padding-top: 26px; }
+      .intro h2 { font-size: 34px; }
+      .mechanics-grid, .role-grid, .rune-grid { grid-template-columns: 1fr; }
+      .mechanic.wide { grid-column: auto; }
+      .section-head { align-items: flex-start; flex-direction: column; gap: 2px; }
+      .quick-item { min-height: 84px; }
+      .quick-value { font-size: 17px; }
+      .result-count { display: none; }
+      .timeline { grid-template-columns: 72px 1fr; gap: 0 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" aria-label="攻略导航">
+      <div class="brand">
+        <div class="brand-kicker">TWRPG · 团队副本</div>
+        <h1>光之引导者</h1>
+        <p>凯梅尔 / 国服动态攻略</p>
+      </div>
+      <nav class="nav">
+        <a href="#overview"><span class="phase-dot"></span>战前速查</a>
+        <a href="#core"><span class="phase-dot"></span>核心机制</a>
+        <a href="#roles"><span class="phase-dot"></span>团队分工</a>
+        <a href="#p1" data-phase="p1"><span class="phase-dot"></span>P1 · 100%-80%</a>
+        <a href="#p2" data-phase="p2"><span class="phase-dot"></span>P2 · 80%-50%</a>
+        <a href="#p3" data-phase="p3"><span class="phase-dot"></span>P3 · 50%-10%</a>
+        <a href="#p4" data-phase="p4"><span class="phase-dot"></span>P4 · 金翼</a>
+        <a href="#p5" data-phase="p5"><span class="phase-dot"></span>P5 · 飞剑</a>
+        <a href="#p6" data-phase="p6"><span class="phase-dot"></span>P6 · 银翼</a>
+      </nav>
+    </aside>
+
+    <main>
+      <div class="topbar">
+        <div class="search-wrap"><input id="search" type="search" placeholder="搜索技能、喊话、机制或处理方式" autocomplete="off"></div>
+        <button id="clearSearch" type="button" aria-label="清除搜索" title="清除搜索">×</button>
+        <span class="result-count" id="resultCount">全部条目</span>
+      </div>
+
+      <div class="content">
+        <section class="intro" id="overview">
+          <p class="eyebrow">国服动态攻略 · 更新基准 2026.06.15</p>
+          <h2>光之引导者 · 凯梅尔</h2>
+          <p class="intro-copy">这场战斗的核心不是固定阵容，而是辅助分工、约束值管理、天堂审判净化、符文格挡和阶段站位。开荒前先分配四剑位置、小天使打断、破盾、解控与点名观察职责。</p>
+          <div class="quick-grid">
+            <div class="quick-item"><span class="quick-label">最大生命值</span><span class="quick-value gold">90,000,000</span></div>
+            <div class="quick-item"><span class="quick-label">初始 / 战斗减伤</span><span class="quick-value">97% / 70%</span></div>
+            <div class="quick-item"><span class="quick-label">P1-P5 普攻</span><span class="quick-value">15% 最大生命值 · 魔法</span></div>
+            <div class="quick-item"><span class="quick-label">P6 普攻</span><span class="quick-value">15% 最大生命值 · 纯粹</span></div>
+          </div>
+          <div class="alert danger">
+            <strong>开荒灭团高频原因</strong>
+            <p>约束值满层上树、天堂审判未及时解除、P2扇形重叠、P3白圈缺人、P4咏唱点名重叠、P5飞剑未处理、P6次元斩重复吃点名。</p>
+          </div>
+        </section>
+
+        <section id="core" data-search-section>
+          <div class="section-head"><div><p class="eyebrow">必须先懂</p><h2>核心机制</h2></div><p>贯穿整场战斗</p></div>
+          <div class="mechanics-grid">
+            <article class="mechanic searchable">
+              <div class="tags"><span class="tag red">约束</span><span class="tag">满层控制</span></div>
+              <h3>神圣脚链</h3>
+              <p>吃到BOSS技能会增加约束值；达到100层后上树并眩晕7秒。层数越高，受到的治疗越低。</p>
+              <ul><li>约5秒未吃技能后进入自然消减。</li><li>红色：刚吃技能，不能自然净化；蓝色：受队友免疫/净化影响；白色：自然消减。</li><li>首次上树没有减伤，后续上树约有60%-75%减伤，结束后层数归零。</li></ul>
+            </article>
+            <article class="mechanic searchable">
+              <div class="tags"><span class="tag gold">天堂审判</span><span class="tag red">重复命中秒杀</span></div>
+              <h3>天堂审判</h3>
+              <p>持续受到魔法伤害并增加约束值。带有该减益时再次命中带天堂审判效果的技能，可能直接死亡。</p>
+              <ul><li>必须在减益出现后解除，提前开免疫通常无效。</li><li>由净化职业及时处理；较长持续时间可交FF的T等覆盖。</li></ul>
+            </article>
+            <article class="mechanic searchable">
+              <div class="tags"><span class="tag blue">绝对符文</span><span class="tag green">输出资源</span></div>
+              <h3>绝对符文</h3>
+              <p>P3后可抵挡绝大多数BOSS技能，同时免疫伤害、约束值和天堂审判。成功格挡指定白色技能获得绝对者力量。</p>
+              <ul><li>P3上限5层，银翼阶段上限10层。</li><li>每层提供3%最终伤害与5%主属性。</li><li>束缚时-2层；强化束缚或死亡时-3层。</li></ul>
+            </article>
+            <article class="mechanic searchable">
+              <div class="tags"><span class="tag gold">神圣权能</span><span class="tag">金翼常驻</span></div>
+              <h3>神圣权能</h3>
+              <p>P4咏唱开始后获得常驻强化：额外10%减伤与10%魔抗。场地加入黄色符文，其关联技能多为纯粹伤害。</p>
+            </article>
+          </div>
+          <figure class="media compact"><img src="光之引导者-assets/rune-field.png" alt="场地内外红蓝符文位置示意"><figcaption>场地分为内外两圈：外场符文由圣洁之月、天罚降临消耗；内场符文影响圣光裂斩且不会被消耗。红色对应X，蓝色对应十字。</figcaption></figure>
+          <div class="rune-grid">
+            <div class="rune red"><h3>红色符文 · X</h3><p>重点观察斜向攻击路径，避免站在交叉线上。</p></div>
+            <div class="rune blue"><h3>蓝色符文 · 十</h3><p>重点观察横竖方向，利用斜角安全区移动。</p></div>
+            <div class="rune yellow"><h3>黄色符文 · 圆环</h3><p>金翼后加入，多为纯粹伤害，并可能附带短暂束缚。</p></div>
+          </div>
+        </section>
+
+        <section id="roles" data-search-section>
+          <div class="section-head"><div><p class="eyebrow">开荒配置</p><h2>团队分工</h2></div><p>参考：风法 / 包 / 痴女 / 智锤 / 女巫 / 机械或召唤 + 4C</p></div>
+          <div class="role-controls" aria-label="职责筛选">
+            <button class="role-filter active" data-role="all">全部</button><button class="role-filter" data-role="cleanse">净化治疗</button><button class="role-filter" data-role="interrupt">打断控制</button><button class="role-filter" data-role="damage">输出破盾</button>
+          </div>
+          <div class="role-grid">
+            <article class="role" data-role="cleanse"><h3>风法 / FF</h3><p>清层、群体免疫沉默、治疗和复活；重点照顾脚下队友。拉锯战中技能CD不足，需要智锤协助。</p></article>
+            <article class="role" data-role="interrupt damage"><h3>包</h3><p>上增伤、拉小天使仇恨、打断治疗；次元斩与咏唱阶段保护队友并承担复活。</p></article>
+            <article class="role" data-role="interrupt cleanse"><h3>痴女 / CN</h3><p>熟练队伍负责增伤、主断点与吃四球；智锤不熟练时帮助观察点名、带飞剑。</p></article>
+            <article class="role" data-role="cleanse damage"><h3>智锤</h3><p>切换光环、解除沉默与天堂审判、治疗、带飞剑和破盾。小天使治疗增益较低时负责强抬血。</p></article>
+            <article class="role" data-role="interrupt cleanse damage"><h3>女巫 / 机械 / 召唤</h3><p>女巫负责断跳、看点、治疗和破盾；机械负责断点与增伤；召唤负责聚小天使、破盾和协助解除。</p></article>
+            <article class="role" data-role="damage"><h3>4C</h3><p>熟练使用绝对符文振刀，争取绝对者力量层数；保证阶段输出，同时优先躲避技能。</p></article>
+          </div>
+          <div class="alert info"><strong>四剑常用分组</strong><p>按楼层分配：1-2左上，3-4右上，5-7左下，8-10右下。实际人数不足时，以白圈显示的可进入人数为准。</p></div>
+        </section>
+
+        <section id="p1" data-search-section>
+          <div class="section-head"><div class="phase-title"><span class="phase-code">P1</span><div><h2>基础技能循环</h2><p>一命 100%-80%</p></div></div><p>先熟悉符文颜色与BOSS朝向</p></div>
+          <details class="searchable" open><summary><span class="skill-index">01</span>圣洁之月 · 满月斩 / 半月斩</summary><div class="detail-body"><p>根据外场符文颜色生成蓝色十字或红色X。满月斩会随机点名玩家并附加天堂审判；半月斩由内向外挥砍三次。</p><ul><li>红色前两刀：25%最大生命值 + 5000魔法；最后爆炸：40%最大生命值 + 5000魔法。</li><li>蓝色首刀：25%最大生命值 + 5000魔法；残月与十字波：40%最大生命值 + 5000魔法。</li><li>半月处理：前两刀贴近BOSS，最后移动到BOSS身后；最稳妥是持续绕背。</li></ul></div></details>
+          <details class="searchable"><summary><span class="skill-index">02</span>天罚降临 · 点名跳</summary><div class="detail-body"><p>先发射大字型直线波，再随机点名玩家从空中落下，落地点消耗外场符文并生成对应颜色的X或十字。</p><ul><li>直线波：15%最大生命值 + 2500魔法；天堂审判每0.25秒造成2%最大生命值魔法伤害。</li><li>落地红圈：50%最大生命值 + 17500魔法。</li><li>起手贴近BOSS可避开第一段，后续远离落地点；天堂审判由净化职业立即处理。</li></ul></div></details>
+          <details class="searchable"><summary><span class="skill-index">03</span>“给老子闭嘴” · 全屏沉默</summary><div class="detail-body"><p>全屏沉默、击退、减速并增加25约束值。按住S或H可以避免位移影响；在BOSS脚下按住H仍可持续普攻。免疫减益可避免沉默和减速，但仍会获得约束值。</p></div></details>
+          <details class="searchable"><summary><span class="skill-index">04</span>裁决之斩 · 后撤斩</summary><div class="detail-body"><p>先释放半月击退，再后撤发射两波剑气。首段为40%最大生命值 + 5000纯粹，后续剑气为25%最大生命值 + 4000纯粹，并清除护盾。</p><ul><li>近战立即绕背。</li><li>远程先离开BOSS面朝中线，再向两侧移动。</li></ul></div></details>
+          <details class="searchable"><summary><span class="skill-index">05</span>圣光裂斩 · 单 / 双</summary><div class="detail-body"><p>奇数次会向前挥砍、随机跳到一名玩家身后再挥砍，最后生成符文攻击；偶数次少一段点名跳跃。每次命中增加20约束值，并造成40%最大生命值 + 5000魔法伤害。</p></div></details>
+        </section>
+
+        <section id="p2" data-search-section>
+          <div class="section-head"><div class="phase-title"><span class="phase-code">P2</span><div><h2>真相与小天使</h2><p>一命 80%-50%</p></div></div><p>四远点名、解审判、控小怪</p></div>
+          <figure class="media"><img src="光之引导者-assets/p2-truth-layout.png" alt="直面真相阶段四方向站位示意"><figcaption>直面真相：四名最远玩家提前占据四个方向，引导扇形；场内随机金色符文可上树并免疫击退。</figcaption></figure>
+          <details class="searchable" open><summary><span class="skill-index">06</span>直面真相 · 四远扇形</summary><div class="detail-body"><ol><li>接近80%时，四名无净化/治疗职责的玩家提前靠近场边，占据四个方向。</li><li>被扇形点名者不能互相覆盖，否则一起秒杀；沿外场向金色符文移动。</li><li>金色符文使玩家上树并免疫击退；净化和治疗职业负责解除带天堂审判的上树玩家。</li><li>BOSS蓄力后秒杀仍带天堂审判者；之后连续全团伤害并出现高伤红圈。</li></ol></div></details>
+          <details class="searchable"><summary><span class="skill-index">07</span>以光净汝之罪 · 双点名陷阱</summary><div class="detail-body"><p>随机点名两人，光圈跟随约1秒后落地并爆炸，持续造成伤害、约束、沉默和减速。圈在BOSS脚下爆炸会为BOSS恢复约1%-4%最大生命值。</p><p><strong>处理：</strong>看到喊话全员先散开；确认不是自己后回场输出，被点名者将圈带到外侧并避免重叠。</p></div></details>
+          <details class="searchable"><summary><span class="skill-index">08</span>天空守护者 · 治疗与减疗</summary><div class="detail-body"><ul><li>小天使普攻造成6%最大生命值纯粹伤害。</li><li>死亡后飞往外场，满蓝施放可打断的“天界圣光”：治疗BOSS并逐层提高减伤与受治疗量。</li><li>满蓝还会施放不可打断的“你罪孽深重”，叠加持续30秒、每层17.5%的减疗，最多5层。</li><li>解除控制后会冲锋最近玩家并削弱15%减伤；不要把冲锋带到BOSS脚下。</li></ul></div></details>
+          <div class="alert danger"><strong>守护团结</strong><p>BOSS达到50%时若仍有小天使存活，会强制获得大额减伤；小天使与BOSS重叠或小队团灭也可能触发。进入50%前必须完成小天使处理。</p></div>
+        </section>
+
+        <section id="p3" data-search-section>
+          <div class="section-head"><div class="phase-title"><span class="phase-code">P3</span><div><h2>神剑试炼</h2><p>一命 50%-10%</p></div></div><p>开始获得绝对符文</p></div>
+          <div class="timeline">
+            <div class="timeline-time">50%</div><div class="timeline-body"><strong>四圈分组</strong><span>斜角生成四个白圈；1-4人每圈1人、5-8人每圈2人、9-10人每圈3人。</span></div>
+            <div class="timeline-time">落剑</div><div class="timeline-body"><strong>符文格挡与击退</strong><span>大剑随机顺序落下；圈内获得绝对符文，落剑秒杀范围需要格挡。</span></div>
+            <div class="timeline-time">约30秒</div><div class="timeline-body"><strong>击杀四剑</strong><span>大剑满蓝会全屏灭团；每击杀一把会降低其余大剑回蓝速度。</span></div>
+          </div>
+          <details class="searchable" open><summary><span class="skill-index">09</span>汝之意志，直面神之试炼</summary><div class="detail-body"><ul><li>白圈出现光柱后，圈内玩家沉默、定身并持续掉血，但锁血至20%。不要因低血量提前离圈。</li><li>大剑落下时，圈外玩家被击退；面向落剑可减少击退距离，背对会被推得更远。</li><li>四条移动弹幕连接外场天使与中场，接触即束缚；平地位移可穿过球间间隙。</li><li>大剑可被破坏护盾提高承伤。熟练破盾者可利用击飞空档提前破盾，尽快转下一个CD。</li><li>中心白球蓄力后释放扩散波；成功振刀获得绝对者力量。</li></ul></div></details>
+          <figure class="media compact"><img src="光之引导者-assets/p3-sword-facing.png" alt="神剑落下时面向与击退方向示意"><figcaption>面对落剑方向能缩短击退距离；背对落剑会被推得更远。</figcaption></figure>
+          <details class="searchable"><summary><span class="skill-index">10</span>“给老子跪下” · 扩散振刀</summary><div class="detail-body"><p>神剑试炼结束后的下一个技能固定出现。白色扩散波可用绝对符文振刀并获得1层力量；随后场上符文停止转动，内场先爆、外场后爆。</p><p><strong>处理：</strong>喊话时准备振刀，之后向BOSS脚下移动，避开符文爆炸路径。</p></div></details>
+          <details class="searchable"><summary><span class="skill-index">11</span>冲冲冲，光之储备</summary><div class="detail-body"><p><strong>奇数次：</strong>四个光球追逐最近玩家。位移职业优先吃球；同一玩家在1.25秒减益期间继续吃球会大幅增层和受伤。</p><p><strong>偶数次：</strong>BOSS吸收四球，连续五次点最近四人留下沉默伤害圈，随后随机点名分摊。全员散开，不贪输出；大球点名可振刀或多人分摊。</p></div></details>
+          <details class="searchable"><summary><span class="skill-index">12</span>跪伏于神怒之前 · 一阳指</summary><div class="detail-body"><p>“闭嘴”后的下一个技能固定出现。先抓取玩家并向面朝方向四人发射三轮剑气，随后飞到被点名者对面，向原方向释放高伤击退直线。</p><ul><li>剑气夹击无法离开时，用绝对符文抵挡前两次，第三次必须走位。</li><li>主点名者提前找安全区，并让BOSS远离场边与场内光圈。</li><li>最终直线躲到BOSS身后；来不及就使用绝对符文。</li></ul></div></details>
+          <figure class="media compact"><img src="光之引导者-assets/p3-finger-layout.png" alt="一阳指弹幕与点名方向示意"><figcaption>一阳指阶段的剑气与主点名方向示意。BOSS身后是最终直线的主要安全区。</figcaption></figure>
+        </section>
+
+        <section id="p4" data-search-section>
+          <div class="section-head"><div class="phase-title"><span class="phase-code">P4</span><div><h2>天堂赞歌 · 金翼</h2><p>一命10% → 二命100%-50%</p></div></div><p>咏唱、金轮、黄色符文</p></div>
+          <figure class="media compact"><img src="光之引导者-assets/p4-chant-layout.png" alt="天堂赞歌咏唱阶段站位与金轮示意"><figcaption>四角天使释放往返金轮，BOSS在中场追加随机米字攻击。点名圈与天使圈不能重叠。</figcaption></figure>
+          <details class="searchable" open><summary><span class="skill-index">13</span>天堂的赞歌破除罪恶 · 咏唱</summary><div class="detail-body"><ol><li>进入阶段前由BB提前给盾；BOSS获得25%减伤，玩家暂时不能使用绝对符文。</li><li>随机点名四人，约3-4秒后全场沉默和减速；四角天使发射往返金轮。</li><li>金轮回返时出现随机米字攻击，中心强制上树；结束后全员被击退到边缘。</li><li>玩家点名圈与天使圈同时爆炸或互相重叠会秒杀，点名者必须分散。</li><li>BOSS身边黄色符文作为计时器：第3、6、12个亮起时释放击退波，按住H/S处理；第6-12之间还会出现相反方向米字。</li></ol></div></details>
+          <div class="alert"><strong>圣颂减益</strong><p>咏唱期间沉默且无法获得移速提升。最终核爆前绝对符文可能有约0.5秒可用窗口，可以连续尝试格挡，但不应作为常规方案。</p></div>
+          <details class="searchable"><summary><span class="skill-index">14</span>金翼强化技能</summary><div class="detail-body"><ul><li><strong>裁决之斩·强化：</strong>后撤剑气由2/3道增加至3/4道，仍按绕背和横向离开中线处理。</li><li><strong>以光净汝之罪·强化：</strong>白圈跟随最近玩家，颜色逐渐加深后爆炸；不格挡将造成200%最大生命值伤害、50约束及沉默减速。可分摊或振刀，两个白圈不能重叠。</li><li><strong>黄色圣洁之月：</strong>满月金色点名附带天堂审判；残月追加斜米字纯粹伤害。</li><li><strong>黄色天罚降临：</strong>向场边发射五个符文，跳跃落地时收回，并在落地点外追加伤害环。</li></ul></div></details>
+        </section>
+
+        <section id="p5" data-search-section>
+          <div class="section-head"><div class="phase-title"><span class="phase-code">P5</span><div><h2>万罪涤净 · 飞剑</h2><p>二命 50%转换阶段</p></div></div><p>引飞盘、破盾、准备次元斩</p></div>
+          <figure class="media compact"><img src="光之引导者-assets/p5-transition.png" alt="P5飞剑阶段场地示意"><figcaption>四把飞剑环绕并发射弹幕，随后移动至场边四个圆心。飞剑互相靠近会获得额外减伤。</figcaption></figure>
+          <details class="searchable" open><summary><span class="skill-index">15</span>万罪终将涤净 · 四飞剑</summary><div class="detail-body"><ul><li>飞剑向四周发射弹幕，造成伤害和约束，可用绝对符文格挡；弹幕会清除护盾。</li><li>专人吸引飞剑冲锋。第四次冲锋蓄力造成200%最大生命值伤害与50约束，必须格挡；队友可以代挡，成功获得1层力量。</li><li>第四次冲锋后飞剑停机10秒、损失25%生命值，之后失去减伤且不再留下金色符文。</li><li>每把相邻飞剑约提供33%减伤，必须拉开；破坏护盾可进一步降低减伤。</li><li>非冲锋时被禁锢会导致飞剑换目标并重算吸引时间。</li></ul></div></details>
+          <details class="searchable"><summary><span class="skill-index">16</span>唯真相永驻此间 · 五刀点名</summary><div class="detail-body"><p>BOSS吸收剩余飞剑并把全员拉入场内。每一把未击杀的飞剑都会让对应刀变为白色秒杀伤害。</p><ul><li>前四刀分别给一人附加对应颜色点名；前3次优先最高约束者，第4次随机。</li><li>同时吃到两次点名伤害会秒杀。</li><li>第5刀触发点名倒计时并造成秒杀，需要绝对符文。</li><li>原攻略对最后阶段的部分走法仍标记为待补充，应以实战版本为准。</li></ul></div></details>
+          <figure class="media compact"><img src="光之引导者-assets/p5-truth-layout.png" alt="唯真相永驻此间阶段场地示意"><figcaption>唯真相阶段示意：根据飞剑存活情况决定白色秒杀刀数量。</figcaption></figure>
+        </section>
+
+        <section id="p6" data-search-section>
+          <div class="section-head"><div class="phase-title"><span class="phase-code">P6</span><div><h2>最终阶段 · 银翼</h2><p>二命回到60%-0%</p></div></div><p>符文恢复加快，普攻改为纯粹伤害</p></div>
+          <div class="alert danger"><strong>最终阶段优先级</strong><p>打断地面天使治疗与满蓝减疗 ＞ 处理天堂审判 ＞ 次元斩点名 ＞ 输出BOSS。绝对符文上限提高到10层。</p></div>
+          <details class="searchable" open><summary><span class="skill-index">17</span>“给老子跪下” · 强化版</summary><div class="detail-body"><p>扩散白波和内外符文爆炸保留；符文爆炸时，BOSS还会跳到一名玩家与自身连线的远端，再向原位置释放带范围提示的秒杀圣枪。圣枪可用绝对符文格挡并获得1层力量。</p></div></details>
+          <details class="searchable"><summary><span class="skill-index">18</span>圣光裂斩 / 一阳指 · 强化版</summary><div class="detail-body"><ul><li>圣光裂斩奇数次召唤2把飞剑，偶数次召唤1把；红蓝飞剑追加X或十字，黄色飞剑追踪随机玩家。</li><li>强化一阳指在BOSS两侧增加2把飞剑，追击主点名玩家并秒杀路径上的单位；可以用绝对符文阻挡并获得力量。</li><li>该组弹幕会清除护盾。</li></ul></div></details>
+          <details class="searchable"><summary><span class="skill-index">19</span>圣洁之月 / 净罪 / 天罚 · 再强化</summary><div class="detail-body"><ul><li>残月随机追加点名；满月同时点名两人。带天堂审判时再吃另一道会秒杀。</li><li>净罪保留金翼效果，并在天使脚下额外生成3-4秒后爆炸的弹幕圈。</li><li>强化天罚形态不变但伤害提高：天堂审判每0.25秒造成6%最大生命值魔法伤害；站在落地红圈正中心会受到125%最大生命值魔法伤害。</li></ul></div></details>
+          <details class="searchable"><summary><span class="skill-index">20</span>召唤天使</summary><div class="detail-body"><ul><li>场上只会同时存在1个地面天使，但击杀后BOSS会再次召唤。</li><li>天使持续读条为BOSS回血，必须专人打断；满蓝会造成全团伤害并叠加减疗。</li><li>击杀天使可消除减疗；死亡后飞往外圈回蓝。</li><li>天使站在光圈内会持续回蓝；被控制后大概率冲锋最近玩家。</li></ul></div></details>
+          <details class="searchable"><summary><span class="skill-index">21</span>有罪者，终受审 · 满蓝次元斩</summary><div class="detail-body"><ol><li>BOSS满蓝后获得额外50%减伤并瞬移中场。</li><li>从随机符文开始顺或逆时针点亮外侧5个符文，其中一个变白；白色不会出现在第1或第5位。</li><li>按点亮顺序连续斩5次并给玩家对应颜色点名；白色刀必须用绝对符文格挡。</li><li>前3次优先最高约束者，第4次随机；点名倒计时同时爆炸，同一玩家吃两次点名即死。</li><li>随后进入走轮。若前一个技能刚要求振刀，第二次元斩可能遇到符文仍在冷却，必须提前预留。</li></ol></div></details>
+          <figure class="media"><img src="光之引导者-assets/p6-dimensional-slash.png" alt="最终阶段次元斩场地示意"><figcaption>满蓝次元斩：观察外圈符文点亮方向和白色符文位置，提前规划五刀与后续走轮。</figcaption></figure>
+        </section>
+
+        <div class="source">
+          <p>内容整理自《国服天使凯梅尔攻略（动态版）》；原攻略注明参考英文版攻略并获作者同意。机制可能随版本调整，伤害和异常行为以当前地图实战为准。</p>
+          <p>补充视频：<a href="https://www.bilibili.com/video/BV1VJp9zUEwd/" target="_blank" rel="noopener">召唤师聚四天使</a> · <a href="https://www.bilibili.com/video/BV15RHezFExD/" target="_blank" rel="noopener">大锤单聚小天使</a> · <a href="https://tieba.baidu.com/p/10024654502" target="_blank" rel="noopener">贴吧原帖</a></p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const search = document.querySelector('#search');
+    const clearSearch = document.querySelector('#clearSearch');
+    const resultCount = document.querySelector('#resultCount');
+    const searchable = [...document.querySelectorAll('.searchable')];
+    const sections = [...document.querySelectorAll('[data-search-section]')];
+
+    function applySearch() {
+      const term = search.value.trim().toLowerCase();
+      let count = 0;
+      searchable.forEach(item => {
+        const match = !term || item.textContent.toLowerCase().includes(term);
+        item.classList.toggle('hidden', !match);
+        if (match) count += 1;
+        if (term && match && item.tagName === 'DETAILS') item.open = true;
+      });
+      sections.forEach(section => {
+        const entries = section.querySelectorAll('.searchable');
+        section.classList.toggle('hidden', term && entries.length > 0 && ![...entries].some(entry => !entry.classList.contains('hidden')));
+      });
+      resultCount.textContent = term ? `${count} 个匹配条目` : '全部条目';
+    }
+
+    search.addEventListener('input', applySearch);
+    clearSearch.addEventListener('click', () => { search.value = ''; applySearch(); search.focus(); });
+
+    document.querySelectorAll('.role-filter').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.role-filter').forEach(item => item.classList.remove('active'));
+        button.classList.add('active');
+        const role = button.dataset.role;
+        document.querySelectorAll('.role').forEach(card => card.classList.toggle('hidden', role !== 'all' && !card.dataset.role.includes(role)));
+      });
+    });
+
+    const navLinks = [...document.querySelectorAll('.nav a')];
+    const observed = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+    const observer = new IntersectionObserver(entries => {
+      const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${visible.target.id}`));
+    }, { rootMargin: '-20% 0px -65% 0px', threshold: [0, .2, .5] });
+    observed.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
