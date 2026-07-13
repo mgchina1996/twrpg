@@ -172409,17 +172409,7 @@ return 3
 endif
 endfunction
 function GuardianTargetCount takes unit l9oo returns integer
-if y6[(GetUnitUserData((l9oo)))]<=1 then
-return 1
-elseif y6[(GetUnitUserData((l9oo)))]<=4 then
-return 2
-endif
-return 4
-endfunction
-function SoloDuoMechanicCount takes unit l9oo returns integer
-if y6[(GetUnitUserData((l9oo)))]<=1 then
-return 1
-elseif y6[(GetUnitUserData((l9oo)))]==2 then
+if y6[(GetUnitUserData((l9oo)))]<=4 then
 return 2
 endif
 return 4
@@ -179031,7 +179021,7 @@ call loo0(uIul[l9uo])
 elseif lIp0(uIul[l9uo],.75)then
 set i=0
 set uI_l=l9uo
-set g=qoiO((yx[(l9uo)]),i0pO,i06O,$9C4,SoloDuoMechanicCount((yx[(l9uo)])),function l_9_i)
+set g=qoiO((yx[(l9uo)]),i0pO,i06O,$9C4,4,function l_9_i)
 loop
 set u=FirstOfGroup(g)
 exitwhen u==null
@@ -182386,7 +182376,7 @@ function lu9li takes unit l9oo returns boolean
 return not(mw[(uqpl[((GetUnitUserData((l9oo))))])])and IOql[(GetUnitUserData((l9oo)))]>=3 and not IsUnitPaused(l9oo)and not(WK[((GetUnitUserData((l9oo))))]!=0)
 endfunction
 function lu9Ii takes unit l9oo returns integer
-return SoloDuoMechanicCount(l9oo)
+return 4
 endfunction
 function lu9oi takes integer l9uo returns nothing
 local integer it=(po9o(2,(ic[QJ[uuol[l9uo]]])))
@@ -184732,7 +184722,7 @@ set iW[uq_l[l9uo]]=l96O("Effects\\Holy\\HolyStrike.mdl",GetUnitX((yx[(l9uo)])),G
 set fW[uq_l[l9uo]]=0
 call lloOi((GetUnitUserData(((yx[(l9uo)])))),q11o("天堂的赞歌破除罪恶.","The hymn of heaven shatters sin."))
 call q_lo((GetUnitUserData(((yx[(l9uo)])))),"stand alternate")
-set i=SoloDuoMechanicCount((yx[(l9uo)]))
+set i=4
 loop
 exitwhen i==0
 set i=i-1
@@ -185002,7 +184992,7 @@ function lppIi takes unit l9oo returns boolean
 return not(mw[(ul0l[((GetUnitUserData((l9oo))))])])and IOql[(GetUnitUserData((l9oo)))]>=1 and not IsUnitPaused(l9oo)and not(WK[((GetUnitUserData((l9oo))))]!=0)and lI1_i()==0
 endfunction
 function lppoi takes unit l9oo returns integer
-return SoloDuoMechanicCount(l9oo)
+return 4
 endfunction
 function lppOi takes unit l9oo returns real
 return 375.
