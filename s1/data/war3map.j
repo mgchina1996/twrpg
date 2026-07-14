@@ -9719,6 +9719,7 @@ integer array AS_PENDING_NEW
 integer AS_BUTTON_KEY=900001
 integer AS_PUBLIC_STORAGE_KEY=900002
 integer AS_PUBLIC_ASSISTANT_KEY=900003
+integer AS_PUBLIC_CLOSET_KEY=900004
 endglobals
 native DzSyncData takes string prefix,string data returns nothing
 native DzTriggerRegisterSyncData takes trigger trig,string prefix,boolean server returns nothing
@@ -153571,6 +153572,39 @@ call RemoveSavedString(AS_TABLE,AS_PUBLIC_ASSISTANT_KEY,pid)
 endif
 endif
 endfunction
+function AutoSlot_IsPublicClosetItem takes integer o1po returns boolean
+return o1po=='I02T' or o1po=='I03X' or o1po=='I042' or o1po=='I0MD'
+endfunction
+function AutoSlot_PublicClosetApply takes integer pid,string data returns boolean
+local integer pos=0
+local integer semi
+local integer o1po
+if pid<0 or pid>=lo then
+return false
+endif
+loop
+exitwhen pos>=StringLength(data)
+set semi=AS_FindChar(data,";",pos)
+if semi<0 then
+set semi=StringLength(data)
+endif
+set o1po=S2I(SubString(data,pos,semi))
+if AutoSlot_IsPublicClosetItem(o1po)and OoqO(pid,o1po)==0 then
+call Oo6O(pid,o1po)
+endif
+set pos=semi+1
+endloop
+return true
+endfunction
+function AutoSlot_PublicClosetApplyPending takes integer pid returns nothing
+local string data
+if HaveSavedString(AS_TABLE,AS_PUBLIC_CLOSET_KEY,pid)then
+set data=LoadStr(AS_TABLE,AS_PUBLIC_CLOSET_KEY,pid)
+if AutoSlot_PublicClosetApply(pid,data)then
+call RemoveSavedString(AS_TABLE,AS_PUBLIC_CLOSET_KEY,pid)
+endif
+endif
+endfunction
 function fzzsloaditemkey takes integer p9Io returns integer
 return StringHash("fzzsloaditems")+p9Io
 endfunction
@@ -153623,6 +153657,7 @@ call iol0i(((iu9l[l9uo])))
 call fzzsapplyloaditems(l9uo)
 call AutoSlot_PublicStorageApplyPending(iu9l[l9uo])
 call AutoSlot_PublicAssistantApplyPending(iu9l[l9uo])
+call AutoSlot_PublicClosetApplyPending(iu9l[l9uo])
 endif
 else
 if not ipOl[l9uo]then
@@ -156002,15 +156037,34 @@ set it=null
 set helper=null
 return value
 endfunction
-function AutoSlot_SavePublicData takes player p,string storage,string assistant returns nothing
-local string value=storage+"|"+assistant
+function AutoSlot_PublicClosetEncode takes integer pid returns string
+local string value=""
+if pid<0 or pid>=lo then
+return value
+endif
+if OoqO(pid,'I02T')!=0 then
+set value=value+I2S('I02T')+";"
+endif
+if OoqO(pid,'I03X')!=0 then
+set value=value+I2S('I03X')+";"
+endif
+if OoqO(pid,'I042')!=0 then
+set value=value+I2S('I042')+";"
+endif
+if OoqO(pid,'I0MD')!=0 then
+set value=value+I2S('I0MD')+";"
+endif
+return value
+endfunction
+function AutoSlot_SavePublicData takes player p,string storage,string assistant,string closet returns nothing
+local string value=storage+"|"+assistant+"|"+closet
 local integer size=240
 local integer pos=0
 local integer i=0
 local integer count=(StringLength(value)+size-1)/size
 if count<=0 then
 call AutoSlot_SaveStr(p,"shared_public_count","1")
-call AutoSlot_SaveStr(p,"shared_public_code0","|")
+call AutoSlot_SaveStr(p,"shared_public_code0","||")
 return
 endif
 call AutoSlot_SaveStr(p,"shared_public_count",I2S(count))
@@ -156084,6 +156138,19 @@ endif
 set slot=slot+1
 endloop
 endif
+call Preload("----------公共账户徽章----------")
+if OoqO(pid,'I02T')!=0 then
+call Preload("1. "+GetObjectName('I02T'))
+endif
+if OoqO(pid,'I03X')!=0 then
+call Preload("2. "+GetObjectName('I03X'))
+endif
+if OoqO(pid,'I042')!=0 then
+call Preload("3. "+GetObjectName('I042'))
+endif
+if OoqO(pid,'I0MD')!=0 then
+call Preload("4. "+GetObjectName('I0MD'))
+endif
 call Preload("---------------------------------------")
 call PreloadGenEnd(AS_SAVE_DIR+"shared_public_view.txt")
 endif
@@ -156120,6 +156187,8 @@ local integer parent
 local integer got
 local integer i
 local integer split
+local integer split2
+local string remainder
 local string value=""
 if a<0 or b<0 or c<0 then
 return
@@ -156148,7 +156217,14 @@ endloop
 set split=AS_FindChar(value,"|",0)
 if split>=0 then
 call SaveStr(AS_TABLE,AS_PUBLIC_STORAGE_KEY,pid,SubString(value,0,split))
-call SaveStr(AS_TABLE,AS_PUBLIC_ASSISTANT_KEY,pid,SubString(value,split+1,StringLength(value)))
+set remainder=SubString(value,split+1,StringLength(value))
+set split2=AS_FindChar(remainder,"|",0)
+if split2>=0 then
+call SaveStr(AS_TABLE,AS_PUBLIC_ASSISTANT_KEY,pid,SubString(remainder,0,split2))
+call SaveStr(AS_TABLE,AS_PUBLIC_CLOSET_KEY,pid,SubString(remainder,split2+1,StringLength(remainder)))
+else
+call SaveStr(AS_TABLE,AS_PUBLIC_ASSISTANT_KEY,pid,remainder)
+endif
 endif
 call FlushChildHashtable(AS_TABLE,parent)
 call AutoSlot_PublicStorageApplyPending(pid)
@@ -156190,6 +156266,7 @@ set count=uB[save]
 set u=(yx[(Sl[(l19l[p9io])])])
 call AutoSlot_PublicStorageApplyPending(l19l[p9io])
 call AutoSlot_PublicAssistantApplyPending(l19l[p9io])
+call AutoSlot_PublicClosetApplyPending(l19l[p9io])
 call AutoSlot_SaveStr(p,AutoSlot_Key(slot,"count"),I2S(count))
 call AutoSlot_SaveStr(p,AutoSlot_Key(slot,"meta"),oIoo(GetUnitName(u))+"|"+I2S(GetHeroLevel(u))+"|"+I2S(count))
 set i=0
@@ -156198,7 +156275,7 @@ exitwhen i>=count
 call AutoSlot_SaveStr(p,AutoSlot_Key(slot,"code"+I2S(i)),LoadStr(Nv,TB[save],i))
 set i=i+1
 endloop
-call AutoSlot_SavePublicData(p,AutoSlot_PublicStorageEncode(l19l[p9io]),AutoSlot_PublicAssistantEncode(l19l[p9io]))
+call AutoSlot_SavePublicData(p,AutoSlot_PublicStorageEncode(l19l[p9io]),AutoSlot_PublicAssistantEncode(l19l[p9io]),AutoSlot_PublicClosetEncode(l19l[p9io]))
 call AutoSlot_SavePublicDataView(p,l19l[p9io])
 call DisplayTimedTextToPlayer(p,.22,.18,25.,"|c00ffff80【本地存档 "+I2S(slot)+" 保存成功】|r\n|c00ffff80下次进图可选择编号 "+I2S(slot)+" 加载该角色。|r")
 set u=null
