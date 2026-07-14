@@ -247380,11 +247380,11 @@ endif
 set opl9i=(mw[(Oqil[(l9uo)])])
 if not o1pl[(l9uo)]and opl9i then
 if not IsUnitPaused((yx[(l9uo)]))then
-call SetUnitState((yx[(((l9uo)))]),UNIT_STATE_MANA,(((GetUnitState((yx[(((l9uo)))]),UNIT_STATE_MANA))+tw[lolo[l9uo]]*1.4)*1.))
+call SetUnitState((yx[(((l9uo)))]),UNIT_STATE_MANA,(((GetUnitState((yx[(((l9uo)))]),UNIT_STATE_MANA))+tw[lolo[l9uo]]*1.4/ 1.5)*1.))
 endif
 set opIli=Oo1o(100.*(lo1o[l9uo]-u6uO((l9uo)))/ u6_O((l9uo)),.0)
 set lo1o[l9uo]=u6uO((l9uo))
-call SetUnitState((yx[(((l9uo)))]),UNIT_STATE_MANA,(((GetUnitState((yx[(((l9uo)))]),UNIT_STATE_MANA))+$A*(opIli/ 10.))*1.))
+call SetUnitState((yx[(((l9uo)))]),UNIT_STATE_MANA,(((GetUnitState((yx[(((l9uo)))]),UNIT_STATE_MANA))+$A*(opIli/ 10.)/ 1.5)*1.))
 endif
 if not(WK[((l9uo))]!=0)and not IsUnitPaused((yx[(l9uo)]))and not(xr[(GetUnitUserData((((yx[(l9uo)])))))]!=null)and not(P6[((l9uo))]!=null)then
 if not o1pl[(l9uo)]and opl9i and(GetUnitState((yx[(((l9uo)))]),UNIT_STATE_MANA))==(GetUnitState((yx[(((l9uo)))]),UNIT_STATE_MAX_MANA))then
