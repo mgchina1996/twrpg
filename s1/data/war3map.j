@@ -33653,11 +33653,11 @@ set JP[xq]=true
 set LP[xq]=60.
 call O9pO(25.,50.)
 set qP[xq]=3
-call OquO(xq,('rlif'),((8.)*1.))
-call OquO(xq,('I02V'),((12.)*1.))
-call OquO(xq,('I05K'),((12.)*1.))
-call OquO(xq,('I05H'),((12.)*1.))
-call Oq6O(xq,('I0M0'),((12.)*1.))
+call OquO(xq,('rlif'),((12.)*1.))
+call OquO(xq,('I02V'),((16.)*1.))
+call OquO(xq,('I05K'),((16.)*1.))
+call OquO(xq,('I05H'),((16.)*1.))
+call Oq6O(xq,('I0M0'),((30.)*1.))
 call Oq6O(xq,('I0QE'),((1.)*1.))
 call O90O('h0A3',0)
 call O90O('h0A4',mr)
