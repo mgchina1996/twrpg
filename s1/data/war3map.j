@@ -33651,7 +33651,7 @@ set jP[xq]=true
 set kP[xq]=true
 set JP[xq]=true
 set LP[xq]=60.
-call O9pO(25.,100.)
+call O9pO(25.,50.)
 set qP[xq]=3
 call OquO(xq,('rlif'),((8.)*1.))
 call OquO(xq,('I02V'),((12.)*1.))
@@ -166840,7 +166840,7 @@ function lI0oi takes integer l9uo,boolean b returns nothing
 if b and not o10l[l9uo]then
 set o10l[l9uo]=true
 set o1_l[l9uo]=IiiO("Effects\\Styrix_EmpoweredAura.mdx",(yx[(l9uo)]),0,1.)
-set o1ul[l9uo]=p1pO((l9uo),40.)
+set o1ul[l9uo]=p1pO((l9uo),20.)
 elseif not b and o10l[l9uo]then
 set o10l[l9uo]=false
 call IiqO((o1_l[l9uo]),1,.0)
