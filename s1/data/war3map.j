@@ -33668,6 +33668,7 @@ set jP[xq]=true
 set kP[xq]=true
 set JP[xq]=true
 set LP[xq]=180.
+call O9pO(25.,50.)
 set qP[xq]=3
 call OquO(xq,('I023'),((12.)*1.))
 call OquO(xq,('I02N'),((16.)*1.))
@@ -164175,7 +164176,7 @@ set I0il[l9uo]=(i11O(AddSpecialEffectTarget(("Effects\\Wings\\Kamael_Wing_Silver
 endif
 if IOql[l9uo]>=3 then
 call qi9o(I01l[l9uo],10.)
-call qi9o(I0ll[l9uo],33.33333)
+call qi9o(I0ll[l9uo],10.)
 call qi9o(I0Il[l9uo],-25.)
 call qIOo((yx[(l9uo)]),'A0SW')
 else
@@ -249279,7 +249280,7 @@ call qopo(BP[O_pO],function op6pi,20)
 endif
 call p6_O((l9uo),true)
 set gS[(l9uo)]=true
-call p1uO((l9uo),70.)
+call p1uO((l9uo),60.)
 if op6oi(l9uo)then
 set l0Oo[l9uo]=p1pO((l9uo),90.)
 endif
