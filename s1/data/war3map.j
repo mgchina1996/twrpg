@@ -185108,6 +185108,9 @@ function lppIi takes unit l9oo returns boolean
 return not(mw[(ul0l[((GetUnitUserData((l9oo))))])])and IOql[(GetUnitUserData((l9oo)))]>=1 and not IsUnitPaused(l9oo)and not(WK[((GetUnitUserData((l9oo))))]!=0)and lI1_i()==0
 endfunction
 function lppoi takes unit l9oo returns integer
+if y6[(GetUnitUserData((l9oo)))]<=4 then
+return 2
+endif
 return 4
 endfunction
 function lppOi takes unit l9oo returns real
