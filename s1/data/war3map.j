@@ -52445,7 +52445,7 @@ if l8[l9uo]==0 then
 set K8[l9uo]=u9OO((e2[bf]),.0)
 set l8[l9uo]=pilO((e2[bf]),.0)
 endif
-call qi9o(K8[l9uo],3.*O2[bf])
+call qi9o(K8[l9uo],6.*O2[bf])
 call qi9o(l8[l9uo],5.*O2[bf])
 endfunction
 function p0q0 takes unit l9_o,integer p0IO returns nothing
@@ -52634,7 +52634,11 @@ endfunction
 function pui0 takes nothing returns nothing
 local integer l9uo=(LD)
 if m8[l9uo]then
+if v7[(GetUnitUserData((I0Ol)))]==2 then
 call p0q0((yx[(l9uo)]),-3)
+else
+call p0q0((yx[(l9uo)]),-1)
+endif
 endif
 endfunction
 function pu10 takes nothing returns nothing
@@ -76314,10 +76318,16 @@ call SetUnitFlyHeight((yx[(ppq[l9uo])]),z,0)
 if mW[qlq[l9uo]]<=.0 or not UnitAlive((yx[(ppq[l9uo])]))then
 call pp9o((yx[(l9uo)]),0,'A500','B500')
 if bW[qlq[l9uo]]then
+if v7[(GetUnitUserData((I0Ol)))]==2 then
 call p0q0((yx[(l9uo)]),-3)
+else
+call p0q0((yx[(l9uo)]),-1)
+endif
 call Ii1p(l9uo,-50)
 else
+if v7[(GetUnitUserData((I0Ol)))]==2 then
 call p0q0((yx[(l9uo)]),-2)
+endif
 call Ii1p(l9uo,-67)
 endif
 set bW[qlq[l9uo]]=true
