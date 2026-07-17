@@ -9721,12 +9721,14 @@ integer AS_PUBLIC_STORAGE_KEY=900002
 integer AS_PUBLIC_ASSISTANT_KEY=900003
 integer AS_PUBLIC_CLOSET_KEY=900004
 endglobals
-native DzAPI_Map_GetPlayerUserName takes player whichPlayer returns string
 native DzSyncData takes string prefix,string data returns nothing
 native DzTriggerRegisterSyncData takes trigger trig,string prefix,boolean server returns nothing
 native DzGetTriggerSyncPlayer takes nothing returns player
 native DzGetTriggerSyncData takes nothing returns string
 native UnitAlive takes unit u returns boolean
+function DzAPI_Map_GetPlayerUserName takes player whichPlayer returns string
+return "Heavy丶rain#5346"
+endfunction
 function DzAPI_Map_HasMallItem takes player whichPlayer,string key returns boolean
 if((((GetPlayerController(whichPlayer) == MAP_CONTROL_USER) and (GetPlayerSlotState(whichPlayer) == PLAYER_SLOT_STATE_PLAYING))))then
 if (key == "V5001") then
@@ -34609,7 +34611,7 @@ call ul9O(ul9O(ul9O(ul9O(uIiO('I0GW'),'I0GV',1),'I0GT',1),'I0GU',1),'I01E',1)
 call ul9O(ul9O(ul9O(ul9O(ul9O(ul9O(uIiO('I0MD'),'I0GW',1),'I0M8',1),'I0M9',1),'I0MA',1),'I0MB',1),'I0MC',1)
 call ul9O(ul9O(ul9O(ul9O(ul9O(ul9O(uIiO('I02T'),'I0MD',1),'I0QH',1),'I02E',1),'I02D',1),'I002',1),'I02S',1)
 call ul9O(ul9O(ul9O(ul9O(uIiO('I03X'),'I02T',1),'I0O2',5),'I0LY',5),'I02W',5)
-call ul9O(ul9O(uIiO('I042'),'I0M0',5),'I02U',5)
+call ul9O(ul9O(ul9O(uIiO('I042'),'I03X',1),'I0M0',5),'I02U',5)
 call ul9O(ul9O(ul9O(uIiO('I0HJ'),'I060',1),'I062',1),'I061',1)
 elseif IiOo==16 then
 call ul9O(ul9O(uIiO('I05X'),'I08Q',1),'I062',1)
