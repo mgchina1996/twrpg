@@ -172485,8 +172485,13 @@ return 3
 endif
 endfunction
 function GuardianTargetCount takes unit l9oo returns integer
-if y6[(GetUnitUserData((l9oo)))]<=4 then
+local integer p10p=y6[(GetUnitUserData((l9oo)))]
+if p10p<=2 then
+return 1
+elseif p10p<=4 then
 return 2
+elseif p10p<=6 then
+return 3
 endif
 return 4
 endfunction
