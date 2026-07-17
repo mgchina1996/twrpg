@@ -34609,6 +34609,7 @@ call ul9O(ul9O(ul9O(ul9O(uIiO('I0GW'),'I0GV',1),'I0GT',1),'I0GU',1),'I01E',1)
 call ul9O(ul9O(ul9O(ul9O(ul9O(ul9O(uIiO('I0MD'),'I0GW',1),'I0M8',1),'I0M9',1),'I0MA',1),'I0MB',1),'I0MC',1)
 call ul9O(ul9O(ul9O(ul9O(ul9O(ul9O(uIiO('I02T'),'I0MD',1),'I0QH',1),'I02E',1),'I02D',1),'I002',1),'I02S',1)
 call ul9O(ul9O(ul9O(ul9O(uIiO('I03X'),'I02T',1),'I0O2',5),'I0LY',5),'I02W',5)
+call ul9O(ul9O(uIiO('I042'),'I0M0',5),'I02U',5)
 call ul9O(ul9O(ul9O(uIiO('I0HJ'),'I060',1),'I062',1),'I061',1)
 elseif IiOo==16 then
 call ul9O(ul9O(uIiO('I05X'),'I08Q',1),'I062',1)
@@ -36188,7 +36189,16 @@ return(If[(Os[(l9uo)])])+(If[(Is[(l9uo)])])
 endif
 endfunction
 function pIpO takes integer l9uo returns real
-if not Jz[(l9uo)]or Hl[cz[(l9uo)]]or GetHeroLevel((yx[(l9uo)]))>='d' then
+local integer CreationLevelCap='d'
+if not Jz[(l9uo)]or Hl[cz[(l9uo)]]then
+return .0
+endif
+if OoqO(Bz[l9uo],'I042')!=0 then
+set CreationLevelCap=110
+elseif OoqO(Bz[l9uo],'I03X')!=0 then
+set CreationLevelCap='i'
+endif
+if GetHeroLevel((yx[(l9uo)]))>=CreationLevelCap then
 return .0
 else
 return 10.*(1.+(If[(As[(l9uo)])]))
@@ -147324,6 +147334,7 @@ local integer iuq6i=0
 local boolean iuqqi=false
 local boolean iuq9i=false
 local boolean iu9ii=false
+local boolean CreationBadgeDrop=false
 local integer iu91i
 local integer o1po
 local real iuqli
@@ -147342,6 +147353,7 @@ set iuq6i=p6qp((P[(ol6O)]))
 set iuqqi=(iuq6i=='I0MD')
 set iuq9i=(iuq6i=='I02T')
 set iu9ii=(iuq6i=='I03X')
+set CreationBadgeDrop=(iuq6i=='I042')
 if QP[u9u0]then
 set iOOp=(LoadInteger(Nv,(tf),((((cf[BP[u9u0]]))))))
 set iuqpi=l6pq(iOOp,(P[(ol6O)]))
@@ -147396,7 +147408,12 @@ if o1po==iuqpi then
 set OqpO=2.5*OqpO
 endif
 endif
-if iuqqi then
+if CreationBadgeDrop then
+set uIOO=(LoadInteger(Nv,(jp),((o1po))))
+if(OOOO(uIOO)or(Xp[(uIOO)]==7))and((4<=Rp[uIOO]and Rp[uIOO]<=7)or(cf[BP[u9u0]]=='h08K' or cf[BP[u9u0]]=='h09B' or cf[BP[u9u0]]=='h09V' or cf[BP[u9u0]]=='h0A1' or cf[BP[u9u0]]=='h0AB'))then
+set OqpO=1.5*OqpO
+endif
+elseif iuqqi then
 set uIOO=(LoadInteger(Nv,(jp),((o1po))))
 if(OOOO(uIOO)or(Xp[(uIOO)]==7))and(4<=Rp[uIOO]and Rp[uIOO]<=6)then
 set OqpO=1.5*OqpO
@@ -203277,6 +203294,7 @@ call Ioili('i','I0M0',1)
 call Ioili('j','I0M0',1)
 call Ioili('k','I02U',1)
 call Ioili('l','I02U',1)
+call Ioili('m','I02U',1)
 endfunction
 function Ioi0i takes integer l9uo returns nothing
 if l_0I[l9uo]!=null then
@@ -209253,7 +209271,7 @@ set kd[ip[uIOO]]=400
 set Td[ip[uIOO]]=15.
 set ud[ip[uIOO]]=15.
 set XD[ip[uIOO]]=50.
-call O0lO(uIOO,"|c0040e0d0∴古代魔导机器个人物品掉率50%提升|r",1)
+call O0lO(uIOO,"|c0040e0d0∴等级上限提升至105|r\n|c0040e0d0∴传奇至宝 ~ 鸿蒙起源（马及以下）个人战利品掉落率增加50%|r",1)
 call pqlp(opuO)
 endfunction
 function I0I_i takes nothing returns nothing
@@ -209261,20 +209279,20 @@ local integer opuO=o_OO('I042')
 local integer uIOO=pq1p('I042',"ReplaceableTextures\\CommandButtons\\BTNItem_Icon005.blp")
 set tL[opuO]=true
 set Ap[uIOO]='n'
-set gd[ip[uIOO]]='}'
-set Gd[ip[uIOO]]='}'
-set hd[ip[uIOO]]='}'
-set jd[ip[uIOO]]=7
-set Kd[ip[uIOO]]=3.5
-set CD[ip[uIOO]]=3.5
-set Ud[ip[uIOO]]=3.5
-set yd[ip[uIOO]]=3.5
-set Jd[ip[uIOO]]=500
-set kd[ip[uIOO]]=500
+set gd[ip[uIOO]]=200
+set Gd[ip[uIOO]]=200
+set hd[ip[uIOO]]=200
+set jd[ip[uIOO]]=10
+set Kd[ip[uIOO]]=4.
+set CD[ip[uIOO]]=4.
+set Ud[ip[uIOO]]=4.
+set yd[ip[uIOO]]=4.
+set Jd[ip[uIOO]]=600
+set kd[ip[uIOO]]=600
 set Td[ip[uIOO]]=20.
 set ud[ip[uIOO]]=20.
 set XD[ip[uIOO]]=50.
-call O0lO(uIOO,"|c0040e0d0∴古代魔导机器个人物品掉率50%提升|r",1)
+call O0lO(uIOO,"|c0040e0d0∴等级上限提升至110|r\n|c0040e0d0∴传奇至宝 ~ 鸿蒙起源（天使及以下）个人战利品掉落率增加50%|r",1)
 call pqlp(opuO)
 endfunction
 function I0Iui takes integer l9uo returns nothing
