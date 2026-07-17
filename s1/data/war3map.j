@@ -33668,7 +33668,7 @@ set jP[xq]=true
 set kP[xq]=true
 set JP[xq]=true
 set LP[xq]=180.
-call O9pO(33.,100.)
+call O9pO(25.,100.)
 set qP[xq]=3
 call OquO(xq,('I023'),((12.)*1.))
 call OquO(xq,('I02N'),((16.)*1.))
@@ -249280,7 +249280,7 @@ call qopo(BP[O_pO],function op6pi,20)
 endif
 call p6_O((l9uo),true)
 set gS[(l9uo)]=true
-call p1uO((l9uo),50.)
+call p1uO((l9uo),60.)
 if op6oi(l9uo)then
 set l0Oo[l9uo]=p1pO((l9uo),90.)
 endif
