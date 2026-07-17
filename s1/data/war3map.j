@@ -52635,7 +52635,7 @@ function pui0 takes nothing returns nothing
 local integer l9uo=(LD)
 if m8[l9uo]then
 if v7[(GetUnitUserData((I0Ol)))]==2 then
-call p0q0((yx[(l9uo)]),-3)
+call p0q0((yx[(l9uo)]),-2)
 else
 call p0q0((yx[(l9uo)]),-1)
 endif
@@ -76319,14 +76319,14 @@ if mW[qlq[l9uo]]<=.0 or not UnitAlive((yx[(ppq[l9uo])]))then
 call pp9o((yx[(l9uo)]),0,'A500','B500')
 if bW[qlq[l9uo]]then
 if v7[(GetUnitUserData((I0Ol)))]==2 then
-call p0q0((yx[(l9uo)]),-3)
+call p0q0((yx[(l9uo)]),-2)
 else
 call p0q0((yx[(l9uo)]),-1)
 endif
 call Ii1p(l9uo,-50)
 else
 if v7[(GetUnitUserData((I0Ol)))]==2 then
-call p0q0((yx[(l9uo)]),-2)
+call p0q0((yx[(l9uo)]),-1)
 endif
 call Ii1p(l9uo,-67)
 endif
