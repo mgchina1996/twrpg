@@ -52415,13 +52415,13 @@ return fx
 endfunction
 function p0_0 takes unit l9oo returns real
 if(mw[(u9il[((GetUnitUserData((l9oo))))])])or(mw[(uu_l[((GetUnitUserData((l9oo))))])])then
-return 10.
+return 8.
 elseif IOql[((GetUnitUserData((l9oo))))]==4 then
-return 15.
+return 12.
 elseif IOql[((GetUnitUserData((l9oo))))]==3 then
-return 20.
+return 16.
 endif
-return 25.
+return 20.
 endfunction
 function p0u0 takes unit l9oo returns integer
 if IOql[((GetUnitUserData((l9oo))))]==4 then
