@@ -175820,6 +175820,23 @@ else
 return O66o(l9_o,oW[O90l[l9uo]])and OIiO((k6[((GetUnitUserData((oW[O90l[l9uo]]))))]),l9_o)
 endif
 endfunction
+function DivineBladeActiveCount takes unit l9oo returns integer
+local integer p10p=y6[(GetUnitUserData((l9oo)))]
+if p10p<=2 then
+return 2
+elseif p10p<=4 then
+return 3
+endif
+return 4
+endfunction
+function ActivateDivineBlade takes integer l9uo returns nothing
+call SetUnitInvulnerable((yx[(l9uo)]),false)
+call PauseUnit((yx[(l9uo)]),false)
+set dW[O90l[l9uo]]=1
+set iy[O90l[l9uo]]=GetUnitX((yx[(l9uo)]))
+set ay[O90l[l9uo]]=GetUnitY((yx[(l9uo)]))
+call lol0((O90l[l9uo]),(fV),0)
+endfunction
 function l_11i takes nothing returns boolean
 return l_1ii(O9Ol,GetFilterUnit())
 endfunction
@@ -175898,6 +175915,7 @@ local real OpoO
 local real OpOO
 local real pupo
 local unit u
+local integer I0po
 if Tw[O90l[l9uo]]==0 then
 if(uw[(O90l[l9uo])]==0)then
 set Sw[O90l[l9uo]]=mW[O90l[l9uo]]
@@ -176227,6 +176245,15 @@ call qi9o(Oqul[l9uo],.0)
 endif
 set mW[O90l[l9uo]]=10.
 call lol0((O90l[l9uo]),(0),0)
+set I0po=Oqll[(0)]
+loop
+exitwhen I0po==0
+if UnitAlive((yx[(I0po)]))and dW[O90l[I0po]]==0 then
+call ActivateDivineBlade(I0po)
+exitwhen true
+endif
+set I0po=Oqll[I0po]
+endloop
 else
 call lol0(O90l[l9uo],fV,.75)
 endif
@@ -182717,10 +182744,18 @@ set mW[uu_l[l9uo]]=.0
 set tw[uu_l[l9uo]]=Te
 call l06_i(uu0l[l9uo])
 set l_O9i=Oqll[(0)]
+set i=0
 loop
 exitwhen l_O9i==0
 call l_i9i(l_O9i,4)
-call l_lii(l_O9i,1)
+if DivineBladeActiveCount((yx[(l9uo)]))>=4 or DivineBladeActiveCount((yx[(l9uo)]))==3 and i<3 or DivineBladeActiveCount((yx[(l9uo)]))==2 and ModuloInteger(i,2)==0 then
+call ActivateDivineBlade(l_O9i)
+else
+call SetUnitInvulnerable((yx[(l_O9i)]),true)
+call PauseUnit((yx[(l_O9i)]),true)
+call l_lii(l_O9i,0)
+endif
+set i=i+1
 set l_O9i=Oqll[l_O9i]
 endloop
 endif
