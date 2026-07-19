@@ -32027,7 +32027,7 @@ call O0lO(Hp,"|c0040e0d0∴攻击时激活收割者之眼|r",1)
 elseif IiOo==36 then
 call O09O('I0ET',3,0,8,'d',"ReplaceableTextures\\CommandButtons\\BTNItem_Headwear026.blp",6,0,$AF,$FA,$FA,$FA,0,0,0,0,0)
 set Hd[ip[Hp]]=$FA
-set Ud[ip[Hp]]=10.
+set Ud[ip[Hp]]=12.5
 set CD[ip[Hp]]=5.
 call O0lO(Hp,"|c0040e0d0∴攻击时洞悉激活
 ∴释放风神之翼技能时获得心之眼激活|r",2)
@@ -32243,7 +32243,7 @@ set Sd[ip[Hp]]=5.
 set Np[(Hp)]=true
 call O09O('I030',3,0,8,'d',"ReplaceableTextures\\CommandButtons\\BTNItem_Headwear013.blp",9,0,$96,0,550,0,0,$7D0,0,0,0)
 set Ud[ip[Hp]]=15.
-set ld[ip[Hp]]=.1
+set ld[ip[Hp]]=.15
 set Np[(Hp)]=true
 call O09O('I031',4,0,8,'d',"ReplaceableTextures\\CommandButtons\\BTNItem_Accessory065.blp",9,0,0,525,525,525,0,0,0,0,0)
 set GD[ip[Hp]]=50.
@@ -53145,7 +53145,7 @@ local real pq10
 if op00(i3)>=$493E0 and(ou_0(((yx[(l9uo)])),(f2[i3]),(io1))!=0)then
 set wc[i01[l9uo]]=false
 set bf=ou_0((yx[(l9uo)]),f2[i3],io1)
-set pq10=2.*O2[bf]
+set pq10=3.*O2[bf]
 set T2[i3]=((1.+.01*pq10)*1.)*T2[i3]
 call o_o0(bf)
 set Y2[i3]=(1.+Oo0o(pq10,0,'d',0,.1))*Y2[i3]
@@ -53209,7 +53209,7 @@ set IF[ouO0]=Er
 set bF[ouO0]='A0MY'
 set BF[ouO0]='B03Y'
 call quoo(ouO0)
-set fd[RF[ouO0]]=$2904
+set fd[RF[ouO0]]=$2AF8
 set Hd[RF[ouO0]]=600
 set Td[RF[ouO0]]=600
 call qupo('I024',function pqO0)
@@ -124764,13 +124764,13 @@ call lliO('A1BE',function q1oq)
 endfunction
 function q1_q takes nothing returns nothing
 local integer bf=(xC)
-call pupO((e2[bf]),-500*O2[bf])
+call pupO((e2[bf]),-750*O2[bf])
 call uqoO((e2[bf]),-5.*O2[bf])
 call po0o((yx[(e2[(bf)])]),'I0ET',0)
 endfunction
 function q1uq takes nothing returns nothing
 local integer bf=(xC)
-call pupO((e2[bf]),500)
+call pupO((e2[bf]),750)
 call uqoO((e2[bf]),5.)
 if O2[bf]==gF[w1[bf]]then
 call o0q0(bf,"Effects\\Providence_Orange.mdl",0,1.5)
@@ -124999,7 +124999,7 @@ function ql9q takes nothing returns nothing
 local integer l9uo=(GetUnitUserData((D2[i3])))
 if(mw[(I9_1[l9uo])])and P2[i3]and FW[I9_1[l9uo]]>0 then
 call qlqq(l9uo,-1)
-set T2[i3]=T2[i3]+((60000.)*1.)
+set T2[i3]=T2[i3]+((70000.)*1.)
 call opu0(i3,'x',$C8,$AF,$FF)
 call q00O(null,(D2[i3]),((.03*u6_O((GetUnitUserData((D2[i3])))))*1.))
 call IiqO((l90O(IiiO("Effects\\SoulDischarge.mdl",f2[i3],0,2.),o_9o("Effects\\CenarionFury_Teal.mdl",GetOwningPlayer(D2[i3])))),1,.0)
